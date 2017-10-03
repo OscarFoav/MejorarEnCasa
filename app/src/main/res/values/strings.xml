@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Breaking Up At Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Configuration</string>
+
+    <!-- menu principal -->
+    <string name="action_ejercicios">Exercises</string>
+    <string name="action_flexiones">Push-Ups</string>
+    <string name="action_abdominales">Abs</string>
+    <string name="action_fondos">Dips</string>
+    <string name="action_sentadillas">Sentadillas</string>
+    <string name="action_dominadas">Pull-ups</string>
+    <string name="action_gemelos">Gemelos</string>
+    <string name="action_ajustes">Configuration</string>
+    <string name="action_configuracion">Configuration</string>
+    <string name="title_activity_flexiones">Push-ups</string>
+
+    <string name="serie">Serie</string>
+    <string name="series">Series</string>
+    <string name="repeticion">Repetition</string>
+    <string name="repeticiones">Repetitions</string>
+    <string name="tiempo_reposo">Leap time</string>
+    <string name="terminada">Done</string>
+    <string name="calorias_consumidas_aproximadas">Calories consumed aproximately</string>
+    <string name="diez_segundos_mas">+ 10 sec.</string>
+    <string name="diez_segundos_menos">- 10 sec.</string>
+    <string name="tiempo_de_reposo">Pause time</string>
+    <string name="terminar_cuenta_atras">Stop countdown</string>
+    <string name="numero_cuenta_atras">120</string>
+
+    <string name="salir">Tap again to exit app.</string>
+
+    <!-- series -->
+    <string name="primera_serie">First</string>
+    <string name="segunda_serie">Second</string>
+    <string name="tercera_serie">Third</string>
+    <string name="cuarta_serie">Forth</string>
+    <string name="quinta_serie">Fifth</string>
+    <string name="title_activity_abdominales">Abdominales</string>
+    <string name="title_activity_fondos">Fondos</string>
+    <string name="title_activity_sentadillas">Sentadillas</string>
+    <string name="title_activity_dominadas">Dominadas</string>
+    <string name="title_activity_gemelos">Gemelos</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- categorias -->
+    <string name="categoria1_title">User Information</string>
+    <string name="usuario_title">User Name</string>
+    <string name="usuario_summary">Type your name.</string>
+
+    <string name="categoria2_title">Traffic information</string>
+    <string name="categoria3_title">Kind of route </string>
+    <string name="categoria4_title">Waiting time</string>
+
+    <!-- Flexiones -->
+    <string name="categoria_flexiones">Push_ups</string>
+    <string name="series_flexiones">5</string>
+    <string name="repeticiones_flexiones">13</string>
+    <string name="tiempo_recuperacion_flexiones">60</string>
+    <string name="fondo_pantalla_flexiones">color/holo_orange_dark</string>
+
+    <!-- Abdominales -->
+    <string name="categoria_abdominales">Abs</string>
+    <string name="series_abdominales">5</string>
+    <string name="repeticiones_abdominales">13</string>
+    <string name="tiempo_recuperacion_abdominales">60</string>
+    <string name="fondo_pantalla_abdominales">color/holo_red_dark</string>
+
+
+    <!-- show final_serie -->
+    <string name="titulo_final_serie">Serie is finished!</string>
+    <string name="mensaje_final_serie">Do you want to increse the number of repetitions?</string>
+
+    <!-- aceptar y cancelar -->
+    <string name="aceptar">Ok</string>
+    <string name="cancelar">Cancel</string>
+
+</resources>
+

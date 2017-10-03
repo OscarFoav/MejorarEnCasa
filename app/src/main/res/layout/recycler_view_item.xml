@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_dark"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="org.belosoft.mejorarencasa.Flexiones">
+
+    <RelativeLayout
+        android:id="@+id/nombreSerie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:fadeScrollbars="true"
+        android:isScrollContainer="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txvCabeceraSerie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="@string/action_flexiones"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/txvNumeroSeries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txvCabeceraSerie"
+            android:gravity="center"
+            android:text="@string/serie"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txvNumeroRepeticiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txvNumeroSeries"
+            android:gravity="center"
+            android:text="@string/repeticion"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txvSerieTiempoReposo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txvNumeroRepeticiones"
+            android:gravity="center"
+            android:text="@string/tiempo_de_reposo"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flexiones" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/linearLayoutCuerpo"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_alignEnd="@+id/imageView2"
+            android:layout_alignRight="@+id/imageView2"
+            android:layout_below="@+id/txvSerieTiempoReposo"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:context=".MainActivity">
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                card_view:cardBackgroundColor="#E2E2E2"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewPrimeraRepeticion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/activity_vertical_margin"
+                        android:text="Primera Repeticion"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="@dimen/activity_vertical_margin"
+                        android:text="Terminada" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutPie"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayoutCuerpo"
+            android:layout_marginTop="14dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btn10SegundosMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toLeftOf="@+id/txvCuentaAtras"
+                    android:layout_toStartOf="@+id/txvCuentaAtras"
+                    android:text="@string/diez_segundos_mas"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn10SegundosMenos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignLeft="@+id/btn10SegundosMas"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@+id/btn10SegundosMas"
+                    android:layout_toLeftOf="@+id/txvCuentaAtras"
+                    android:layout_toStartOf="@+id/txvCuentaAtras"
+                    android:text="@string/diez_segundos_menos"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:id="@+id/txvCuentaAtras"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_alignRight="@id/prbCuantaAtras"
+                    android:layout_alignTop="@+id/prbCuantaAtras"
+                    android:layout_below="@id/tableLayout"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/numero_cuenta_atras"
+                    android:textSize="35sp" />
+
+                <ProgressBar
+                    android:id="@+id/prbCuantaAtras"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/btnTerminarCuentaAtras"
+                    android:layout_toStartOf="@+id/btnTerminarCuentaAtras"
+                    android:gravity="center"
+                    android:max="60"
+                    android:progress="60"
+                    android:progressDrawable="@drawable/circular_progress_bar" />
+
+                <Button
+                    android:id="@+id/btnTerminarCuentaAtras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/terminar_cuenta_atras"
+                    android:textAllCaps="false" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+

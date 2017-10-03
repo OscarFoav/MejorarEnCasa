@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_flexiones"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_flexiones" />
+        <item
+            android:id="@+id/nav_abdominales"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_abdominales" />
+        <item
+            android:id="@+id/nav_fondos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_fondos" />
+        <item
+            android:id="@+id/nav_sentadillas"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_sentadillas" />
+        <item
+            android:id="@+id/nav_dominadas"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_dominadas" />
+        <item
+            android:id="@+id/nav_gemelos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/action_gemelos" />
+    </group>
+
+    <item android:title="@string/action_ajustes">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/action_settings" />
+        </menu>
+    </item>
+
+</menu>

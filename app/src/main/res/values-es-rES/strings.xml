@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mejorar En Casa</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Configuración</string>
+
+    <!-- menu principal -->
+    <string name="action_ejercicios">Ejercicios</string>
+    <string name="action_flexiones">Flexiones</string>
+    <string name="action_abdominales">Abdominales</string>
+    <string name="action_fondos">Fondos</string>
+    <string name="action_sentadillas">Sentadillas</string>
+    <string name="action_dominadas">Dominadas</string>
+    <string name="action_gemelos">Gemelos</string>
+    <string name="action_ajustes">Configuración</string>
+    <string name="action_configuracion">Configuración</string>
+
+    <string name="serie">Serie</string>
+    <string name="series">Series</string>
+    <string name="repeticion">Repetición</string>
+    <string name="repeticiones">Repeticiones</string>
+    <string name="tiempo_reposo">Tiempo de reposo</string>
+    <string name="terminada">Hecha</string>
+    <string name="calorias_consumidas_aproximadas">Calorias consumidas aproximadamente</string>
+    <string name="diez_segundos_mas">10 seg. +</string>
+    <string name="diez_segundos_menos">10 seg. -</string>
+    <string name="tiempo_de_reposo">Tiempo de reposo</string>
+    <string name="numero_cuenta_atras">Terminar cuenta atrás</string>
+
+    <string name="salir">Pulsa otra vez para salir.</string>
+
+    <!-- series -->
+    <string name="primera_serie">Primera</string>
+    <string name="segunda_serie">Segunda</string>
+    <string name="tercera_serie">Tercera</string>
+    <string name="cuarta_serie">Cuarta</string>
+    <string name="quinta_serie">Quinta</string>
+    <string name="title_activity_flexiones">Flexiones</string>
+
+    <!-- categorias -->
+    <string name="categoria1_title">Información de Usuario</string>
+    <string name="usuario_title">Nombre de usuario</string>
+    <string name="usuario_summary">Introduce tu nombre.</string>
+
+    <string name="categoria2_title">Traffic information</string>
+    <string name="categoria3_title">Kind of route </string>
+    <string name="categoria4_title">Waiting time</string>
+
+    <!-- Flexiones -->
+    <string name="categoria_flexiones">Flexiones</string>
+    <string name="series_flexiones">5</string>
+    <string name="repeticiones_flexiones">13</string>
+    <string name="tiempo_recuperacion_flexiones">60</string>
+    <string name="fondo_pantalla_flexiones">color/holo_orange_dark</string>
+
+    <!-- Abdominales -->
+    <string name="categoria_abdominales">Abdominales</string>
+    <string name="series_abdominales">5</string>
+    <string name="repeticiones_abdominales">13</string>
+    <string name="tiempo_recuperacion_abdominales">60</string>
+    <string name="fondo_pantalla_abdominales">color/holo_red_dark</string>
+
+    <!-- show final_serie -->
+    <string name="titulo_final_serie">¡Serie completada!</string>
+    <string name="mensaje_final_serie">¿Quieres aumentar el número de repeticiones?</string>
+
+    <!-- aceptar y cancelar -->
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+
+</resources>
