@@ -1,4 +1,4 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Activities;
 
 import android.graphics.Movie;
 

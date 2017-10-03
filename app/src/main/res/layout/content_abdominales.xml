@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_red_dark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.belosoft.mejorarencasa.Flexiones"
+    tools:context="org.belosoft.mejorarencasa.Activities.Flexiones"
     tools:showIn="@layout/activity_abdominales">
 
     <RelativeLayout

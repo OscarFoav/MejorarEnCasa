@@ -1,4 +1,4 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Activities;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -10,6 +10,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.belosoft.mejorarencasa.R;
 
 public class Fondos extends AppCompatActivity {
 

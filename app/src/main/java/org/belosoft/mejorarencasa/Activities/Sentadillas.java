@@ -1,4 +1,4 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Activities;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -11,10 +11,12 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class Dominadas extends AppCompatActivity {
+import org.belosoft.mejorarencasa.R;
+
+public class Sentadillas extends AppCompatActivity {
 
     // variables
-    public int totalSeries = 3 ;
+    public int totalSeries = 4 ;
     public int totalRepeticiones;
     Button btnSerie1;
     Button btnSerie2;
@@ -26,17 +28,18 @@ public class Dominadas extends AppCompatActivity {
     CountDownTimer countDownTimer;
 
     // estas de debajo seran sustituidas por los valores de la BD
-    public int repSerie1 = 3;
-    public int repSerie2 = 3;
-    public int repSerie3 = 3;
-    public int repSerie4 = 3;
-    public int repSerie5 = 3;
+    public int repSerie1 = 25;
+    public int repSerie2 = 25;
+    public int repSerie3 = 25;
+    public int repSerie4 = 25;
+    public int repSerie5 = 25;
     public int numeroCuentaAtras = 60;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dominadas);
+        setContentView(R.layout.activity_sentadillas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

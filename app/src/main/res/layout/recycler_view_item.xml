@@ -1,223 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.belosoft.mejorarencasa.Flexiones">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/nombreSerie"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="0dp"
-        android:fadeScrollbars="true"
-        android:isScrollContainer="false"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/txvCabeceraSerie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="18dp"
-            android:gravity="center"
-            android:text="@string/action_flexiones"
-            android:textSize="36sp" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_dark"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".Activities.Flexiones">
 
-        <TextView
-            android:id="@+id/txvNumeroSeries"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvCabeceraSerie"
-            android:gravity="center"
-            android:text="@string/serie"
-            android:textSize="18sp" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/serieCabecera"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/txvNumeroRepeticiones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvNumeroSeries"
-            android:gravity="center"
-            android:text="@string/repeticion"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/txvCabeceraSerie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/imageView2"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/action_flexiones"
+                android:textSize="36dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txvSerieTiempoReposo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvNumeroRepeticiones"
-            android:gravity="center"
-            android:text="@string/tiempo_de_reposo"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/txvNumeroSeries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txvCabeceraSerie"
+                android:layout_alignStart="@+id/txvCabeceraSerie"
+                android:layout_below="@+id/txvCabeceraSerie"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/serie"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvCabeceraSerie" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/flexiones" />
+            <TextView
+                android:id="@+id/txvNumeroRepeticiones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txvNumeroSeries"
+                android:layout_alignStart="@+id/txvNumeroSeries"
+                android:layout_below="@+id/txvNumeroSeries"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:text="@string/repeticion"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvNumeroSeries" />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/linearLayoutCuerpo"
-            android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:layout_alignEnd="@+id/imageView2"
-            android:layout_alignRight="@+id/imageView2"
-            android:layout_below="@+id/txvSerieTiempoReposo"
-            android:layout_marginTop="16dp"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context=".MainActivity">
+            <TextView
+                android:id="@+id/txvSerieTiempoReposo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txvNumeroRepeticiones"
+                android:layout_alignStart="@+id/txvNumeroRepeticiones"
+                android:layout_below="@+id/txvNumeroRepeticiones"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:text="@string/tiempo_de_reposo"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/txvNumeroRepeticiones" />
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/cardView"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@drawable/flexiones"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/serieCuerpo"
+            android:layout_width="0dp"
+            android:layout_height="236dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/seriePie"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serieCabecera"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/textViewPrimeraRepeticion"
+                android:layout_width="200dp"
                 android:layout_height="40dp"
-                card_view:cardBackgroundColor="#E2E2E2"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="4dp">
+                android:layout_alignBottom="@+id/btnPrimeraRepeticion"
+                android:layout_alignTop="@+id/btnPrimeraRepeticion"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:text="Primera Repeticion"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnPrimeraRepeticion"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:text="Terminada"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textViewPrimeraRepeticion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="@dimen/activity_vertical_margin"
-                        android:text="Primera Repeticion"
-                        android:textSize="20dp" />
+            <TextView
+                android:id="@+id/textViewSegundaRepeticion"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/btnSegundaRepeticion"
+                android:layout_alignTop="@+id/btnSegundaRepeticion"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical"
+                android:text="Segunda Repeticion"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPrimeraRepeticion" />
 
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_gravity="center_vertical"
-                        android:paddingRight="@dimen/activity_vertical_margin"
-                        android:text="Terminada" />
-                </RelativeLayout>
+            <Button
+                android:id="@+id/btnSegundaRepeticion"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/btnPrimeraRepeticion"
+                android:layout_alignStart="@+id/btnPrimeraRepeticion"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="0dp"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:text="Terminada"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPrimeraRepeticion" />
 
-            </android.support.v7.widget.CardView>
+            <TextView
+                android:id="@+id/textViewTerceraRepeticion"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/btnTerceraRepeticion"
+                android:layout_alignTop="@+id/btnTerceraRepeticion"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical"
+                android:text="Tercera Repeticion"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSegundaRepeticion" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/btnTerceraRepeticion"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/btnSegundaRepeticion"
+                android:layout_alignStart="@+id/btnSegundaRepeticion"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="0dp"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:text="Terminada"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnSegundaRepeticion" />
 
-        <LinearLayout
-            android:id="@+id/linearLayoutPie"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/linearLayoutCuerpo"
-            android:layout_marginTop="14dp">
+            <TextView
+                android:id="@+id/textViewCuartaRepeticion"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/btnCuartaRepeticion"
+                android:layout_alignTop="@+id/btnCuartaRepeticion"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical"
+                android:text="Cuarta Repeticion"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTerceraRepeticion" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnCuartaRepeticion"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/btnTerceraRepeticion"
+                android:layout_alignStart="@+id/btnTerceraRepeticion"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="0dp"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:text="Terminada"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnTerceraRepeticion" />
 
-                <Button
-                    android:id="@+id/btn10SegundosMas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_toLeftOf="@+id/txvCuentaAtras"
-                    android:layout_toStartOf="@+id/txvCuentaAtras"
-                    android:text="@string/diez_segundos_mas"
-                    android:textAllCaps="false" />
+            <TextView
+                android:id="@+id/textViewQuintaRepeticion"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/btnQuintaRepeticion"
+                android:layout_alignTop="@+id/btnQuintaRepeticion"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical"
+                android:text="Quinta Repeticion"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCuartaRepeticion" />
 
-                <Button
-                    android:id="@+id/btn10SegundosMenos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <Button
+                android:id="@+id/btnQuintaRepeticion"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/btnCuartaRepeticion"
+                android:layout_alignStart="@+id/btnCuartaRepeticion"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="0dp"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:text="Terminada"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCuartaRepeticion" />
 
-                    android:layout_alignLeft="@+id/btn10SegundosMas"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignStart="@+id/btn10SegundosMas"
-                    android:layout_toLeftOf="@+id/txvCuentaAtras"
-                    android:layout_toStartOf="@+id/txvCuentaAtras"
-                    android:text="@string/diez_segundos_menos"
-                    android:textAllCaps="false" />
+        </android.support.constraint.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/txvCuentaAtras"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_alignRight="@id/prbCuantaAtras"
-                    android:layout_alignTop="@+id/prbCuantaAtras"
-                    android:layout_below="@id/tableLayout"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="@string/numero_cuenta_atras"
-                    android:textSize="35sp" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/seriePie"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="0dp">
 
-                <ProgressBar
-                    android:id="@+id/prbCuantaAtras"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_toLeftOf="@+id/btnTerminarCuentaAtras"
-                    android:layout_toStartOf="@+id/btnTerminarCuentaAtras"
-                    android:gravity="center"
-                    android:max="60"
-                    android:progress="60"
-                    android:progressDrawable="@drawable/circular_progress_bar" />
+            <Button
+                android:id="@+id/btn10SegundosMenos"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/txvCuentaAtras"
+                android:layout_toStartOf="@+id/txvCuentaAtras"
+                android:text="@string/diez_segundos_menos"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btnTerminarCuentaAtras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:text="@string/terminar_cuenta_atras"
-                    android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn10SegundosMas"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/diez_segundos_mas"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn10SegundosMenos" />
 
-            </RelativeLayout>
-        </LinearLayout>
+            <TextView
+                android:id="@+id/txvCuentaAtras"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignRight="@id/prbCuantaAtras"
+                android:layout_alignTop="@+id/prbCuantaAtras"
+                android:layout_below="@id/tableLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="-55dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/numero_cuenta_atras"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="@+id/prbCuantaAtras"
+                app:layout_constraintLeft_toLeftOf="@+id/prbCuantaAtras"
+                app:layout_constraintTop_toTopOf="@+id/prbCuantaAtras"
+                app:layout_constraintVertical_bias="1.0" />
 
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+            <ProgressBar
+                android:id="@+id/prbCuantaAtras"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toLeftOf="@+id/btnTerminarCuentaAtras"
+                android:layout_toStartOf="@+id/btnTerminarCuentaAtras"
+                android:gravity="center"
+                android:max="60"
+                android:progress="60"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.704"
+                app:layout_constraintLeft_toRightOf="@+id/btn10SegundosMenos"
+                app:layout_constraintRight_toLeftOf="@+id/btnTerminarCuentaAtras"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <Button
+                android:id="@+id/btnTerminarCuentaAtras"
+                android:layout_width="96dp"
+                android:layout_height="59dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/terminar_cuenta_atras"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="251dp"
+                tools:layout_editor_absoluteY="38dp" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

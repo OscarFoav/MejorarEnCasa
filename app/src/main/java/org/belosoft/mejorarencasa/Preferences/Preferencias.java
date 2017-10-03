@@ -1,9 +1,11 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Preferences;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+
+import org.belosoft.mejorarencasa.R;
 
 /**
  * Created by oscar on 01/09/2017.

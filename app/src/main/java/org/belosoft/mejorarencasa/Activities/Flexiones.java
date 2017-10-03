@@ -1,35 +1,27 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Activities;
 
 import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import org.belosoft.mejorarencasa.Adapters.MyAdapter;
+import org.belosoft.mejorarencasa.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.name;
 
 public class Flexiones extends AppCompatActivity {
 
@@ -110,7 +102,6 @@ public class Flexiones extends AppCompatActivity {
         // modificacion a cardview y recyclerview
         series = this.getAllSeries();
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.cardView);  // voy por el video recyclerview y cardview parte 1
         mLayoutManager = new LinearLayoutManager(this);
 
         //mAdapter =  new MyAdapter(series, R.layout.recycler_view_item, (OnItemClickListener), (name, position));
@@ -383,10 +374,10 @@ public class Flexiones extends AppCompatActivity {
 
     private ArrayList<Serie> getAllSeries(){
         return new ArrayList<Serie>() {{
-            add(new Serie("Primera Repeticion", R.id.button));
-            add(new Serie("Segunda Repeticion", R.id.button));
-            add(new Serie("Tercera Repeticion", R.id.button));
-            add(new Serie("Cuarta Repeticion", R.id.button));
+            add(new Serie("Primera Repeticion", R.id.btnPrimeraRepeticion));
+            add(new Serie("Segunda Repeticion", R.id.btnSegundaRepeticion));
+            add(new Serie("Tercera Repeticion", R.id.btnTerceraRepeticion));
+            add(new Serie("Cuarta Repeticion", R.id.btnCuartaRepeticion));
 
         }};
     }

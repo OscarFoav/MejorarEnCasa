@@ -1,4 +1,4 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Preferences;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

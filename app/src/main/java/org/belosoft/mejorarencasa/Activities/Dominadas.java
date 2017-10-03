@@ -1,4 +1,4 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Activities;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -11,10 +11,12 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class Gemelos extends AppCompatActivity {
+import org.belosoft.mejorarencasa.R;
+
+public class Dominadas extends AppCompatActivity {
 
     // variables
-    public int totalSeries = 5 ;
+    public int totalSeries = 3 ;
     public int totalRepeticiones;
     Button btnSerie1;
     Button btnSerie2;
@@ -26,17 +28,17 @@ public class Gemelos extends AppCompatActivity {
     CountDownTimer countDownTimer;
 
     // estas de debajo seran sustituidas por los valores de la BD
-    public int repSerie1 = 30;
-    public int repSerie2 = 30;
-    public int repSerie3 = 30;
-    public int repSerie4 = 30;
-    public int repSerie5 = 30;
+    public int repSerie1 = 3;
+    public int repSerie2 = 3;
+    public int repSerie3 = 3;
+    public int repSerie4 = 3;
+    public int repSerie5 = 3;
     public int numeroCuentaAtras = 60;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gemelos);
+        setContentView(R.layout.activity_dominadas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,7 +49,7 @@ public class Gemelos extends AppCompatActivity {
 
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
 
-        TextView txvFlexionesSeriesRepeticiones = (TextView) findViewById(R.id.txvGemelosSeriesRepeticiones);
+        TextView txvFlexionesSeriesRepeticiones = (TextView) findViewById(R.id.txvDominadasSeriesRepeticiones);
         txvFlexionesSeriesRepeticiones.setText("Series: " + totalSeries + "  / Repeticiones: " + totalRepeticiones);
 
         TextView txvPSR = (TextView) findViewById(R.id.txtPrimeraSerieRepeticionesTabla);

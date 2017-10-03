@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,48 +21,48 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Flexiones"
+            android:name=".Activities.Flexiones"
             android:label="@string/title_activity_flexiones"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Activities.MainActivity" />
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".Activities.MainActivity"/>
         <activity
-            android:name=".Abdominales"
+            android:name=".Activities.Abdominales"
             android:label="@string/title_activity_abdominales"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Activities.MainActivity" />
         <meta-data android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".Activities.MainActivity"/>
         <activity
-            android:name=".Fondos"
+            android:name=".Activities.Fondos"
             android:label="@string/title_activity_fondos"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Activities.MainActivity" />
         <meta-data android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".Activities.MainActivity"/>
         <activity
-            android:name=".Sentadillas"
+            android:name=".Activities.Sentadillas"
             android:label="@string/title_activity_sentadillas"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Activities.MainActivity" />
         <meta-data android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".Activities.MainActivity"/>
         <activity
-            android:name=".Dominadas"
+            android:name=".Activities.Dominadas"
             android:label="@string/title_activity_dominadas"
-            android:theme="@style/AppTheme.NoActionBar" android:parentActivityName=".MainActivity" />
+            android:theme="@style/AppTheme.NoActionBar" android:parentActivityName=".Activities.MainActivity" />
         <meta-data android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".Activities.MainActivity"/>
         <activity
-            android:name=".Gemelos"
+            android:name=".Activities.Gemelos"
             android:label="@string/title_activity_gemelos"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Activities.MainActivity" />
         <meta-data android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity"/>
+            android:value=".Activities.MainActivity"/>
         <activity
-            android:name=".Preferencias"
+            android:name=".Preferences.Preferencias"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

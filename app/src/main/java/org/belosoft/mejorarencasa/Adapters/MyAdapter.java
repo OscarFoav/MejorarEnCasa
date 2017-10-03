@@ -1,10 +1,11 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
+
+import org.belosoft.mejorarencasa.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.belosoft.mejorarencasa;
+package org.belosoft.mejorarencasa.Activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import org.belosoft.mejorarencasa.R;
 
 public class Abdominales extends AppCompatActivity {
 
