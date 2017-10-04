@@ -75,7 +75,7 @@
             android:textSize="18dp" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageViewSerie"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentRight="true"

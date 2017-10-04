@@ -25,23 +25,36 @@ import java.util.List;
 
 public class Flexiones extends AppCompatActivity {
 
-    // variables
-    public int totalSeries = 4 ;
+    public int totalSeries = 5;
     public int totalRepeticiones;
-    Button btnSerie1;
-    Button btnSerie2;
-    Button btnSerie3;
-    Button btnSerie4;
-    Button btnSerie5;
-    Button btn10SegundosMas;
-    Button btn10SegundosMenos;
-    Button btnTerminarCuentaAtras;
-    ProgressBar prbCuentaAtras;
-    TextView txvCuentaAtras;
-    CountDownTimer countDownTimer;
+    public Button btnSerie1;
+    public Button btnSerie2;
+    public Button btnSerie3;
+    public Button btnSerie4;
+    public Button btnSerie5;
+    public Button btn10SegundosMas;
+    public Button btn10SegundosMenos;
+    public Button btnTerminarCuentaAtras;
+    public ProgressBar prbCuentaAtras;
+    public TextView txvCuentaAtras;
+
+    // control de la cuenta atras
+    public CountDownTimer countDownTimer;
+    public static final int TIEMPO_MAXIMO = 150;              // tiempos minimo y maximo para el descanso entre series
+    public static final int TIEMPO_MINIMO = 30;
+    public int tiempoRestante = 0;              // para cambiar la cuenta atrás sobre la marcha
+
     //public int incremento;  // puede valer +10 o -10
-    TextView txvSerieTiempoReposo ;
-    int boton = 1;     // controla cual es el boton activo, empieza por el primero
+    TextView txvSerieTiempoReposo;
+    private int boton = 0;     // controla cual es el boton activo, empieza por el primero
+
+    // flags
+    private int flgBotonOnSerie1 = 0; // controla si está activo el boton 1 y evita que se pulse 2 veces
+    private int flgBotonOnSerie2 = 0;
+    private int flgBotonOnSerie3 = 0;
+    private int flgBotonOnSerie4 = 0;
+    private int flgBotonOnSerie5 = 0;
+
     // calorias por kilo y repetición
     public double caloriasKiloRepeticion = 0.081;
 
@@ -67,13 +80,13 @@ public class Flexiones extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_flexiones);
-        setContentView(R.layout.recycler_view_item);
+        setContentView(R.layout.activity_plantilla_series);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
         // activar la fecha ir atrás
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // mantener la pantalla encencida
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -81,9 +94,20 @@ public class Flexiones extends AppCompatActivity {
         // sonido-beep
         toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
 
-        // nuevo recycler_view_item
-        TextView textView = (TextView) findViewById(R.id.textViewPrimeraRepeticion);
-        textView.setText("Primera Repetición: " + repSerie1);
+        TextView textView1 = (TextView) findViewById(R.id.textViewPrimeraRepeticion);
+        textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + getResources().getString(R.string.repeticiones));
+
+        TextView textView2 = (TextView) findViewById(R.id.textViewSegundaRepeticion);
+        textView2.setText(getResources().getText(R.string.segunda_serie) + ": " + repSerie2 + " " + getResources().getString(R.string.repeticiones));
+
+        TextView textView3 = (TextView) findViewById(R.id.textViewTerceraRepeticion);
+        textView3.setText(getResources().getText(R.string.tercera_serie) + ": " + repSerie3 + " " + getResources().getString(R.string.repeticiones));
+
+        TextView textView4 = (TextView) findViewById(R.id.textViewCuartaRepeticion);
+        textView4.setText(getResources().getText(R.string.cuarta_serie) + ": " + repSerie4 + " " + getResources().getString(R.string.repeticiones));
+
+        TextView textView5 = (TextView) findViewById(R.id.textViewQuintaRepeticion);
+        textView5.setText(getResources().getText(R.string.quinta_serie) + ": " + repSerie5 + " " + getResources().getString(R.string.repeticiones));
 
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
 
@@ -104,176 +128,163 @@ public class Flexiones extends AppCompatActivity {
 
         mLayoutManager = new LinearLayoutManager(this);
 
-        //mAdapter =  new MyAdapter(series, R.layout.recycler_view_item, (OnItemClickListener), (name, position));
+        prbCuentaAtras = (ProgressBar) findViewById(R.id.prbCuantaAtras);
+        prbCuentaAtras.setMax(numeroCuentaAtras);
+        prbCuentaAtras.setProgress(numeroCuentaAtras);
+        txvCuentaAtras = (TextView) findViewById(R.id.txvCuentaAtras);
 
-
-
-        // TextView txvPSR = (TextView) findViewById(R.id.txtPrimeraSerieRepeticionesTabla);
-        // txvPSR.setText("" + repSerie1 + " " + getResources().getString(R.string.repeticiones));
-//
-        // TextView txvSSR = (TextView) findViewById(R.id.txtSegundaSerieRepeticionesTabla);
-        // txvSSR.setText("" + repSerie2 + " " + getResources().getString(R.string.repeticiones));
-//
-        // TextView txvTSR = (TextView) findViewById(R.id.txtTerceraSerieRepeticionesTabla);
-        // txvTSR.setText("" + repSerie3 + " " + getResources().getString(R.string.repeticiones));
-//
-        // TextView txvCSR = (TextView) findViewById(R.id.txtCuartaSerieRepeticionesTabla);
-        // txvCSR.setText("" + repSerie4 + " " + getResources().getString(R.string.repeticiones));
-//
-        // TextView txvQSR = (TextView) findViewById(R.id.txtQuintaSerieRepeticionesTabla);
-        // txvQSR.setText("" + repSerie5 + " " + getResources().getString(R.string.repeticiones));
-//
-        // prbCuentaAtras = (ProgressBar) findViewById(R.id.prbCuantaAtras);
-        // txvCuentaAtras = (TextView) findViewById(R.id.txvCuentaAtras);
-//
         // // inicialización de variables
-        // totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
-        // txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
+        totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
+        txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
         // if (numeroCuentaAtras > 99) {
         //     txvCuentaAtras.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 35);
         // } else {
         //     txvCuentaAtras.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 50);
         // }
-//
+
         // // asignacion de botones
-        // btnSerie1 = (Button) findViewById(R.id.btnPrimeraSerieHechaTabla);
-        // btnSerie2 = (Button) findViewById(R.id.btnSegundaSerieHechaTabla);
-        // btnSerie3 = (Button) findViewById(R.id.btnTerceraSerieHechaTabla);
-        // btnSerie4 = (Button) findViewById(R.id.btnCuartaSerieHechaTabla);
-        // btnSerie5 = (Button) findViewById(R.id.btnQuintaSerieHechaTabla);
-        // btn10SegundosMas = (Button) findViewById(R.id.btn10SegundosMas);
-        // btn10SegundosMenos = (Button) findViewById(R.id.btn10SegundosMenos);
-        // btnTerminarCuentaAtras = (Button) findViewById(R.id.btnTerminarCuentaAtras);
-//
-        // // progress bar y text view cuenta atras visibles
-        // prbCuentaAtras.setVisibility(View.VISIBLE);
-        // txvCuentaAtras.setVisibility(View.VISIBLE);
-        // // btn10SegundosMas.setVisibility(View.INVISIBLE);
-        // // btn10SegundosMenos.setVisibility(View.INVISIBLE);
-//
+        btnSerie1 = (Button) findViewById(R.id.btnPrimeraRepeticion);
+        btnSerie2 = (Button) findViewById(R.id.btnSegundaRepeticion);
+        btnSerie3 = (Button) findViewById(R.id.btnTerceraRepeticion);
+        btnSerie4 = (Button) findViewById(R.id.btnCuartaRepeticion);
+        btnSerie5 = (Button) findViewById(R.id.btnQuintaRepeticion);
+        btn10SegundosMas = (Button) findViewById(R.id.btn10SegundosMas);
+        btn10SegundosMenos = (Button) findViewById(R.id.btn10SegundosMenos);
+        btnTerminarCuentaAtras = (Button) findViewById(R.id.btnTerminarCuentaAtras);
+
+        // progress bar y text view cuenta atras visibles
+        prbCuentaAtras.setVisibility(View.VISIBLE);
+        txvCuentaAtras.setVisibility(View.VISIBLE);
+        btn10SegundosMas.setVisibility(View.VISIBLE);
+        btn10SegundosMenos.setVisibility(View.VISIBLE);
+        btnTerminarCuentaAtras.setVisibility(View.VISIBLE);
+
         // // deshabilitar buttons 2 a 5
-        // btnSerie2.setEnabled(false);
-        // btnSerie3.setEnabled(false);
-        // btnSerie4.setEnabled(false);
-        // btnSerie5.setEnabled(false);
-        // btn10SegundosMas.setVisibility(View.INVISIBLE);
-        // btn10SegundosMenos.setVisibility(View.INVISIBLE);
-        // btnTerminarCuentaAtras.setVisibility(View.INVISIBLE);
-//
-        // // listener de buttons
-        // btnSerie1.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         btn10SegundosMas.setVisibility(View.INVISIBLE);
-        //         btn10SegundosMenos.setVisibility(View.INVISIBLE);
-        //         btnTerminarCuentaAtras.setVisibility(View.VISIBLE);
-        //         CuentaAtras(numeroCuentaAtras);
-        //     }
-        // });
-//
-//
-        // btnSerie2.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         btn10SegundosMas.setVisibility(View.INVISIBLE);
-        //         btn10SegundosMenos.setVisibility(View.INVISIBLE);
-        //         btnTerminarCuentaAtras.setVisibility(View.VISIBLE);
-        //         CuentaAtras(numeroCuentaAtras);
-        //     }
-        // });
-//
-//
-        // btnSerie3.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         btn10SegundosMas.setVisibility(View.INVISIBLE);
-        //         btn10SegundosMenos.setVisibility(View.INVISIBLE);
-        //         btnTerminarCuentaAtras.setVisibility(View.VISIBLE);
-        //         CuentaAtras(numeroCuentaAtras);
-        //     }
-        // });
-//
-//
-        // btnSerie4.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         btn10SegundosMas.setVisibility(View.INVISIBLE);
-        //         btn10SegundosMenos.setVisibility(View.INVISIBLE);
-        //         btnTerminarCuentaAtras.setVisibility(View.VISIBLE);
-        //         CuentaAtras(numeroCuentaAtras);
-        //     }
-        // });
-//
-//
-        // btnSerie5.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         btnTerminarCuentaAtras.setVisibility(View.VISIBLE);
-        //         CuentaAtras(numeroCuentaAtras);
-        //     }
-        // });
-//
-        // btn10SegundosMas.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         if (numeroCuentaAtras < 150) numeroCuentaAtras += +10;
-        //         txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
-        //     }
-        // });
-//
-//
-        // btn10SegundosMenos.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         if (numeroCuentaAtras > 30) numeroCuentaAtras -= 10;
-        //         txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
-        //     }
-        // });
-//
-        // btnTerminarCuentaAtras.setOnClickListener(new View.OnClickListener() {
-        //     public void onClick(View v) {
-        //         // your handler code here
-        //         cancelTimer();
-        //         txvCuentaAtras.setText("00");
-        //     }
-        // });
+        btnSerie2.setEnabled(false);
+        btnSerie3.setEnabled(false);
+        btnSerie4.setEnabled(false);
+        btnSerie5.setEnabled(false);
+
+        // listener de buttons
+        btnSerie1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // primer boton
+                boton = 1;
+                if (flgBotonOnSerie1 == 0) {
+                    CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
+                    flgBotonOnSerie1 = 1;
+                    tiempoRestante = numeroCuentaAtras;
+                }
+            }
+        });
+
+        btnSerie2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // segundo boton
+                if (flgBotonOnSerie2 == 0) {
+                    CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
+                    flgBotonOnSerie2 = 1;
+                    tiempoRestante = numeroCuentaAtras;
+                }
+            }
+        });
+
+        btnSerie3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (flgBotonOnSerie3 == 0) {
+                    CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
+                    flgBotonOnSerie3 = 1;
+                    tiempoRestante = numeroCuentaAtras;
+                }
+            }
+        });
+
+        btnSerie4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // tercer boton
+                if (flgBotonOnSerie4 == 0) {
+                    CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
+                    flgBotonOnSerie4 = 1;
+                    tiempoRestante = numeroCuentaAtras;
+                }
+            }
+        });
+
+        btnSerie5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // cuarto boton
+                if (flgBotonOnSerie5 == 0) {
+                    CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
+                    flgBotonOnSerie5 = 1;
+                    tiempoRestante = numeroCuentaAtras;
+                }
+            }
+        });
+
+        btn10SegundosMas.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int sumar = 10;
+                // quinto boton
+                if ((numeroCuentaAtras) == tiempoRestante) {
+                    if (numeroCuentaAtras < TIEMPO_MAXIMO) numeroCuentaAtras = numeroCuentaAtras + sumar;
+                    actualizarTimer(sumar);
+                }  else {
+                    if (numeroCuentaAtras < TIEMPO_MAXIMO) numeroCuentaAtras = numeroCuentaAtras + sumar;
+                    reiniciarTimer(numeroCuentaAtras, tiempoRestante + sumar);
+                }
+            }
+        });
+
+        btn10SegundosMenos.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int restar = 10;
+                // si los valores son iguales no se actualiza el timer
+                if ((numeroCuentaAtras) == tiempoRestante) {
+                    if (numeroCuentaAtras > TIEMPO_MINIMO) numeroCuentaAtras = numeroCuentaAtras - restar;
+                    actualizarTimer(-restar);
+                } else {
+                    if (numeroCuentaAtras > TIEMPO_MINIMO) numeroCuentaAtras = numeroCuentaAtras - restar;
+                    reiniciarTimer(numeroCuentaAtras, tiempoRestante - restar);
+                }
+            }
+        });
+
+
+        btnTerminarCuentaAtras.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // your handler code here
+                cancelTimer();
+                txvCuentaAtras.setText(numeroCuentaAtras + "");
+                tiempoRestante = numeroCuentaAtras;
+            }
+        });
 
     }
 
-    public void CuentaAtras(final int contador) {
+    public void CuentaAtras(final int contador, final int segundos) {
         // progress bar y text view cuenta atras invisibles
         prbCuentaAtras.setVisibility(View.VISIBLE);
         txvCuentaAtras.setVisibility(View.VISIBLE);
 
         prbCuentaAtras.setMax(contador);
-        prbCuentaAtras.setProgress(contador);
-        txvCuentaAtras.setText(String.valueOf(contador));
+        prbCuentaAtras.setProgress(segundos);
+        txvCuentaAtras.setText(String.valueOf(segundos));
 
         // empezamos la cuenta atras
-        countDownTimer = new CountDownTimer(contador * 1000, 500) {
+        countDownTimer = new CountDownTimer(segundos * 1000, 500) {
             // 500 means, onTick function will be called at every 500 milliseconds
 
             @Override
             public void onTick(long leftTimeInMilliseconds) {
                 long seconds = leftTimeInMilliseconds / 1000;
+                tiempoRestante = (int) seconds;                     // convertimos long a int
                 prbCuentaAtras.setProgress((int) seconds);
                 txvCuentaAtras.setText(String.format("%02d", seconds % contador));
-                // format the textview to show the easily readable format
-
-                //if (incremento == 10) {
-                //    seconds = seconds + 10;
-                //    incremento = 0;
-                //} else if (incremento == -10) {
-                //    seconds = seconds - 10;
-                //    incremento = 0;
-                //}
-                //;
-
             }
 
             @Override
             public void onFinish() {
-                if (txvCuentaAtras.getText().equals("00")) {
+                if (txvCuentaAtras.getText().equals(numeroCuentaAtras + "")) {
                     cancelarTimer();
                 } else {
                     txvCuentaAtras.setText(String.valueOf(contador));
@@ -283,54 +294,51 @@ public class Flexiones extends AppCompatActivity {
         }.start();
     }
 
+    public void reiniciarTimer(int numeroCuentaAtrasLocal, int tiempoRestanteLocal) {
+        if (countDownTimer != null) countDownTimer.cancel();
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtrasLocal);
+        CuentaAtras(numeroCuentaAtrasLocal, tiempoRestanteLocal);
+    }
+
+    public void actualizarTimer(int valor){
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + valor);
+        txvCuentaAtras.setText(String.valueOf(valor));
+    }
+
     public void cancelTimer() {
-            if (countDownTimer != null) countDownTimer.cancel();
-            cancelarTimer();
+        if (countDownTimer != null) countDownTimer.cancel();
+        cancelarTimer();
     }
 
     public void cancelarTimer() {
         txvCuentaAtras.setText("OK");
         toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 400);
+        prbCuentaAtras.setProgress(numeroCuentaAtras);
         // activamos button en secuencia
         switch (boton) {
             case 1:
                 btnSerie1.setEnabled(false);
                 btnSerie2.setEnabled(true);
                 boton = 2;
-                btn10SegundosMas.setVisibility(View.INVISIBLE);
-                btn10SegundosMenos.setVisibility(View.INVISIBLE);
-                btnTerminarCuentaAtras.setVisibility(View.INVISIBLE);
                 break;
             case 2:
                 btnSerie2.setEnabled(false);
                 btnSerie3.setEnabled(true);
                 boton = 3;
-                btn10SegundosMas.setVisibility(View.INVISIBLE);
-                btn10SegundosMenos.setVisibility(View.INVISIBLE);
-                btnTerminarCuentaAtras.setVisibility(View.INVISIBLE);
                 break;
             case 3:
                 btnSerie3.setEnabled(false);
                 btnSerie4.setEnabled(true);
                 boton = 4;
-                btn10SegundosMas.setVisibility(View.INVISIBLE);
-                btn10SegundosMenos.setVisibility(View.INVISIBLE);
-                btnTerminarCuentaAtras.setVisibility(View.INVISIBLE);
                 break;
             case 4:
                 btnSerie4.setEnabled(false);
                 btnSerie5.setEnabled(true);
                 boton = 5;
-                btn10SegundosMas.setVisibility(View.INVISIBLE);
-                btn10SegundosMenos.setVisibility(View.INVISIBLE);
-                btnTerminarCuentaAtras.setVisibility(View.INVISIBLE);
                 break;
             case 5:
                 btnSerie5.setEnabled(false);
                 boton = 1;
-                btn10SegundosMas.setVisibility(View.INVISIBLE);
-                btn10SegundosMenos.setVisibility(View.INVISIBLE);
-                btnTerminarCuentaAtras.setVisibility(View.INVISIBLE);
                 showFinalSerie();
                 break;
             default:
@@ -338,7 +346,7 @@ public class Flexiones extends AppCompatActivity {
         }
     }
 
-    public void showFinalSerie(){
+    public void showFinalSerie() {
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -347,11 +355,11 @@ public class Flexiones extends AppCompatActivity {
 
         dialogBuilder.setTitle(getResources().getString(R.string.titulo_final_serie));
         dialogBuilder.setMessage("( " + getResources().getString(R.string.calorias_consumidas_aproximadas) +
-                            String.format(": %.1f",caloriasKiloRepeticion * totalRepeticiones) +
-                            ")\n" + getResources().getString(R.string.mensaje_final_serie));
+                String.format(": %.1f", caloriasKiloRepeticion * totalRepeticiones) +
+                ")\n" + getResources().getString(R.string.mensaje_final_serie));
 
         dialogBuilder.setPositiveButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton){
+            public void onClick(DialogInterface dialog, int whichButton) {
                 //si
                 repSerie1 += 1;
                 repSerie2 += 1;
@@ -363,7 +371,7 @@ public class Flexiones extends AppCompatActivity {
             }
         });
         dialogBuilder.setNegativeButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton){
+            public void onClick(DialogInterface dialog, int whichButton) {
                 //no
                 onBackPressed();
             }
@@ -372,7 +380,7 @@ public class Flexiones extends AppCompatActivity {
         b.show();
     }
 
-    private ArrayList<Serie> getAllSeries(){
+    private ArrayList<Serie> getAllSeries() {
         return new ArrayList<Serie>() {{
             add(new Serie("Primera Repeticion", R.id.btnPrimeraRepeticion));
             add(new Serie("Segunda Repeticion", R.id.btnSegundaRepeticion));

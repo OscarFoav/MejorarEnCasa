@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_dark"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txvCabeceraSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewTerceraRepeticion"
+        android:layout_alignStart="@+id/textViewTerceraRepeticion"
+        android:layout_alignTop="@+id/imageViewSerie"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:text="@string/categoria_flexiones"
+        android:textSize="36sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txvNumeroSeries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvCabeceraSerie"
+        android:layout_alignStart="@+id/txvCabeceraSerie"
+        android:layout_below="@+id/txvCabeceraSerie"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:gravity="center"
+        android:text="@string/serie"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvCabeceraSerie" />
+
+    <TextView
+        android:id="@+id/txvNumeroRepeticiones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvNumeroSeries"
+        android:layout_alignStart="@+id/txvNumeroSeries"
+        android:layout_below="@+id/txvNumeroSeries"
+        android:gravity="center"
+        android:text="@string/repeticion"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvNumeroSeries" />
+
+    <TextView
+        android:id="@+id/txvSerieTiempoReposo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/tiempo_de_reposo"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvNumeroRepeticiones"
+        android:layout_below="@+id/txvNumeroRepeticiones"
+        android:layout_alignLeft="@+id/txvNumeroRepeticiones"
+        android:layout_alignStart="@+id/txvNumeroRepeticiones" />
+
+    <ImageView
+        android:id="@+id/imageViewSerie"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="9dp"
+        app:srcCompat="@drawable/flexiones" />
+
+    <View
+        android:id="@+id/separadorUno"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_below="@+id/txvSerieTiempoReposo"
+        android:layout_marginTop="4dp"
+        android:background="#6496af" />
+
+    <TextView
+        android:id="@+id/textViewPrimeraRepeticion"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/separadorUno"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:text="@string/primera_serie"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPrimeraRepeticion"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/imageViewSerie"
+        android:layout_alignStart="@+id/imageViewSerie"
+        android:layout_below="@+id/separadorUno"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+
+        android:text="@string/terminada"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSegundaRepeticion"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/btnSegundaRepeticion"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:text="@string/segunda_serie"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSegundaRepeticion"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/btnPrimeraRepeticion"
+        android:layout_alignStart="@+id/btnPrimeraRepeticion"
+        android:layout_below="@+id/btnPrimeraRepeticion"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+
+        android:text="@string/terminada"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPrimeraRepeticion" />
+
+    <TextView
+        android:id="@+id/textViewTerceraRepeticion"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/btnTerceraRepeticion"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:text="@string/tercera_serie"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnTerceraRepeticion"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/btnPrimeraRepeticion"
+        android:layout_alignStart="@+id/btnPrimeraRepeticion"
+        android:layout_below="@+id/btnSegundaRepeticion"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/terminada"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSegundaRepeticion" />
+
+    <TextView
+        android:id="@+id/textViewCuartaRepeticion"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/btnCuartaRepeticion"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:text="@string/cuarta_serie"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTerceraRepeticion" />
+
+    <Button
+        android:id="@+id/btnCuartaRepeticion"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/btnPrimeraRepeticion"
+        android:layout_alignStart="@+id/btnPrimeraRepeticion"
+        android:layout_below="@+id/btnTerceraRepeticion"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/terminada"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTerceraRepeticion" />
+
+    <TextView
+        android:id="@+id/textViewQuintaRepeticion"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/btnQuintaRepeticion"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:text="@string/quinta_serie"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCuartaRepeticion" />
+
+    <Button
+        android:id="@+id/btnQuintaRepeticion"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/btnPrimeraRepeticion"
+        android:layout_alignStart="@+id/btnPrimeraRepeticion"
+        android:layout_below="@+id/btnCuartaRepeticion"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/terminada"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCuartaRepeticion" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_alignTop="@+id/prbCuantaAtras"
+        android:layout_marginTop="-10dp"
+        android:background="#6496af" />
+
+    <Button
+        android:id="@+id/btn10SegundosMenos"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/txvCabeceraSerie"
+        android:layout_alignStart="@+id/txvCabeceraSerie"
+        android:layout_alignTop="@+id/prbCuantaAtras"
+        android:text="@string/diez_segundos_menos"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn10SegundosMas"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_alignBottom="@+id/prbCuantaAtras"
+        android:layout_alignLeft="@+id/btn10SegundosMenos"
+        android:layout_alignStart="@+id/btn10SegundosMenos"
+        android:text="@string/diez_segundos_mas"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/txvCuentaAtras"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/prbCuantaAtras"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:gravity="center"
+        android:text="@string/numero_cuenta_atras"
+        android:textSize="30sp" />
+
+    <ProgressBar
+        android:id="@+id/prbCuantaAtras"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="17dp"
+        android:gravity="center"
+        android:max="60"
+        android:progress="60"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/txvCuentaAtras"
+        android:layout_alignStart="@+id/txvCuentaAtras" />
+
+    <Button
+        android:id="@+id/btnTerminarCuentaAtras"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:text="@string/terminar_cuenta_atras"
+        android:textAllCaps="false"
+        android:layout_alignTop="@+id/prbCuantaAtras"
+        android:layout_alignBottom="@+id/prbCuantaAtras"
+        android:layout_alignStart="@+id/btnQuintaRepeticion"
+        android:layout_alignLeft="@+id/btnQuintaRepeticion"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
