@@ -18,6 +18,7 @@
     <string name="action_configuracion">Configuration</string>
     <string name="title_activity_flexiones">Push-ups</string>
 
+    <!-- plantilla series -->
     <string name="serie">Serie</string>
     <string name="series">Series</string>
     <string name="repeticion">Repetition</string>
@@ -29,7 +30,7 @@
     <string name="diez_segundos_menos">- 10 sec.</string>
     <string name="tiempo_de_reposo">Pause time</string>
     <string name="terminar_cuenta_atras">Stop countdown</string>
-    <string name="numero_cuenta_atras">120</string>
+    <string name="numero_cuenta_atras">60</string>
 
     <string name="salir">Tap again to exit app.</string>
 
