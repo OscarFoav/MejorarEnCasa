@@ -12,9 +12,9 @@ import org.belosoft.mejorarencasa.R;
  */
 
 public class Preferencias extends PreferenceActivity
-                            implements SharedPreferences.OnSharedPreferenceChangeListener
-{
-    private String PREFERENCIA_USUARIO = "Username";
+                            implements SharedPreferences.OnSharedPreferenceChangeListener {
+
+        private String PREFERENCIA_USUARIO = "Preferences";
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -38,6 +38,9 @@ public class Preferencias extends PreferenceActivity
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-
+        if (key.equals(PREFERENCIA_USUARIO)){
+            Preference connectionPref = findPreference(key);
+            connectionPref.setSummary(sharedPreferences.getString(key, ""));
+        }
     }
 }

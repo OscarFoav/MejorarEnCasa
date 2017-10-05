@@ -1,6 +1,8 @@
 package org.belosoft.mejorarencasa.Activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
@@ -24,6 +26,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flexiones extends AppCompatActivity {
+
+    // Preferences y variables temporales
+    private SharedPreferences preferences;
+    public String user;
+    public int age;
+    public int weight;
 
     public int totalSeries = 5;
     public int totalRepeticiones;
@@ -93,6 +101,12 @@ public class Flexiones extends AppCompatActivity {
 
         // sonido-beep
         toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+
+        // acceso a Preferences
+        leerPreferences();
+
+        preferences = getPreferences(Context.MODE_PRIVATE);
+
 
         TextView textView1 = (TextView) findViewById(R.id.textViewPrimeraRepeticion);
         textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + getResources().getString(R.string.repeticiones));
@@ -259,6 +273,13 @@ public class Flexiones extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void leerPreferences() {
+        SharedPreferences preferences = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        user = preferences.getString("user", "Default");
+        age = preferences.getInt("age", 0);
+        weight = preferences.getInt("weight", 0);
     }
 
     public void CuentaAtras(final int contador, final int segundos) {

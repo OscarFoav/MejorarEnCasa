@@ -43,9 +43,23 @@
     <string name="title_activity_flexiones">Flexiones</string>
 
     <!-- categorias -->
-    <string name="categoria1_title">Información de Usuario</string>
-    <string name="usuario_title">Nombre de usuario</string>
+
+    <!-- login -->
+    <string name="user_hint">Usuario</string>
+    <string name="password_hint">Password</string>
+    <string name="remember_text">Recordar</string>
+    <string name="button_text">ENTRAR</string>
+
+    <!-- preferences -->
+    <string name="usuario_name">Información del Usuario</string>
+    <string name="usuario_title">Nombre Usuario</string>
     <string name="usuario_summary">Introduce tu nombre.</string>
+
+    <string name="age_title">Edad del Usuario</string>
+    <string name="age_summary">Introduce tu nombre.</string>
+
+    <string name="weight_title">Peso del Usuario</string>
+    <string name="weight_summary">Introduce tu peso.</string>
 
     <string name="categoria2_title">Traffic information</string>
     <string name="categoria3_title">Kind of route </string>
