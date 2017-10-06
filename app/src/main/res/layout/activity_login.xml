@@ -1,47 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.belosoft.mejorarencasa.Activities.LoginActivity">
+    android:orientation="vertical"
+    tools:context=".Activities.LoginActivity">
 
-    <android.support.v7.widget.Toolbar
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
-
+        layout="@layout/toolbar" />
 
     <EditText
         android:id="@+id/editTextUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="@string/user_hint"
-        android:inputType="text"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextUser"
+        android:layout_alignRight="@+id/editTextUser"
+        android:layout_below="@+id/editTextUser"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        android:layout_below="@+id/editTextUser"
-        android:layout_marginTop="50dp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/editTextUser"
-        android:layout_alignEnd="@+id/editTextUser"/>
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextPassword"
+        android:layout_alignStart="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/weight_summary"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextPassword"
+        android:layout_alignRight="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="@string/age_summary"
+        android:inputType="number"
+        android:maxLength="2" />
 
     <Switch
         android:id="@+id/switchRemember"
@@ -49,19 +67,19 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editTextPassword"
         android:layout_alignRight="@+id/editTextPassword"
-        android:layout_below="@+id/editTextPassword"
-        android:layout_marginTop="26dp"
+        android:layout_below="@+id/editTextWeight"
+        android:layout_marginTop="40dp"
         android:text="@string/remember_text" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/button_text"
-        android:layout_below="@+id/switchRemember"
-        android:layout_alignRight="@+id/switchRemember"
         android:layout_alignEnd="@+id/switchRemember"
         android:layout_alignLeft="@+id/editTextPassword"
-        android:layout_alignStart="@+id/editTextPassword" />
+        android:layout_alignRight="@+id/switchRemember"
+        android:layout_alignStart="@+id/editTextPassword"
+        android:layout_below="@+id/switchRemember"
+        android:layout_marginTop="20dp"
+        android:text="@string/button_text" />
 </RelativeLayout>

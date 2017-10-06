@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Mejorar En Casa</string>
+    <string name="app_name">Entrenar En Casa</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -47,7 +47,7 @@
     <!-- login -->
     <string name="user_hint">Usuario</string>
     <string name="password_hint">Password</string>
-    <string name="remember_text">Recordar</string>
+    <string name="remember_text">Recordar </string>
     <string name="button_text">ENTRAR</string>
 
     <!-- preferences -->
@@ -55,11 +55,11 @@
     <string name="usuario_title">Nombre Usuario</string>
     <string name="usuario_summary">Introduce tu nombre.</string>
 
-    <string name="age_title">Edad del Usuario</string>
-    <string name="age_summary">Introduce tu nombre.</string>
+    <string name="age_title">Edad</string>
+    <string name="age_summary">Edad</string>
 
-    <string name="weight_title">Peso del Usuario</string>
-    <string name="weight_summary">Introduce tu peso.</string>
+    <string name="weight_title">Peso</string>
+    <string name="weight_summary">Peso</string>
 
     <string name="categoria2_title">Traffic information</string>
     <string name="categoria3_title">Kind of route </string>

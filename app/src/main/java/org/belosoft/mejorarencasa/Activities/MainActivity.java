@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.belosoft.mejorarencasa.Preferences.Preferencias;
 import org.belosoft.mejorarencasa.R;
 
 public class MainActivity extends AppCompatActivity
@@ -152,7 +151,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
             // Handle the gemelos action
             tituloOpcionAbierta=getResources().getString(R.string.action_configuracion);
-            Intent i = new Intent(this, Preferencias.class);
+            Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
         }
 
