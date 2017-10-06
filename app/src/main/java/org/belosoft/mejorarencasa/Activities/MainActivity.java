@@ -20,13 +20,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.belosoft.mejorarencasa.R;
+import org.belosoft.mejorarencasa.Utils.Util;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public CharSequence tituloOpcionAbierta;
 
+    // lectura de Preferences
     private SharedPreferences prefs;
+    public String user;
+    public String age;
+    public String weight;
 
     // para salir de la app pulsando 2 veces retroceso
     private static final int INTERVALO = 2000; // 2 segundos de plazo
@@ -40,7 +45,11 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // leer Preferences
-        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("Preferences",Context.MODE_PRIVATE);
+        user = Util.getUserPreferences(prefs);
+        age = Util.getAgePreferences(prefs);
+        weight = Util.getWeightPreferences(prefs);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,12 +80,6 @@ public class MainActivity extends AppCompatActivity
             toastMEC(getResources().getString(R.string.salir));
         }
         tiempoPrimerClick = System.currentTimeMillis();
-        // DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        // if (drawer.isDrawerOpen(GravityCompat.START)) {
-        //     drawer.closeDrawer(GravityCompat.START);
-        // } else {
-        //     super.onBackPressed();
-        // }
     }
 
     @Override

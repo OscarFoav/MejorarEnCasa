@@ -54,19 +54,19 @@ public class Sentadillas extends AppCompatActivity {
         txvFlexionesSeriesRepeticiones.setText("Series: " + totalSeries + "  / Repeticiones: " + totalRepeticiones);
 
         TextView txvPSR = (TextView) findViewById(R.id.txtPrimeraSerieRepeticionesTabla);
-        txvPSR.setText("" + repSerie1 + " " + getResources().getString(R.string.repeticiones));
+        txvPSR.setText("" + repSerie1 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvSSR = (TextView) findViewById(R.id.txtSegundaSerieRepeticionesTabla);
-        txvSSR.setText("" + repSerie2 + " " + getResources().getString(R.string.repeticiones));
+        txvSSR.setText("" + repSerie2 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvTSR = (TextView) findViewById(R.id.txtTerceraSerieRepeticionesTabla);
-        txvTSR.setText("" + repSerie3 + " " + getResources().getString(R.string.repeticiones));
+        txvTSR.setText("" + repSerie3 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvCSR = (TextView) findViewById(R.id.txtCuartaSerieRepeticionesTabla);
-        txvCSR.setText("" + repSerie4 + " " + getResources().getString(R.string.repeticiones));
+        txvCSR.setText("" + repSerie4 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvQSR = (TextView) findViewById(R.id.txtQuintaSerieRepeticionesTabla);
-        txvQSR.setText("" + repSerie5 + " " + getResources().getString(R.string.repeticiones));
+        txvQSR.setText("" + repSerie5 + " " + getResources().getString(R.string.numero_repeticiones));
 
         prbCuentaAtras = (ProgressBar) findViewById(R.id.prbCuantaAtras);
         txvCuentaAtras = (TextView) findViewById(R.id.txvCuentaAtras);

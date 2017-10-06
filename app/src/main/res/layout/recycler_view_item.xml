@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/txvCabeceraSerie"
+                android:id="@+id/textViewCabeceraSerie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -44,49 +44,49 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txvNumeroSeries"
+                android:id="@+id/textViewNumeroSeries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/txvCabeceraSerie"
-                android:layout_alignStart="@+id/txvCabeceraSerie"
-                android:layout_below="@+id/txvCabeceraSerie"
+                android:layout_alignLeft="@+id/textViewCabeceraSerie"
+                android:layout_alignStart="@+id/textViewCabeceraSerie"
+                android:layout_below="@+id/textViewCabeceraSerie"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="4dp"
                 android:gravity="center"
                 android:text="@string/serie"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txvCabeceraSerie" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCabeceraSerie" />
 
             <TextView
-                android:id="@+id/txvNumeroRepeticiones"
+                android:id="@+id/textViewNumeroRepeticiones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/txvNumeroSeries"
-                android:layout_alignStart="@+id/txvNumeroSeries"
-                android:layout_below="@+id/txvNumeroSeries"
+                android:layout_alignLeft="@+id/textViewNumeroSeries"
+                android:layout_alignStart="@+id/textViewNumeroSeries"
+                android:layout_below="@+id/textViewNumeroSeries"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
                 android:text="@string/repeticion"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txvNumeroSeries" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNumeroSeries" />
 
             <TextView
-                android:id="@+id/txvSerieTiempoReposo"
+                android:id="@+id/textViewSerieTiempoReposo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/txvNumeroRepeticiones"
-                android:layout_alignStart="@+id/txvNumeroRepeticiones"
-                android:layout_below="@+id/txvNumeroRepeticiones"
+                android:layout_alignLeft="@+id/textViewNumeroRepeticiones"
+                android:layout_alignStart="@+id/textViewNumeroRepeticiones"
+                android:layout_below="@+id/textViewNumeroRepeticiones"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
-                android:text="@string/tiempo_de_reposo"
+                android:text="@string/tiempo_de_descanso"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txvNumeroRepeticiones" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNumeroRepeticiones" />
 
             <ImageView
                 android:id="@+id/imageViewSerie"

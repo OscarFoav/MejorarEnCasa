@@ -3,6 +3,7 @@ package org.belosoft.mejorarencasa.Activities;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 
 import org.belosoft.mejorarencasa.Adapters.MyAdapter;
 import org.belosoft.mejorarencasa.R;
+import org.belosoft.mejorarencasa.Utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +30,12 @@ import java.util.List;
 public class Flexiones extends AppCompatActivity {
 
     // Preferences y variables temporales
-    private SharedPreferences preferences;
+    private SharedPreferences prefs;
+    public String user;
+    public String age;
+    public String weight;
 
+    // control de repeticiones
     public int totalSeries = 5;
     public int totalRepeticiones;
     public Button btnSerie1;
@@ -63,8 +69,8 @@ public class Flexiones extends AppCompatActivity {
     // calorias por kilo y repetición
     public double caloriasKiloRepeticion = 0.081;
 
+    // aviso acustico
     ToneGenerator toneG;
-
 
     // estas de debajo seran sustituidas por los valores de la BD
     public int repSerie1 = 11;
@@ -89,57 +95,69 @@ public class Flexiones extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // carga inicial
+        inicializacion();
+
         // activar la fecha ir atrás
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // mantener la pantalla encencida
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        // modificacion a cardview y recyclerview
+        series = this.getAllSeries();
+
+        mLayoutManager = new LinearLayoutManager(this);
+
+
+    }
+
+    public void inicializacion() {
+        // carga inicial
+
         // sonido-beep
         toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
 
         // acceso a Preferences
-
-
-        preferences = getPreferences(Context.MODE_PRIVATE);
-
+        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        user = Util.getUserPreferences(prefs);
+        age = Util.getAgePreferences(prefs);
+        weight = Util.getWeightPreferences(prefs);
 
         // se asigna el mismo valor a tiempoRestante que el que tiene numeroCuentaAtras
         asignarTiempoRestanteIgualQueNumeroCuentaAtras();
 
         TextView textView1 = (TextView) findViewById(R.id.textViewPrimeraRepeticion);
-        textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + getResources().getString(R.string.repeticiones));
+        textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + plurales(repSerie1));
 
         TextView textView2 = (TextView) findViewById(R.id.textViewSegundaRepeticion);
-        textView2.setText(getResources().getText(R.string.segunda_serie) + ": " + repSerie2 + " " + getResources().getString(R.string.repeticiones));
+        textView2.setText(getResources().getText(R.string.segunda_serie) + ": " + repSerie2 + " " + plurales(repSerie2));
 
         TextView textView3 = (TextView) findViewById(R.id.textViewTerceraRepeticion);
-        textView3.setText(getResources().getText(R.string.tercera_serie) + ": " + repSerie3 + " " + getResources().getString(R.string.repeticiones));
+        textView3.setText(getResources().getText(R.string.tercera_serie) + ": " + repSerie3 + " " + plurales(repSerie3));
 
         TextView textView4 = (TextView) findViewById(R.id.textViewCuartaRepeticion);
-        textView4.setText(getResources().getText(R.string.cuarta_serie) + ": " + repSerie4 + " " + getResources().getString(R.string.repeticiones));
+        textView4.setText(getResources().getText(R.string.cuarta_serie) + ": " + repSerie4 + " " + plurales(repSerie4));
 
         TextView textView5 = (TextView) findViewById(R.id.textViewQuintaRepeticion);
-        textView5.setText(getResources().getText(R.string.quinta_serie) + ": " + repSerie5 + " " + getResources().getString(R.string.repeticiones));
+        textView5.setText(getResources().getText(R.string.quinta_serie) + ": " + repSerie5 + " " + plurales(repSerie5));
 
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
 
-        TextView txvCabeceraSeries = (TextView) findViewById(R.id.txvCabeceraSerie);
-        txvCabeceraSeries.setText(getResources().getString(R.string.categoria_flexiones));
+        TextView txvCabeceraSeries = (TextView) findViewById(R.id.textViewCabeceraSerie);
+        //txvCabeceraSeries.setText(getResources().getString(R.string.categoria_flexiones));
+        txvCabeceraSeries.setText(user);
 
-        TextView txvNumeroSeries = (TextView) findViewById(R.id.txvNumeroSeries);
-        txvNumeroSeries.setText(getResources().getString(R.string.series) + ": " + totalSeries);
+        TextView txvNumeroSeries = (TextView) findViewById(R.id.textViewNumeroSeries);
+        txvNumeroSeries.setText(getResources().getString(R.string.numero_series) + ": " + totalSeries);
 
-        TextView txvNumeroRepeticiones = (TextView) findViewById(R.id.txvNumeroRepeticiones);
-        txvNumeroRepeticiones.setText(getResources().getString(R.string.repeticiones) + ": " + totalRepeticiones);
+        TextView txvNumeroRepeticiones = (TextView) findViewById(R.id.textViewNumeroRepeticiones);
+        txvNumeroRepeticiones.setText(getResources().getString(R.string.numero_repeticiones) + ": " + totalRepeticiones);
 
-        txvSerieTiempoReposo = (TextView) findViewById(R.id.txvSerieTiempoReposo);
-        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
-
-        // modificacion a cardview y recyclerview
-        series = this.getAllSeries();
-
-        mLayoutManager = new LinearLayoutManager(this);
+        txvSerieTiempoReposo = (TextView) findViewById(R.id.textViewSerieTiempoReposo);
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) +
+                ": " + numeroCuentaAtras +
+                " " + getResources().getString(R.string.tiempo_de_descanso_despues));
 
         prbCuentaAtras = (ProgressBar) findViewById(R.id.prbCuantaAtras);
         prbCuentaAtras.setMax(numeroCuentaAtras);
@@ -149,9 +167,6 @@ public class Flexiones extends AppCompatActivity {
         // // inicialización de variables
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
         txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
-
-        // se asigna el mismo valor a tiempoRestante que el que tiene numeroCuentaAtras
-        tiempoRestante = numeroCuentaAtras;
 
         // // asignacion de botones
         btnSerie1 = (Button) findViewById(R.id.btnPrimeraRepeticion);
@@ -237,10 +252,12 @@ public class Flexiones extends AppCompatActivity {
                 int sumar = 10;
                 // quinto boton
                 if (numeroCuentaAtras == tiempoRestante) {
-                    if (numeroCuentaAtras < TIEMPO_MAXIMO) numeroCuentaAtras = numeroCuentaAtras + sumar;
+                    if (numeroCuentaAtras < TIEMPO_MAXIMO)
+                        numeroCuentaAtras = numeroCuentaAtras + sumar;
                     actualizarTimer(sumar);
-                }  else {
-                    if (numeroCuentaAtras < TIEMPO_MAXIMO) numeroCuentaAtras = numeroCuentaAtras + sumar;
+                } else {
+                    if (numeroCuentaAtras < TIEMPO_MAXIMO)
+                        numeroCuentaAtras = numeroCuentaAtras + sumar;
                     reiniciarTimer(numeroCuentaAtras, tiempoRestante + sumar);
                 }
             }
@@ -251,10 +268,12 @@ public class Flexiones extends AppCompatActivity {
                 int restar = 10;
                 // si los valores son iguales no se actualiza el timer
                 if (numeroCuentaAtras == tiempoRestante) {
-                    if (numeroCuentaAtras > TIEMPO_MINIMO) numeroCuentaAtras = numeroCuentaAtras - restar;
+                    if (numeroCuentaAtras > TIEMPO_MINIMO)
+                        numeroCuentaAtras = numeroCuentaAtras - restar;
                     actualizarTimer(-restar);
                 } else {
-                    if (numeroCuentaAtras > TIEMPO_MINIMO) numeroCuentaAtras = numeroCuentaAtras - restar;
+                    if (numeroCuentaAtras > TIEMPO_MINIMO)
+                        numeroCuentaAtras = numeroCuentaAtras - restar;
                     reiniciarTimer(numeroCuentaAtras, tiempoRestante - restar);
                 }
             }
@@ -307,19 +326,19 @@ public class Flexiones extends AppCompatActivity {
 
     public void reiniciarTimer(int numeroCuentaAtrasLocal, int tiempoRestanteLocal) {
         if (countDownTimer != null) countDownTimer.cancel();
-        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtrasLocal);
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) + ": " + numeroCuentaAtrasLocal);
         txvCuentaAtras.setText(String.valueOf(numeroCuentaAtrasLocal));
         numeroCuentaAtras = numeroCuentaAtrasLocal;
         CuentaAtras(numeroCuentaAtrasLocal, tiempoRestanteLocal);
     }
 
-    public void actualizarTimer(int valor){
+    public void actualizarTimer(int valor) {
         asignarTiempoRestanteIgualQueNumeroCuentaAtras();
-        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) + ": " + numeroCuentaAtras);
         txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
     }
 
-    public void asignarTiempoRestanteIgualQueNumeroCuentaAtras(){
+    public void asignarTiempoRestanteIgualQueNumeroCuentaAtras() {
         tiempoRestante = numeroCuentaAtras;
     }
 
@@ -406,5 +425,16 @@ public class Flexiones extends AppCompatActivity {
             add(new Serie("Cuarta Repeticion", R.id.btnCuartaRepeticion));
 
         }};
+    }
+
+    private String plurales(int cantidad) {
+        Resources res = this.getResources();
+        String cadena;
+        if (cantidad == 1) {
+            cadena = res.getQuantityString(R.plurals.repeticion, 1);
+        } else {
+            cadena = res.getQuantityString(R.plurals.repeticion, 2);
+        }
+        return cadena;
     }
 }

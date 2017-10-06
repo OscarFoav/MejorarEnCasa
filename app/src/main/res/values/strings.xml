@@ -20,15 +20,14 @@
 
     <!-- plantilla series -->
     <string name="serie">Serie</string>
-    <string name="series">Series</string>
+    <string name="numero_series">Series</string>
     <string name="repeticion">Repetition</string>
-    <string name="repeticiones">Repetitions</string>
-    <string name="tiempo_reposo">Leap time</string>
-    <string name="terminada">Done</string>
+    <string name="numero_repeticiones">Repetitions</string>
+    <string name="hecha">Done</string>
     <string name="calorias_consumidas_aproximadas">Calories consumed aproximately</string>
     <string name="diez_segundos_mas">+ 10 sec.</string>
     <string name="diez_segundos_menos">- 10 sec.</string>
-    <string name="tiempo_de_reposo">Pause time</string>
+    <string name="tiempo_de_descanso">Pause time</string>
     <string name="terminar_cuenta_atras">Stop countdown</string>
     <string name="numero_cuenta_atras">60</string>
 
@@ -95,6 +94,11 @@
     <string name="aceptar">Ok</string>
     <string name="cancelar">Cancel</string>
 
+    <plurals name="repeticion">
+        <!-- one = 1  other = 2 many -->
+        <item quantity="one">repetición</item>
+        <item quantity="other">repeticiones</item>
+    </plurals>
 </resources>
 
 

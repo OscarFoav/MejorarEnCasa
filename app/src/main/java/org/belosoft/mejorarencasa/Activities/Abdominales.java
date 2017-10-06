@@ -3,7 +3,6 @@ package org.belosoft.mejorarencasa.Activities;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.belosoft.mejorarencasa.R;
@@ -62,32 +59,32 @@ public class Abdominales extends AppCompatActivity {
 
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
 
-        TextView txvCabeceraSeries = (TextView) findViewById(R.id.txvCabeceraSerie);
+        TextView txvCabeceraSeries = (TextView) findViewById(R.id.textViewCabeceraSerie);
         txvCabeceraSeries.setText(getResources().getString(R.string.categoria_abdominales));
 
-        TextView txvNumeroSeries = (TextView) findViewById(R.id.txvNumeroSeries);
-        txvNumeroSeries.setText(getResources().getString(R.string.series) + ": " + totalSeries);
+        TextView txvNumeroSeries = (TextView) findViewById(R.id.textViewNumeroSeries);
+        txvNumeroSeries.setText(getResources().getString(R.string.numero_series) + ": " + totalSeries);
 
-        TextView txvNumeroRepeticiones = (TextView) findViewById(R.id.txvNumeroRepeticiones);
-        txvNumeroRepeticiones.setText(getResources().getString(R.string.repeticiones) + ": " + totalRepeticiones);
+        TextView txvNumeroRepeticiones = (TextView) findViewById(R.id.textViewNumeroRepeticiones);
+        txvNumeroRepeticiones.setText(getResources().getString(R.string.numero_repeticiones) + ": " + totalRepeticiones);
 
-        txvSerieTiempoReposo = (TextView) findViewById(R.id.txvSerieTiempoReposo);
-        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
+        txvSerieTiempoReposo = (TextView) findViewById(R.id.textViewSerieTiempoReposo);
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) + ": " + numeroCuentaAtras);
 
         TextView txvPSR = (TextView) findViewById(R.id.txtPrimeraSerieRepeticionesTabla);
-        txvPSR.setText("" + repSerie1 + " " + getResources().getString(R.string.repeticiones));
+        txvPSR.setText("" + repSerie1 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvSSR = (TextView) findViewById(R.id.txtSegundaSerieRepeticionesTabla);
-        txvSSR.setText("" + repSerie2 + " " + getResources().getString(R.string.repeticiones));
+        txvSSR.setText("" + repSerie2 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvTSR = (TextView) findViewById(R.id.txtTerceraSerieRepeticionesTabla);
-        txvTSR.setText("" + repSerie3 + " " + getResources().getString(R.string.repeticiones));
+        txvTSR.setText("" + repSerie3 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvCSR = (TextView) findViewById(R.id.txtCuartaSerieRepeticionesTabla);
-        txvCSR.setText("" + repSerie4 + " " + getResources().getString(R.string.repeticiones));
+        txvCSR.setText("" + repSerie4 + " " + getResources().getString(R.string.numero_repeticiones));
 
         TextView txvQSR = (TextView) findViewById(R.id.txtQuintaSerieRepeticionesTabla);
-        txvQSR.setText("" + repSerie5 + " " + getResources().getString(R.string.repeticiones));
+        txvQSR.setText("" + repSerie5 + " " + getResources().getString(R.string.numero_repeticiones));
 
         prbCuentaAtras = (ProgressBar) findViewById(R.id.prbCuantaAtras);
         txvCuentaAtras = (TextView) findViewById(R.id.txvCuentaAtras);
@@ -167,7 +164,7 @@ public class Abdominales extends AppCompatActivity {
             public void onClick(View v) {
                 // your handler code here
                 if (numeroCuentaAtras < 150) numeroCuentaAtras += +10;
-                txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
+                txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) + ": " + numeroCuentaAtras);
             }
         });
 
@@ -176,7 +173,7 @@ public class Abdominales extends AppCompatActivity {
             public void onClick(View v) {
                 // your handler code here
                 if (numeroCuentaAtras > 30) numeroCuentaAtras -= 10;
-                txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
+                txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) + ": " + numeroCuentaAtras);
             }
         });
 

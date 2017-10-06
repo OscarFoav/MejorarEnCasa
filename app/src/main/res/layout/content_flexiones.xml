@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/txvCabeceraSerie"
+            android:id="@+id/textViewCabeceraSerie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -41,33 +41,33 @@
             android:textSize="36sp" />
 
         <TextView
-            android:id="@+id/txvNumeroSeries"
+            android:id="@+id/textViewNumeroSeries"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvCabeceraSerie"
+            android:layout_below="@+id/textViewCabeceraSerie"
             android:gravity="center"
             android:text="@string/serie"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/txvNumeroRepeticiones"
+            android:id="@+id/textViewNumeroRepeticiones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvNumeroSeries"
+            android:layout_below="@+id/textViewNumeroSeries"
             android:gravity="center"
             android:text="@string/repeticion"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/txvSerieTiempoReposo"
+            android:id="@+id/textViewSerieTiempoReposo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvNumeroRepeticiones"
+            android:layout_below="@+id/textViewNumeroRepeticiones"
             android:gravity="center"
-            android:text="@string/tiempo_de_reposo"
+            android:text="@string/tiempo_de_descanso"
             android:textSize="18sp" />
 
         <ImageView
@@ -85,7 +85,7 @@
             android:layout_width="fill_parent"
             android:layout_height="250dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txvSerieTiempoReposo"
+            android:layout_below="@+id/textViewSerieTiempoReposo"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:paddingLeft="5dp"
@@ -128,7 +128,7 @@
                     android:background="@drawable/round_corner_azul_claro"
                     android:paddingBottom="6dp"
                     android:paddingTop="6dp"
-                    android:text="@string/terminada"
+                    android:text="@string/hecha"
                     android:textAllCaps="false" />
             </TableRow>
 
@@ -173,7 +173,7 @@
                     android:background="@drawable/round_corner_azul_claro"
                     android:paddingBottom="6dp"
                     android:paddingTop="6dp"
-                    android:text="@string/terminada"
+                    android:text="@string/hecha"
                     android:textAllCaps="false" />
             </TableRow>
 
@@ -218,7 +218,7 @@
                     android:background="@drawable/round_corner_azul_claro"
                     android:paddingBottom="6dp"
                     android:paddingTop="6dp"
-                    android:text="@string/terminada"
+                    android:text="@string/hecha"
                     android:textAllCaps="false" />
             </TableRow>
 
@@ -263,7 +263,7 @@
                     android:background="@drawable/round_corner_azul_claro"
                     android:paddingBottom="6dp"
                     android:paddingTop="6dp"
-                    android:text="@string/terminada"
+                    android:text="@string/hecha"
                     android:textAllCaps="false" />
             </TableRow>
 
@@ -308,7 +308,7 @@
                     android:background="@drawable/round_corner_azul_claro"
                     android:paddingBottom="6dp"
                     android:paddingTop="6dp"
-                    android:text="@string/terminada"
+                    android:text="@string/hecha"
                     android:textAllCaps="false" />
             </TableRow>
 

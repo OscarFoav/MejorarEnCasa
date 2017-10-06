@@ -1,7 +1,6 @@
 package org.belosoft.mejorarencasa.Utils;
 
 import android.content.SharedPreferences;
-import android.widget.Switch;
 
 /**
  * Created by OscarPC on 05/10/2017.
@@ -29,4 +28,13 @@ public class Util {
         return preferences.getBoolean("remember", false);
     }
 
+    public static void removeSharedPreferences(SharedPreferences preferences){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove("user");
+        editor.remove("pass");
+        editor.remove("age");
+        editor.remove("weight");
+        editor.commit();
+        editor.apply();
+    }
 }

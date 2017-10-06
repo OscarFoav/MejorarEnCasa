@@ -20,26 +20,27 @@
 
     <!-- plantilla series -->
     <string name="serie">Serie</string>
-    <string name="series">Series</string>
-    <string name="repeticion">Repetición</string>
-    <string name="repeticiones">Repeticiones</string>
-    <string name="tiempo_reposo">Tiempo de reposo</string>
-    <string name="terminada">Hecha</string>
+    <string name="numero_series">Nº Series</string>
+    <string name="repeticion">repetición</string>
+    <string name="repeticiones">repeticiones</string>
+    <string name="numero_repeticiones">Nº Repeticiones</string>
+    <string name="hecha">Hecha</string>
     <string name="calorias_consumidas_aproximadas">Calorias consumidas aproximadamente</string>
     <string name="diez_segundos_mas">10 seg. +</string>
     <string name="diez_segundos_menos">10 seg. -</string>
-    <string name="tiempo_de_reposo">Tiempo de reposo</string>
+    <string name="tiempo_de_descanso">Tiempo de descanso</string>
+    <string name="tiempo_de_descanso_despues">seg.</string>
     <string name="terminar_cuenta_atras">Parar Cuenta Atrás</string>
     <string name="numero_cuenta_atras">60</string>
 
     <string name="salir">Pulsa otra vez para salir.</string>
 
     <!-- series -->
-    <string name="primera_serie">Primera</string>
-    <string name="segunda_serie">Segunda</string>
-    <string name="tercera_serie">Tercera</string>
-    <string name="cuarta_serie">Cuarta</string>
-    <string name="quinta_serie">Quinta</string>
+    <string name="primera_serie">1ª serie</string>
+    <string name="segunda_serie">2ª serie</string>
+    <string name="tercera_serie">3ª serie</string>
+    <string name="cuarta_serie">4ª serie</string>
+    <string name="quinta_serie">5ª serie</string>
     <string name="title_activity_flexiones">Flexiones</string>
 
     <!-- categorias -->
