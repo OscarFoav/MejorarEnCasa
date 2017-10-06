@@ -48,9 +48,25 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- categorias -->
-    <string name="categoria1_title">User Information</string>
+
+    <!-- login -->
+    <string name="user_hint">User</string>
+    <string name="password_hint">Password</string>
+    <string name="remember_text">Remember </string>
+    <string name="button_text">LOGIN</string>
+    <string name="error_user">El campo Usuario no puede estar vacío. Inténtalo otra vez.</string>
+    <string name="error_password">El campo debe tener al menos cuatro caracteres. Inténtalo otra vez.</string>
+
+    <!-- preferences -->
+    <string name="usuario_name">User Information</string>
     <string name="usuario_title">User Name</string>
     <string name="usuario_summary">Type your name.</string>
+
+    <string name="age_title">User Age</string>
+    <string name="age_summary">Age</string>
+
+    <string name="weight_title">User Weight</string>
+    <string name="weight_summary">Weight</string>
 
     <string name="categoria2_title">Traffic information</string>
     <string name="categoria3_title">Kind of route </string>
@@ -80,4 +96,5 @@
     <string name="cancelar">Cancel</string>
 
 </resources>
+
 

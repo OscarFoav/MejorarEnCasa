@@ -1,6 +1,8 @@
 package org.belosoft.mejorarencasa.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,13 +19,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.belosoft.mejorarencasa.Preferences.Preferencias;
 import org.belosoft.mejorarencasa.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public CharSequence tituloOpcionAbierta;
+
+    private SharedPreferences prefs;
 
     // para salir de la app pulsando 2 veces retroceso
     private static final int INTERVALO = 2000; // 2 segundos de plazo
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // leer Preferences
+        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,23 +82,34 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()){
+            case R.id.menu_logout:
+                logOut();
+                return  true;
+            case R.id.menu_forget_logout:
+                removeSharedPreferences();
+                logOut();
+                return  true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    private void logOut(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    private void removeSharedPreferences() {
+        // borrar los valores de la Shared
+        prefs.edit().clear().apply();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -134,7 +151,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
             // Handle the gemelos action
             tituloOpcionAbierta=getResources().getString(R.string.action_configuracion);
-            Intent i = new Intent(this, Preferencias.class);
+            Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
         }
 

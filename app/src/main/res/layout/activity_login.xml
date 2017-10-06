@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.LoginActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <EditText
+        android:id="@+id/editTextUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="@string/user_hint"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextUser"
+        android:layout_alignRight="@+id/editTextUser"
+        android:layout_below="@+id/editTextUser"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextPassword"
+        android:layout_alignStart="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/weight_summary"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextPassword"
+        android:layout_alignRight="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="@string/age_summary"
+        android:inputType="number"
+        android:maxLength="2" />
+
+    <Switch
+        android:id="@+id/switchRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextPassword"
+        android:layout_alignRight="@+id/editTextPassword"
+        android:layout_below="@+id/editTextWeight"
+        android:layout_marginTop="40dp"
+        android:text="@string/remember_text" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/switchRemember"
+        android:layout_alignLeft="@+id/editTextPassword"
+        android:layout_alignRight="@+id/switchRemember"
+        android:layout_alignStart="@+id/editTextPassword"
+        android:layout_below="@+id/switchRemember"
+        android:layout_marginTop="20dp"
+        android:text="@string/button_text" />
+</RelativeLayout>

@@ -1,6 +1,8 @@
 package org.belosoft.mejorarencasa.Activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
@@ -24,6 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flexiones extends AppCompatActivity {
+
+    // Preferences y variables temporales
+    private SharedPreferences preferences;
 
     public int totalSeries = 5;
     public int totalRepeticiones;
@@ -84,7 +89,6 @@ public class Flexiones extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         // activar la fecha ir atrás
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -93,6 +97,15 @@ public class Flexiones extends AppCompatActivity {
 
         // sonido-beep
         toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+
+        // acceso a Preferences
+
+
+        preferences = getPreferences(Context.MODE_PRIVATE);
+
+
+        // se asigna el mismo valor a tiempoRestante que el que tiene numeroCuentaAtras
+        asignarTiempoRestanteIgualQueNumeroCuentaAtras();
 
         TextView textView1 = (TextView) findViewById(R.id.textViewPrimeraRepeticion);
         textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + getResources().getString(R.string.repeticiones));
@@ -136,11 +149,9 @@ public class Flexiones extends AppCompatActivity {
         // // inicialización de variables
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
         txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
-        // if (numeroCuentaAtras > 99) {
-        //     txvCuentaAtras.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 35);
-        // } else {
-        //     txvCuentaAtras.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 50);
-        // }
+
+        // se asigna el mismo valor a tiempoRestante que el que tiene numeroCuentaAtras
+        tiempoRestante = numeroCuentaAtras;
 
         // // asignacion de botones
         btnSerie1 = (Button) findViewById(R.id.btnPrimeraRepeticion);
@@ -225,7 +236,7 @@ public class Flexiones extends AppCompatActivity {
             public void onClick(View v) {
                 int sumar = 10;
                 // quinto boton
-                if ((numeroCuentaAtras) == tiempoRestante) {
+                if (numeroCuentaAtras == tiempoRestante) {
                     if (numeroCuentaAtras < TIEMPO_MAXIMO) numeroCuentaAtras = numeroCuentaAtras + sumar;
                     actualizarTimer(sumar);
                 }  else {
@@ -239,7 +250,7 @@ public class Flexiones extends AppCompatActivity {
             public void onClick(View v) {
                 int restar = 10;
                 // si los valores son iguales no se actualiza el timer
-                if ((numeroCuentaAtras) == tiempoRestante) {
+                if (numeroCuentaAtras == tiempoRestante) {
                     if (numeroCuentaAtras > TIEMPO_MINIMO) numeroCuentaAtras = numeroCuentaAtras - restar;
                     actualizarTimer(-restar);
                 } else {
@@ -297,12 +308,19 @@ public class Flexiones extends AppCompatActivity {
     public void reiniciarTimer(int numeroCuentaAtrasLocal, int tiempoRestanteLocal) {
         if (countDownTimer != null) countDownTimer.cancel();
         txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtrasLocal);
+        txvCuentaAtras.setText(String.valueOf(numeroCuentaAtrasLocal));
+        numeroCuentaAtras = numeroCuentaAtrasLocal;
         CuentaAtras(numeroCuentaAtrasLocal, tiempoRestanteLocal);
     }
 
     public void actualizarTimer(int valor){
-        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + valor);
-        txvCuentaAtras.setText(String.valueOf(valor));
+        asignarTiempoRestanteIgualQueNumeroCuentaAtras();
+        txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_reposo) + ": " + numeroCuentaAtras);
+        txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
+    }
+
+    public void asignarTiempoRestanteIgualQueNumeroCuentaAtras(){
+        tiempoRestante = numeroCuentaAtras;
     }
 
     public void cancelTimer() {
