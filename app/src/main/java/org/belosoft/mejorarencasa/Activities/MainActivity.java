@@ -1,9 +1,11 @@
 package org.belosoft.mejorarencasa.Activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +24,14 @@ import android.widget.Toast;
 import org.belosoft.mejorarencasa.R;
 import org.belosoft.mejorarencasa.Utils.Util;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    // Realm
+    private Realm realm;
 
     public CharSequence tituloOpcionAbierta;
 
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // leer Preferences
-        prefs = getSharedPreferences("Preferences",Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         user = Util.getUserPreferences(prefs);
         age = Util.getAgePreferences(prefs);
         weight = Util.getWeightPreferences(prefs);
@@ -53,12 +61,13 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
-            public void onDrawerClosed(View view){
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            public void onDrawerClosed(View view) {
                 // titulo navdrawer cerrado
                 getSupportActionBar().setTitle(R.string.app_name);
             }
-            public void onDrawerOpened(View view){
+
+            public void onDrawerOpened(View view) {
                 // titulo navdrawer abierto
                 getSupportActionBar().setTitle(tituloOpcionAbierta);
             }
@@ -72,7 +81,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (tiempoPrimerClick + INTERVALO > System.currentTimeMillis()){
+        if (tiempoPrimerClick + INTERVALO > System.currentTimeMillis()) {
             super.onBackPressed();
             this.finish();
             return;
@@ -91,20 +100,48 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_user_change:
+        switch (item.getItemId()) {
+            case R.id.menu_cerrar_sesion:
                 changeUserProfile();
-                return  true;
-            case R.id.menu_change_user_profile:
-                removeSharedPreferences_UserData();
-                changeUserProfile();
-                return  true;
+                return true;
+            case R.id.menu_borrar_datos_usuario:
+                // borrar la BD, no hay vuelta atras
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                final View viewInflated = LayoutInflater.from(this).inflate(R.layout.alert_dialog, null);
+                builder.setTitle(getResources().getString(R.string.alert_dialog_aceptar_title) + " " + user);
+                builder.setMessage(getResources().getString(R.string.alert_dialog_aceptar_message));
+                builder.setPositiveButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        removeSharedPreferences_UserData();
+                        setUpRealmConfig();
+                        realm = Realm.getDefaultInstance();
+                        realm.beginTransaction();
+                        realm.deleteAll();
+                        realm.commitTransaction();
+                        realm.close();
+                        changeUserProfile();
+                        toastMEC(user + " " + getResources().getString(R.string.alert_dialog_borrado));
+                        //Toast.makeText(MainActivity.this, user + " " + getResources().getString(R.string.alert_dialog_borrado) , Toast.LENGTH_LONG ).show();
+                    }
+                })
+                        .setNegativeButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                toastMEC(getResources().getString(R.string.alert_dialog_cancelado));
+                                //Toast.makeText(MainActivity.this, getResources().getString(R.string.alert_dialog_cancelado), Toast.LENGTH_LONG ).show();
+                            }
+                        }) ;
+                builder.create();
+                builder.show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void changeUserProfile(){
+    private void changeUserProfile() {
         // abrir Login
         Intent intent = new Intent(this, LoginActivity.class);
         intent.putExtra("opcion", 1);
@@ -125,38 +162,38 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_flexiones) {
             // Handle the flexiones action
-            tituloOpcionAbierta=getResources().getString(R.string.action_flexiones);
+            tituloOpcionAbierta = getResources().getString(R.string.action_flexiones);
             Intent i = new Intent(this, Flexiones.class);
             startActivity(i);
         } else if (id == R.id.nav_abdominales) {
             // Handle the abdominales action
-            tituloOpcionAbierta=getResources().getString(R.string.action_abdominales);
+            tituloOpcionAbierta = getResources().getString(R.string.action_abdominales);
             Intent i = new Intent(this, Abdominales.class);
             startActivity(i);
         } else if (id == R.id.nav_fondos) {
             // Handle the fondos action
-            tituloOpcionAbierta=getResources().getString(R.string.action_fondos);
+            tituloOpcionAbierta = getResources().getString(R.string.action_fondos);
             Intent i = new Intent(this, Fondos.class);
             startActivity(i);
         } else if (id == R.id.nav_sentadillas) {
             // Handle the sentadillas action
-            tituloOpcionAbierta=getResources().getString(R.string.action_sentadillas);
+            tituloOpcionAbierta = getResources().getString(R.string.action_sentadillas);
             Intent i = new Intent(this, Sentadillas.class);
             startActivity(i);
         } else if (id == R.id.nav_dominadas) {
             // Handle the dominadas action
-            tituloOpcionAbierta=getResources().getString(R.string.action_dominadas);
+            tituloOpcionAbierta = getResources().getString(R.string.action_dominadas);
             Intent i = new Intent(this, Dominadas.class);
             startActivity(i);
         } else if (id == R.id.nav_gemelos) {
             // Handle the gemelos action
-            tituloOpcionAbierta=getResources().getString(R.string.action_gemelos);
+            tituloOpcionAbierta = getResources().getString(R.string.action_gemelos);
             Intent i = new Intent(this, Gemelos.class);
             startActivity(i);
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_about) {
             // Handle the gemelos action
-            tituloOpcionAbierta=getResources().getString(R.string.action_configuracion);
-            Intent i = new Intent(this, LoginActivity.class);
+            tituloOpcionAbierta = getResources().getString(R.string.action_acerca_de);
+            Intent i = new Intent(this, AcercaDeActivity.class);
             startActivity(i);
         }
 
@@ -165,13 +202,13 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public String toastMEC (String texto) {
+    public String toastMEC(String texto) {
         // presentacion de Toast personalizado para la app
         Toast toastInterno = new Toast(getApplicationContext());
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate((R.layout.toast_layout), (ViewGroup) findViewById(R.id.lytLayout));
         TextView txtMsg = (TextView) layout.findViewById(R.id.txtMensaje);
-        txtMsg.setText(texto+"  ");
+        txtMsg.setText(texto + "  ");
         toastInterno.setDuration(Toast.LENGTH_SHORT);
         toastInterno.setView(layout);
         toastInterno.show();
@@ -192,4 +229,12 @@ public class MainActivity extends AppCompatActivity
         return null;
     }
 
+    // configurar Realm config
+    private void setUpRealmConfig() {
+        RealmConfiguration config = new RealmConfiguration
+                .Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(config);
+    }
 }

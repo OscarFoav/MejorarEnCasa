@@ -289,6 +289,131 @@ public class LoginActivity extends AppCompatActivity {
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
+        // asignando valores
+        user_serie = userLocal;
+        user_age = ageLocal;
+        user_weight = weightLocal;
+        series_name = "Abdominales";
+        repetition_series_one = 20;
+        repetition_series_two = 20;
+        repetition_series_three = 20;
+        repetition_series_four = 20;
+        repetition_series_five = 20;
+        // grabacion del registro
+        realm.beginTransaction();
+        useres = new Users(
+                user_serie,
+                user_age,
+                user_weight,
+                series_name,
+                repetition_series_one,
+                repetition_series_two,
+                repetition_series_three,
+                repetition_series_four,
+                repetition_series_five);
+        realm.copyToRealm(useres);
+        realm.commitTransaction();
+
+        // asignando valores
+        user_serie = userLocal;
+        user_age = ageLocal;
+        user_weight = weightLocal;
+        series_name = "Fondos";
+        repetition_series_one = 15;
+        repetition_series_two = 15;
+        repetition_series_three = 15;
+        repetition_series_four = 15;
+        repetition_series_five = 15;
+        // grabacion del registro
+        realm.beginTransaction();
+        useres = new Users(
+                user_serie,
+                user_age,
+                user_weight,
+                series_name,
+                repetition_series_one,
+                repetition_series_two,
+                repetition_series_three,
+                repetition_series_four,
+                repetition_series_five);
+        realm.copyToRealm(useres);
+        realm.commitTransaction();
+
+        // asignando valores
+        user_serie = userLocal;
+        user_age = ageLocal;
+        user_weight = weightLocal;
+        series_name = "Sentadillas";
+        repetition_series_one = 20;
+        repetition_series_two = 20;
+        repetition_series_three = 20;
+        repetition_series_four = 20;
+        repetition_series_five = 20;
+        // grabacion del registro
+        realm.beginTransaction();
+        useres = new Users(
+                user_serie,
+                user_age,
+                user_weight,
+                series_name,
+                repetition_series_one,
+                repetition_series_two,
+                repetition_series_three,
+                repetition_series_four,
+                repetition_series_five);
+        realm.copyToRealm(useres);
+        realm.commitTransaction();
+
+        // asignando valores
+        user_serie = userLocal;
+        user_age = ageLocal;
+        user_weight = weightLocal;
+        series_name = "Dominadas";
+        repetition_series_one = 2;
+        repetition_series_two = 2;
+        repetition_series_three = 2;
+        repetition_series_four = 2;
+        repetition_series_five = 2;
+        // grabacion del registro
+        realm.beginTransaction();
+        useres = new Users(
+                user_serie,
+                user_age,
+                user_weight,
+                series_name,
+                repetition_series_one,
+                repetition_series_two,
+                repetition_series_three,
+                repetition_series_four,
+                repetition_series_five);
+        realm.copyToRealm(useres);
+        realm.commitTransaction();
+
+        // asignando valores
+        user_serie = userLocal;
+        user_age = ageLocal;
+        user_weight = weightLocal;
+        series_name = "Gemelos";
+        repetition_series_one = 20;
+        repetition_series_two = 20;
+        repetition_series_three = 20;
+        repetition_series_four = 20;
+        repetition_series_five = 20;
+        // grabacion del registro
+        realm.beginTransaction();
+        useres = new Users(
+                user_serie,
+                user_age,
+                user_weight,
+                series_name,
+                repetition_series_one,
+                repetition_series_two,
+                repetition_series_three,
+                repetition_series_four,
+                repetition_series_five);
+        realm.copyToRealm(useres);
+        realm.commitTransaction();
+
     }
 
     private void createHistorical(String userLocal, String serieLocal) {

@@ -17,10 +17,16 @@
     <string name="action_gemelos">Gemelos</string>
     <string name="action_ajustes">Configuración</string>
     <string name="action_configuracion">Configuración</string>
+    <string name="action_acerca_de">Acerca de...</string>
 
     <!-- menu Context -->
-    <string name="menu_cambio_usuario">Cambio de usuario</string>
-    <string name="menu_cambio_perfil_usuario">Cambiar perfil del usuario  (developing)</string>
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
+    <string name="menu_borrar_datos_usuario">Borrar datos del usuario (irreversible)</string>
+    <!-- alertdialog acetar/cancelar borrar datos -->
+    <string name="alert_dialog_aceptar_title">Eliminar entrenamiento de</string>
+    <string name="alert_dialog_aceptar_message">Esta opción no tiene vuelta atrás.</string>
+    <string name="alert_dialog_borrado"> eliminado.</string>
+    <string name="alert_dialog_cancelado">Eliminación cancelada.</string>
 
     <!-- plantilla series -->
     <string name="serie">Serie</string>
@@ -39,7 +45,7 @@
     <!-- plantilla series dialogbox final serie -->
     <string name="dialog_box_">Tap again to exit app.</string>
     <string name="dialog_box_titulo_final_serie">¡Serie terminada!</string>
-    <string name="dialog_box_mensaje_final_serie">¿Quieres subir el número de repeticiones?</string>
+    <string name="dialog_box_mensaje_final_serie">¿Quieres cambiar el número de repeticiones?</string>
     <string name="calorias_consumidas_aproximadas">Calorias consumidas aproximadas</string>
 
     <!-- salir de la app -->
@@ -94,6 +100,11 @@
     <!-- aceptar y cancelar -->
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
+
+    <!-- acerca de -->
+    <string name="texto_presentacion">Bienvenido a la App de MejorarEnCasa. \n\n
+        (Esta pantalla está en desarrollo)
+    </string>
 
     <plurals name="repeticion">
         <!-- zero = 0, one = 1, two = 2, few = n mod 100 in 3..10,  many = n mod 100 in 11..99, other = everything else -->

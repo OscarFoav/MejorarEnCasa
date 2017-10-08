@@ -8,6 +8,7 @@ import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -70,7 +72,6 @@ public class Flexiones extends AppCompatActivity {
     public Button btnTerminarCuentaAtras;
     public ProgressBar prbCuentaAtras;
     public TextView txvCuentaAtras;
-    public int numberOfRepetitions = 0;             // numero de repeticiones en el dialogbox final de serie
 
     // control de la cuenta atras
     public CountDownTimer countDownTimer;
@@ -96,11 +97,11 @@ public class Flexiones extends AppCompatActivity {
     ToneGenerator toneG;
 
     // estas de debajo seran sustituidas por los valores de la BD
-    public int repSerie1 = 11;
-    public int repSerie2 = 11;
-    public int repSerie3 = 11;
-    public int repSerie4 = 11;
-    public int repSerie5 = 11;
+    public int repSerie1 = 0;
+    public int repSerie2 = 0;
+    public int repSerie3 = 0;
+    public int repSerie4 = 0;
+    public int repSerie5 = 0;
     public int numeroCuentaAtras = 60;
 
 
@@ -110,6 +111,14 @@ public class Flexiones extends AppCompatActivity {
         setContentView(R.layout.activity_plantilla_series);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // color de fondo
+        View viewChangeBackground = findViewById(R.id.activityMainChangeBackground);
+        // asignar el color
+        viewChangeBackground.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+        // imagen asociada
+        ImageView imageView = (ImageView) findViewById(R.id.imageViewSerie);
+        imageView.setImageResource(R.drawable.flexiones2);
 
         // carga inicial
         inicializacion();
@@ -125,8 +134,6 @@ public class Flexiones extends AppCompatActivity {
     public void inicializacion() {
         // carga inicial
 
-        // llamada a Realm
-
         // acceso a Preferences
         prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         user = Util.getUserPreferences(prefs);
@@ -141,16 +148,13 @@ public class Flexiones extends AppCompatActivity {
         asignarTiempoRestanteIgualQueNumeroCuentaAtras();
 
         TextView textView1 = (TextView) findViewById(R.id.textViewPrimeraRepeticion);
-        //textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + plurales(repSerie1));
         TextView textView2 = (TextView) findViewById(R.id.textViewSegundaRepeticion);
         TextView textView3 = (TextView) findViewById(R.id.textViewTerceraRepeticion);
         TextView textView4 = (TextView) findViewById(R.id.textViewCuartaRepeticion);
         TextView textView5 = (TextView) findViewById(R.id.textViewQuintaRepeticion);
-
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
 
         TextView txvCabeceraSeries = (TextView) findViewById(R.id.textViewCabeceraSerie);
-        //txvCabeceraSeries.setText(getResources().getString(R.string.categoria_flexiones));
         txvCabeceraSeries.setText(user);
 
         TextView txvNumeroSeries = (TextView) findViewById(R.id.textViewNumeroSeries);
@@ -169,11 +173,11 @@ public class Flexiones extends AppCompatActivity {
         prbCuentaAtras.setProgress(numeroCuentaAtras);
         txvCuentaAtras = (TextView) findViewById(R.id.txvCuentaAtras);
 
-        // // inicialización de variables
+        // inicialización de variables
         totalRepeticiones = repSerie1 + repSerie2 + repSerie3 + repSerie4 + repSerie5;
         txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
 
-        // // asignacion de botones
+        // asignacion de botones
         btnSerie1 = (Button) findViewById(R.id.btnPrimeraRepeticion);
         btnSerie2 = (Button) findViewById(R.id.btnSegundaRepeticion);
         btnSerie3 = (Button) findViewById(R.id.btnTerceraRepeticion);
@@ -183,7 +187,7 @@ public class Flexiones extends AppCompatActivity {
         btn10SegundosMenos = (Button) findViewById(R.id.btn10SegundosMenos);
         btnTerminarCuentaAtras = (Button) findViewById(R.id.btnTerminarCuentaAtras);
 
-
+        // acceso a Realm
         setUpRealmConfig();
         realm = Realm.getDefaultInstance();
         DefaultValuesID = getIdByTable(realm, DefaultValues.class);
@@ -192,7 +196,6 @@ public class Flexiones extends AppCompatActivity {
 
         // lectura de DefaultValues
         defaultValues = realm.where(DefaultValues.class).findAll();
-        //if (defaultValues.size() == 0) createNewDefaultValues();
 
         // lectura de Users
         useres = realm.where(Users.class)
@@ -214,11 +217,8 @@ public class Flexiones extends AppCompatActivity {
             // total series no esta en la BD (¿todavia o nunca?)
             txvNumeroSeries.setText(getResources().getString(R.string.numero_series) + ": " + totalSeries);
             txvNumeroRepeticiones.setText(getResources().getString(R.string.numero_repeticiones) + ": " + totalRepeticiones);
-
-            //readUser(user, SERIE_TYPE);
         }
-
-        realm.close();
+        //realm.close();
 
 
         // progress bar y text view cuenta atras visibles
@@ -345,6 +345,27 @@ public class Flexiones extends AppCompatActivity {
 
     //** CRUD actions **//
     private void increaseRepetitionsNumber(int cantidad) {
+        // se incremente cada repeticion el numero de veces indicado en cantidad
+        //setUpRealmConfig();
+        realm = Realm.getDefaultInstance();
+        useres = realm.where(Users.class)
+                .equalTo("user_serie", user)
+                .equalTo("series_name", SERIE_TYPE)
+                .findAll();
+        if (useres.size() != 0) {
+            // empezar upgrade
+            realm.beginTransaction();
+            useres.get(0).getId();
+            useres.get(0).setRepetition_series_one(cantidad + repSerie1);
+            useres.get(0).setRepetition_series_two(cantidad + repSerie2);
+            useres.get(0).setRepetition_series_three(cantidad + repSerie3);
+            useres.get(0).setRepetition_series_four(cantidad + repSerie4);
+            useres.get(0).setRepetition_series_five(cantidad + repSerie5);
+            // grabar al final
+            realm.commitTransaction();
+        } else {
+            Toast.makeText(this, "Error saving", Toast.LENGTH_LONG).show();
+        }
     }
 
     // lectura User / Serie
@@ -456,30 +477,31 @@ public class Flexiones extends AppCompatActivity {
 
     public void showFinalSerie() {
 
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        final SeekBar seekBarNumberOfRepetitions ;             // numero de repeticiones en el dialogbox final de serie
+        final TextView textViewSeekProgressValue;
 
-
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.final_serie, null);
-        dialogBuilder.setView(dialogView);
+        View dialogView = inflater.inflate(R.layout.final_serie, null);
+
+
+        seekBarNumberOfRepetitions = (SeekBar) dialogView.findViewById(R.id.seekBarRepetitionsNumber);
+        textViewSeekProgressValue = (TextView) dialogView.findViewById(R.id.textViewSeekProgressValue);
+
+
 
         dialogBuilder.setTitle(getResources().getString(R.string.dialog_box_titulo_final_serie));
         dialogBuilder.setMessage("( " + getResources().getString(R.string.calorias_consumidas_aproximadas) +
                 String.format(": %.1f", caloriasKiloRepeticion * totalRepeticiones) +
                 ")\n" + getResources().getString(R.string.dialog_box_mensaje_final_serie));
-
+        dialogBuilder.setView(dialogView);
 
         dialogBuilder.setPositiveButton(getResources().getString(R.string.aceptar)
                 , new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //si
-                        increaseRepetitionsNumber(1);
-//                        repSerie1 += 1;
-//                        repSerie2 += 1;
-//                        repSerie3 += 1;
-//                        repSerie4 += 1;
-//                        repSerie5 += 1;
-
+                        String converter = textViewSeekProgressValue.getText().toString();
+                        increaseRepetitionsNumber(Integer.parseInt(converter));
                         onBackPressed();
                     }
                 });
@@ -490,8 +512,22 @@ public class Flexiones extends AppCompatActivity {
                         onBackPressed();
                     }
                 });
-        AlertDialog b = dialogBuilder.create();
-        b.show();
+        dialogBuilder.create();
+        dialogBuilder.show();
+
+        seekBarNumberOfRepetitions.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress - 5;
+                textViewSeekProgressValue.setText(String.valueOf(progress));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
     }
 
     private ArrayList<Serie> getAllSeries() {

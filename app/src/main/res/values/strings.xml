@@ -16,11 +16,19 @@
     <string name="action_gemelos">Gemelos</string>
     <string name="action_ajustes">Configuration</string>
     <string name="action_configuracion">Configuration</string>
+    <string name="action_acerca_de">About...</string>
+
+
     <string name="title_activity_flexiones">Push-ups</string>
 
     <!-- menu Context -->
-    <string name="menu_cambio_usuario">User change</string>
-    <string name="menu_cambio_perfil_usuario">Change user profile (developing)</string>
+    <string name="menu_cerrar_sesion">Logout</string>
+    <string name="menu_borrar_datos_usuario">Delete user (no recover)</string>
+    <!-- alertdialog acetar/cancelar borrar datos -->
+    <string name="alert_dialog_aceptar_title">Drop training from </string>
+    <string name="alert_dialog_aceptar_message">This option cannot be undo.</string>
+    <string name="alert_dialog_borrado"> dropped.</string>
+    <string name="alert_dialog_cancelado">Dropped canceled.</string>
 
     <!-- plantilla series -->
     <string name="serie">Serie</string>
@@ -37,11 +45,12 @@
     <!-- plantilla series dialogbox final serie -->
     <string name="dialog_box_">Tap again to exit app.</string>
     <string name="dialog_box_titulo_final_serie">Serie is finished!</string>
-    <string name="dialog_box_mensaje_final_serie">Do you want to increse the number of repetitions?</string>
+    <string name="dialog_box_mensaje_final_serie">Do you want to change the number of repetitions?</string>
     <string name="calorias_consumidas_aproximadas">Calories consumed aproximately</string>
 
     <!-- salir de la app -->
     <string name="salir">Tap again to exit app.</string>
+
 
     <!-- series -->
     <string name="primera_serie">First</string>
@@ -96,10 +105,15 @@
     <string name="fondo_pantalla_abdominales">color/holo_red_dark</string>
 
 
-
     <!-- aceptar y cancelar -->
     <string name="aceptar">Ok</string>
     <string name="cancelar">Cancel</string>
+
+    <!-- acerca de -->
+    <string name="texto_presentacion">Bienvenido a la App de EjerccioEnCasa. \n\n
+        (Esta pantalla está en desarrollo)
+    </string>
+
 
     <plurals name="repeticion">
         <!-- zero = 0, one = 1, two = 2, few = n mod 100 in 3..10,  many = n mod 100 in 11..99, other = everything else -->

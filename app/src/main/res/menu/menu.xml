@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_user_change"
-        android:title="@string/menu_cambio_usuario"
+        android:id="@+id/menu_cerrar_sesion"
+        android:title="@string/menu_cerrar_sesion"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_change_user_profile"
-        android:title="@string/menu_cambio_perfil_usuario"
+        android:id="@+id/menu_borrar_datos_usuario"
+        android:title="@string/menu_borrar_datos_usuario"
         app:showAsAction="never" />
 </menu>
