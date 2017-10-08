@@ -31,17 +31,16 @@
         android:id="@+id/textViewNumeroSeries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewCabeceraSerie"
-        android:layout_alignStart="@+id/textViewCabeceraSerie"
-        android:layout_below="@+id/textViewCabeceraSerie"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
         android:gravity="center"
         android:text="@string/serie"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCabeceraSerie" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCabeceraSerie"
+        android:layout_below="@+id/textViewCabeceraSerie"
+        android:layout_alignLeft="@+id/textViewCabeceraSerie"
+        android:layout_alignStart="@+id/textViewCabeceraSerie" />
 
     <TextView
         android:id="@+id/textViewNumeroRepeticiones"

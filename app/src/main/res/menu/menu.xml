@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_logout"
-        android:title="Log Out"
+        android:id="@+id/menu_user_change"
+        android:title="@string/menu_cambio_usuario"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_forget_logout"
-        android:title="forget and log out"
+        android:id="@+id/menu_change_user_profile"
+        android:title="@string/menu_cambio_perfil_usuario"
         app:showAsAction="never" />
 </menu>

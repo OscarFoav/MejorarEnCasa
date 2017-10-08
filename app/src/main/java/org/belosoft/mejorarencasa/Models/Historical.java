@@ -2,6 +2,8 @@ package org.belosoft.mejorarencasa.Models;
 
 import org.belosoft.mejorarencasa.App.MyApplication;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -18,8 +20,8 @@ public class Historical extends RealmObject {
     String historical_column_user;
     @Required
     String historical_column_type_series;
-    @Required
-    String historical_column_calories;
+
+    float historical_column_calories;
     @Required
     String historical_column_series_number;
     @Required
@@ -32,13 +34,14 @@ public class Historical extends RealmObject {
     String historical_column_repetition_series_four;
     @Required
     String historical_column_repetition_series_five;
+    @Required
+    Date createAt;
 
     public Historical(){}
 
-    public Historical(int id
-            ,String historical_column_user
+    public Historical(String historical_column_user
             ,String historical_column_type_series
-            ,String historical_column_calories
+            ,float historical_column_calories
             ,String historical_column_series_number
             ,String historical_column_repetition_series_one
             ,String historical_column_repetition_series_two
@@ -55,6 +58,7 @@ public class Historical extends RealmObject {
         this.historical_column_repetition_series_three = historical_column_repetition_series_three;
         this.historical_column_repetition_series_four = historical_column_repetition_series_four;
         this.historical_column_repetition_series_five = historical_column_repetition_series_five;
+        this.createAt = new Date();
     }
 
     public int getId() {
@@ -77,11 +81,11 @@ public class Historical extends RealmObject {
         this.historical_column_type_series = historical_column_type_series;
     }
 
-    public String getHistorical_column_calories() {
+    public float getHistorical_column_calories() {
         return historical_column_calories;
     }
 
-    public void setHistorical_column_calories(String historical_column_calories) {
+    public void setHistorical_column_calories(float historical_column_calories) {
         this.historical_column_calories = historical_column_calories;
     }
 
@@ -131,5 +135,9 @@ public class Historical extends RealmObject {
 
     public void setHistorical_column_repetition_series_five(String historical_column_repetition_series_five) {
         this.historical_column_repetition_series_five = historical_column_repetition_series_five;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
     }
 }

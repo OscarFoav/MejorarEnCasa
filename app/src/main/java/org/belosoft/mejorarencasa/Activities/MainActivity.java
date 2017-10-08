@@ -92,25 +92,27 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.menu_logout:
-                logOut();
+            case R.id.menu_user_change:
+                changeUserProfile();
                 return  true;
-            case R.id.menu_forget_logout:
-                removeSharedPreferences();
-                logOut();
+            case R.id.menu_change_user_profile:
+                removeSharedPreferences_UserData();
+                changeUserProfile();
                 return  true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void logOut(){
+    private void changeUserProfile(){
+        // abrir Login
         Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra("opcion", 1);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
-    private void removeSharedPreferences() {
+    private void removeSharedPreferences_UserData() {
         // borrar los valores de la Shared
         prefs.edit().clear().apply();
     }

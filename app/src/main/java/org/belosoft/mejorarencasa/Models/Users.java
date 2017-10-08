@@ -2,6 +2,8 @@ package org.belosoft.mejorarencasa.Models;
 
 import org.belosoft.mejorarencasa.App.MyApplication;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -15,56 +17,34 @@ public class Users extends RealmObject {
     @PrimaryKey
     private int id;
     @Required
-    String user;
-    @Required
-    String user_age;
-    @Required
-    String user_weight;
+    String user_serie;
+    int user_age;
+    int user_weight;
     @Required
     String series_name;
+    int seconds_leas;
+    int repetition_series_one;
+    int repetition_series_two;
+    int repetition_series_three;
+    int repetition_series_four;
+    int repetition_series_five;
     @Required
-    String repetition_series_one;
-    @Required
-    String repetition_series_two;
-    @Required
-    String repetition_series_three;
-    @Required
-    String repetition_series_four;
-    @Required
-    String repetition_series_five;
+    Date createAt;
 
     public Users() {
     }
 
-    public String getUser_age() {
-        return user_age;
-    }
-
-    public void setUser_age(String user_age) {
-        this.user_age = user_age;
-    }
-
-    public String getUser_weight() {
-        return user_weight;
-    }
-
-    public void setUser_weight(String user_weight) {
-        this.user_weight = user_weight;
-    }
-
-    public Users(
-            int id
-            , String user                               // usuario
-            , String user_age
-            , String user_weight
-            , String series_name                        // nombre serie: flexiones, abdominales, ... gemelos
-            , String repetition_series_one
-            , String repetition_series_two
-            , String repetition_series_three
-            , String repetition_series_four
-            , String repetition_series_five) {
+    public Users(String user_serie
+            , int user_age
+            , int user_weight
+            , String series_name
+            , int repetition_series_one
+            , int repetition_series_two
+            , int repetition_series_three
+            , int repetition_series_four
+            , int repetition_series_five) {
         this.id = MyApplication.DefaultValuesID.incrementAndGet();   // conseguir new ID
-        this.user = user;
+        this.user_serie = user_serie;
         this.user_age = user_age;
         this.user_weight = user_weight;
         this.series_name = series_name;
@@ -73,18 +53,35 @@ public class Users extends RealmObject {
         this.repetition_series_three = repetition_series_three;
         this.repetition_series_four = repetition_series_four;
         this.repetition_series_five = repetition_series_five;
+        this.createAt = new Date();
     }
 
     public int getId() {
         return id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUser_serie() {
+        return user_serie;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser_serie(String user_serie) {
+        this.user_serie = user_serie;
+    }
+
+    public int getUser_age() {
+        return user_age;
+    }
+
+    public void setUser_age(int user_age) {
+        this.user_age = user_age;
+    }
+
+    public int getUser_weight() {
+        return user_weight;
+    }
+
+    public void setUser_weight(int user_weight) {
+        this.user_weight = user_weight;
     }
 
     public String getSeries_name() {
@@ -95,43 +92,55 @@ public class Users extends RealmObject {
         this.series_name = series_name;
     }
 
-    public String getRepetition_series_one() {
+    public int getSeconds_leas() {
+        return seconds_leas;
+    }
+
+    public void setSeconds_leas(int seconds_leas) {
+        this.seconds_leas = seconds_leas;
+    }
+
+    public int getRepetition_series_one() {
         return repetition_series_one;
     }
 
-    public void setRepetition_series_one(String repetition_series_one) {
+    public void setRepetition_series_one(int repetition_series_one) {
         this.repetition_series_one = repetition_series_one;
     }
 
-    public String getRepetition_series_two() {
+    public int getRepetition_series_two() {
         return repetition_series_two;
     }
 
-    public void setRepetition_series_two(String repetition_series_two) {
+    public void setRepetition_series_two(int repetition_series_two) {
         this.repetition_series_two = repetition_series_two;
     }
 
-    public String getRepetition_series_three() {
+    public int getRepetition_series_three() {
         return repetition_series_three;
     }
 
-    public void setRepetition_series_three(String repetition_series_three) {
+    public void setRepetition_series_three(int repetition_series_three) {
         this.repetition_series_three = repetition_series_three;
     }
 
-    public String getRepetition_series_four() {
+    public int getRepetition_series_four() {
         return repetition_series_four;
     }
 
-    public void setRepetition_series_four(String repetition_series_four) {
+    public void setRepetition_series_four(int repetition_series_four) {
         this.repetition_series_four = repetition_series_four;
     }
 
-    public String getRepetition_series_five() {
+    public int getRepetition_series_five() {
         return repetition_series_five;
     }
 
-    public void setRepetition_series_five(String repetition_series_five) {
+    public void setRepetition_series_five(int repetition_series_five) {
         this.repetition_series_five = repetition_series_five;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
     }
 }

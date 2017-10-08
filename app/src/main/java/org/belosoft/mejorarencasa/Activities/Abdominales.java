@@ -278,8 +278,8 @@ public class Abdominales extends AppCompatActivity {
         final View dialogView = inflater.inflate(R.layout.final_serie, null);
         dialogBuilder.setView(dialogView);
 
-        dialogBuilder.setTitle(getResources().getString(R.string.titulo_final_serie));
-        dialogBuilder.setMessage(getResources().getString(R.string.mensaje_final_serie));
+        dialogBuilder.setTitle(getResources().getString(R.string.dialog_box_titulo_final_serie));
+        dialogBuilder.setMessage(getResources().getString(R.string.dialog_box_mensaje_final_serie));
 
         dialogBuilder.setPositiveButton(getResources().getString(R.string.aceptar), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton){

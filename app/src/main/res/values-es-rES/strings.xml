@@ -18,6 +18,10 @@
     <string name="action_ajustes">Configuración</string>
     <string name="action_configuracion">Configuración</string>
 
+    <!-- menu Context -->
+    <string name="menu_cambio_usuario">Cambio de usuario</string>
+    <string name="menu_cambio_perfil_usuario">Cambiar perfil del usuario  (developing)</string>
+
     <!-- plantilla series -->
     <string name="serie">Serie</string>
     <string name="numero_series">Nº Series</string>
@@ -25,7 +29,6 @@
     <string name="repeticiones">repeticiones</string>
     <string name="numero_repeticiones">Nº Repeticiones</string>
     <string name="hecha">Hecha</string>
-    <string name="calorias_consumidas_aproximadas">Calorias consumidas aproximadamente</string>
     <string name="diez_segundos_mas">10 seg. +</string>
     <string name="diez_segundos_menos">10 seg. -</string>
     <string name="tiempo_de_descanso">Tiempo de descanso</string>
@@ -33,6 +36,13 @@
     <string name="terminar_cuenta_atras">Parar Cuenta Atrás</string>
     <string name="numero_cuenta_atras">60</string>
 
+    <!-- plantilla series dialogbox final serie -->
+    <string name="dialog_box_">Tap again to exit app.</string>
+    <string name="dialog_box_titulo_final_serie">¡Serie terminada!</string>
+    <string name="dialog_box_mensaje_final_serie">¿Quieres subir el número de repeticiones?</string>
+    <string name="calorias_consumidas_aproximadas">Calorias consumidas aproximadas</string>
+
+    <!-- salir de la app -->
     <string name="salir">Pulsa otra vez para salir.</string>
 
     <!-- series -->
@@ -80,12 +90,19 @@
     <string name="tiempo_recuperacion_abdominales">60</string>
     <string name="fondo_pantalla_abdominales">color/holo_red_dark</string>
 
-    <!-- show final_serie -->
-    <string name="titulo_final_serie">¡Serie completada!</string>
-    <string name="mensaje_final_serie">¿Quieres aumentar el número de repeticiones?</string>
 
     <!-- aceptar y cancelar -->
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
+
+    <plurals name="repeticion">
+        <!-- zero = 0, one = 1, two = 2, few = n mod 100 in 3..10,  many = n mod 100 in 11..99, other = everything else -->
+        <item quantity="zero">repeticiones</item>
+        <item quantity="one">repetición</item>
+        <item quantity="two">repeticiones</item>
+        <item quantity="few">repeticiones</item>
+        <item quantity="many">repeticiones</item>
+        <item quantity="other">repeticiones</item>
+    </plurals>
 
 </resources>
