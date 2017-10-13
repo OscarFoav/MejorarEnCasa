@@ -17,6 +17,7 @@
     <string name="action_gemelos">Gemelos</string>
     <string name="action_ajustes">Configuración</string>
     <string name="action_configuracion">Configuración</string>
+    <string name="action_test_resistencia">Test de Resistencia</string>
     <string name="action_acerca_de">Acerca de...</string>
 
     <!-- menu Context -->
@@ -58,6 +59,13 @@
     <string name="cuarta_serie">4ª serie</string>
     <string name="quinta_serie">5ª serie</string>
     <string name="title_activity_flexiones">Flexiones</string>
+    <string name="title_activity_abdominales">Abdominales</string>
+    <string name="title_activity_fondos">Fondos</string>
+    <string name="title_activity_sentadillas">Sentadillas</string>
+    <string name="title_activity_dominadas">Dominadas</string>
+    <string name="title_activity_gemelos">Gemelos</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_test_resistencia">Test de resistencia</string>
 
     <!-- categorias -->
 

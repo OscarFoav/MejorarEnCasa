@@ -89,8 +89,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activities.AcercaDeActivity" />
-        <activity android:name=".Activities.TestResistencia"></activity>
+
+        <activity android:name=".Activities.TestResistencia"
+            android:label="@string/action_test_resistencia"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

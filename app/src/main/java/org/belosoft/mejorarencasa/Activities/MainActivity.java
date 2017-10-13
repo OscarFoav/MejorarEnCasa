@@ -190,6 +190,11 @@ public class MainActivity extends AppCompatActivity
             tituloOpcionAbierta = getResources().getString(R.string.action_gemelos);
             Intent i = new Intent(this, Gemelos.class);
             startActivity(i);
+        } else if (id == R.id.nav_test_resistencia) {
+            // Handle the gemelos action
+            tituloOpcionAbierta = getResources().getString(R.string.action_test_resistencia);
+            Intent i = new Intent(this, TestResistencia.class);
+            startActivity(i);
         } else if (id == R.id.nav_about) {
             // Handle the gemelos action
             tituloOpcionAbierta = getResources().getString(R.string.action_acerca_de);

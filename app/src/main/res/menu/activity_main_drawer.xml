@@ -28,13 +28,18 @@
             android:title="@string/action_gemelos" />
     </group>
 
-    <item android:title="@string/action_acerca_de">
-        <menu>
-            <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="@string/action_acerca_de" />
-        </menu>
-    </item>
+    <menu>
+        <item
+            android:id="@+id/nav_test_resistencia"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/action_test_resistencia" />
+    </menu>
+
+    <menu>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/action_acerca_de" />
+    </menu>
 
 </menu>

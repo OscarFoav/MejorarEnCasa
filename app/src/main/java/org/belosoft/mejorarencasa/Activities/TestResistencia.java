@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -125,6 +126,9 @@ public class TestResistencia extends AppCompatActivity {
         // color de fondo
         View viewChangeBackground = findViewById(R.id.activityMainChangeBackground);
         viewChangeBackground.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
+
+        // mantener la pantalla encencida
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         inicializacion();
 
