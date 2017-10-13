@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:amdroid="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activityMainChangeBackground"
     android:layout_width="match_parent"
@@ -61,26 +62,28 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/spinnerPrimeraRepeticion"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/textViewPrimeraRepeticion"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/textViewPrimeraRepeticion"
+        android:layout_toRightOf="@+id/textViewPrimeraRepeticion"
+        android:background="?attr/colorControlHighlight"
+        android:entries="@array/repetition_numbers"
+        android:prompt="@string/repetition_prompt" />
+
     <Button
         android:id="@+id/btnPrimeraRepeticion"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_alignBaseline="@+id/textViewPrimeraRepeticion"
-        android:layout_alignEnd="@+id/imageViewSerie"
-        android:layout_alignRight="@+id/spinnerPrimeraRepeticion"
+        android:layout_alignTop="@+id/textViewPrimeraRepeticion"
         android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/spinnerPrimeraRepeticion"
+        android:layout_toRightOf="@+id/spinnerPrimeraRepeticion"
         android:text="@string/hecha" />
-
-    <Spinner
-        android:id="@+id/spinnerPrimeraRepeticion"
-        android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:background="?attr/colorControlHighlight"
-        android:entries="@array/repetition_numbers"
-        android:prompt="@string/repetition_prompt"
-        android:layout_above="@+id/textViewSegundaRepeticion"
-        android:layout_toRightOf="@+id/textViewPrimeraRepeticion"
-        android:layout_toEndOf="@+id/textViewPrimeraRepeticion" />
 
     <TextView
         android:id="@+id/textViewSegundaRepeticion"
@@ -95,6 +98,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/spinnerSegunaRepeticion"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/spinnerPrimeraRepeticion"
+        android:layout_alignLeft="@+id/spinnerPrimeraRepeticion"
+        android:layout_alignRight="@+id/spinnerPrimeraRepeticion"
+        android:layout_alignStart="@+id/spinnerPrimeraRepeticion"
+        android:layout_alignTop="@+id/btnSegundaRepeticion"
+        android:layout_below="@+id/spinnerPrimeraRepeticion"
+        android:layout_marginTop="5dp"
+        android:background="?attr/colorControlHighlight"
+        android:entries="@array/repetition_numbers"
+        android:prompt="@string/repetition_prompt" />
+
     <Button
         android:id="@+id/btnSegundaRepeticion"
         android:layout_width="120dp"
@@ -108,15 +126,15 @@
         android:text="@string/hecha" />
 
     <Spinner
-        android:id="@+id/spinnerSegunaRepeticion"
+        android:id="@+id/spinnerTerceraRepeticion"
         android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:layout_alignEnd="@+id/spinnerPrimeraRepeticion"
-        android:layout_alignLeft="@+id/spinnerPrimeraRepeticion"
-        android:layout_alignRight="@+id/spinnerPrimeraRepeticion"
-        android:layout_alignStart="@+id/spinnerPrimeraRepeticion"
-        android:layout_alignTop="@+id/btnSegundaRepeticion"
-        android:layout_below="@+id/spinnerPrimeraRepeticion"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/spinnerSegunaRepeticion"
+        android:layout_alignLeft="@+id/spinnerSegunaRepeticion"
+        android:layout_alignRight="@+id/textViewCabeceraSerie"
+        android:layout_alignStart="@+id/spinnerSegunaRepeticion"
+        android:layout_alignTop="@+id/btnTerceraRepeticion"
+        android:layout_marginTop="5dp"
         android:background="?attr/colorControlHighlight"
         android:entries="@array/repetition_numbers"
         android:prompt="@string/repetition_prompt" />
@@ -143,19 +161,6 @@
         android:layout_below="@+id/btnSegundaRepeticion"
         android:layout_gravity="center_vertical"
         android:text="@string/hecha" />
-
-    <Spinner
-        android:id="@+id/spinnerTerceraRepeticion"
-        android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:background="?attr/colorControlHighlight"
-        android:layout_alignEnd="@+id/spinnerSegunaRepeticion"
-        android:layout_alignLeft="@+id/spinnerSegunaRepeticion"
-        android:layout_alignRight="@+id/textViewCabeceraSerie"
-        android:layout_alignStart="@+id/spinnerSegunaRepeticion"
-        android:layout_alignTop="@+id/btnTerceraRepeticion"
-        android:entries="@array/repetition_numbers"
-        android:prompt="@string/repetition_prompt" />
 
     <TextView
         android:id="@+id/textViewCuartaRepeticion"
@@ -184,13 +189,14 @@
     <Spinner
         android:id="@+id/spinnerCuartaRepeticion"
         android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:background="?attr/colorControlHighlight"
+        android:layout_height="30dp"
         android:layout_alignEnd="@+id/spinnerSegunaRepeticion"
         android:layout_alignLeft="@+id/spinnerTerceraRepeticion"
         android:layout_alignRight="@+id/spinnerSegunaRepeticion"
         android:layout_alignStart="@+id/spinnerTerceraRepeticion"
         android:layout_alignTop="@+id/btnCuartaRepeticion"
+        android:layout_marginTop="5dp"
+        android:background="?attr/colorControlHighlight"
         android:entries="@array/repetition_numbers"
         android:prompt="@string/repetition_prompt" />
 
@@ -209,6 +215,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCuartaRepeticion" />
 
+    <Spinner
+        android:id="@+id/spinnerQuintaRepeticion"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/spinnerCuartaRepeticion"
+        android:layout_alignLeft="@+id/spinnerCuartaRepeticion"
+        android:layout_alignRight="@+id/spinnerCuartaRepeticion"
+        android:layout_alignStart="@+id/spinnerCuartaRepeticion"
+        android:layout_alignTop="@+id/btnQuintaRepeticion"
+        android:layout_marginTop="5dp"
+        android:background="?attr/colorControlHighlight"
+        android:entries="@array/repetition_numbers"
+        android:prompt="@string/repetition_prompt" />
+
     <Button
         android:id="@+id/btnQuintaRepeticion"
         android:layout_width="120dp"
@@ -218,19 +238,6 @@
         android:layout_below="@+id/btnCuartaRepeticion"
         android:layout_gravity="center_vertical"
         android:text="@string/hecha" />
-
-    <Spinner
-        android:id="@+id/spinnerQuintaRepeticion"
-        android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:background="?attr/colorControlHighlight"
-        android:layout_alignEnd="@+id/spinnerCuartaRepeticion"
-        android:layout_alignLeft="@+id/spinnerCuartaRepeticion"
-        android:layout_alignRight="@+id/spinnerCuartaRepeticion"
-        android:layout_alignStart="@+id/spinnerCuartaRepeticion"
-        android:layout_alignTop="@+id/btnQuintaRepeticion"
-        android:entries="@array/repetition_numbers"
-        android:prompt="@string/repetition_prompt" />
 
     <TextView
         android:id="@+id/textViewSextaRepeticion"
@@ -247,6 +254,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCuartaRepeticion" />
 
+    <Spinner
+        android:id="@+id/spinnerSextaRepeticion"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/spinnerQuintaRepeticion"
+        android:layout_alignLeft="@+id/spinnerQuintaRepeticion"
+        android:layout_alignRight="@+id/spinnerQuintaRepeticion"
+        android:layout_alignStart="@+id/spinnerQuintaRepeticion"
+        android:layout_alignTop="@+id/btnSextaRepeticion"
+        android:layout_marginTop="5dp"
+        android:background="?attr/colorControlHighlight"
+        android:entries="@array/repetition_numbers"
+        android:prompt="@string/repetition_prompt" />
+
     <Button
         android:id="@+id/btnSextaRepeticion"
         android:layout_width="120dp"
@@ -256,19 +277,6 @@
         android:layout_below="@+id/btnQuintaRepeticion"
         android:layout_gravity="center_vertical"
         android:text="@string/hecha" />
-
-    <Spinner
-        android:id="@+id/spinnerSextaRepeticion"
-        android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:background="?attr/colorControlHighlight"
-        android:layout_alignEnd="@+id/spinnerQuintaRepeticion"
-        android:layout_alignLeft="@+id/spinnerQuintaRepeticion"
-        android:layout_alignRight="@+id/spinnerQuintaRepeticion"
-        android:layout_alignStart="@+id/spinnerQuintaRepeticion"
-        android:layout_alignTop="@+id/btnSextaRepeticion"
-        android:entries="@array/repetition_numbers"
-        android:prompt="@string/repetition_prompt" />
 
     <View
         android:id="@+id/separadorPie"

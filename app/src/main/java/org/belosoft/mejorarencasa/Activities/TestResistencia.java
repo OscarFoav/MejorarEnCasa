@@ -107,8 +107,7 @@ public class TestResistencia extends AppCompatActivity {
     private int flgBotonOnSerie5 = 0;
     private int flgBotonOnSerie6 = 0;
 
-    public int numeroCuentaAtras = 5; //Util.SECONDS_LEAPS;
-
+    public int numeroCuentaAtras = Util.SECONDS_LEAPS;
 
     ToneGenerator toneG;
 
@@ -298,7 +297,6 @@ public class TestResistencia extends AppCompatActivity {
             public void onClick(View v) {
                 // cuarto boton
                 if (flgBotonOnSerie6 == 0) {
-                    CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
                     flgBotonOnSerie6 = 1;
                     tiempoRestante = numeroCuentaAtras;
                 }
