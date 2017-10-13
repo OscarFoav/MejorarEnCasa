@@ -14,7 +14,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/seekBarRepetitionsNumber"
         android:gravity="center"
-        android:text="-5" />
+        android:text="-5"
+        tools:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewSeekProgressValue"
@@ -23,12 +24,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="0" />
+        android:text="0"
+        tools:textStyle="bold" />
 
     <SeekBar
         android:id="@+id/seekBarRepetitionsNumber"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/textViewSeekProgressValue"
         android:layout_toEndOf="@+id/textViewSeekProgressValueMinimum"
         android:layout_toRightOf="@+id/textViewSeekProgressValueMinimum"
@@ -36,7 +38,7 @@
         android:progress="5"
         android:progressDrawable="@drawable/progress_drawable"
         android:thumb="@drawable/thumb_drawable"
-        android:thumbOffset="9.5dp" />
+        android:thumbOffset="10dp" />
 
     <TextView
         android:id="@+id/textViewSeekProgressValueMaximum"
@@ -46,6 +48,7 @@
         android:layout_toEndOf="@+id/seekBarRepetitionsNumber"
         android:layout_toRightOf="@+id/seekBarRepetitionsNumber"
         android:gravity="center"
-        android:text="5" />
+        android:text="5"
+        tools:textStyle="bold" />
 
 </RelativeLayout>

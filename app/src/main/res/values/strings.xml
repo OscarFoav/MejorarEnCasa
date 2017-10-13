@@ -39,6 +39,7 @@
     <string name="diez_segundos_mas">+ 10 sec.</string>
     <string name="diez_segundos_menos">- 10 sec.</string>
     <string name="tiempo_de_descanso">Pause time</string>
+    <string name="tiempo_de_descanso_despues">sec.</string>
     <string name="terminar_cuenta_atras">Stop countdown</string>
     <string name="numero_cuenta_atras">60</string>
 
@@ -110,9 +111,69 @@
     <string name="cancelar">Cancel</string>
 
     <!-- acerca de -->
-    <string name="texto_presentacion">Bienvenido a la App de EjerccioEnCasa. \n\n
-        (Esta pantalla está en desarrollo)
+    <string name="texto_presentacion">Bienvenido a la App de Breaking Up At Home (En Forma En Casa). \n\n
+	Esta App ha sido desarrollada como punto de partida para mejorar nuestra forma física sin salir de casa, dando la opción de controlar nuestro progreso de manera que sea sencillo, y dando tanto tiempo como necesitemos para que la mejora sea real y permanente. \n\n
+	Como punto de partida se solicitan datos del usuario: nombre, estatura y peso, así como la opción de dejar la sesión abierta para posteriores conexiones. También proponemos una prueba de resistencia que nos permita empezar a trabajar desde una perspectiva sólida. Esto es, definir un comienzo que nos prepare para un esfuerzo aceptable y sostenible. Queremos que la progresión sea un camino que veamos como algo realizable, no que sea un esfuerzo tal que haga que cada sesión sea insoportable a nivel físico y/o psicológico, y que nos haga desistir a medio o largo plazo. Si, como desarrolladores de la App, conseguimos este objetivo, estaremos alcanzando la meta que pretendíamos al desarrollarla. \n\n
+	La prueba de resistencia consiste en hacer una sóla repeticion de cada uno de los ejercicios propuestos en la App, a saber, una sessión para las flexiones, otra para los abdominales, otra para  los fondos, y así hasta los gemelos, guardando el número de repeticiones conseguidas. Debemos llegar a un punto en el que notemos que el ejercicio nos ha puesto cerca de nuestro límite sin alcanzarlo nunca. En base a ese número de repeticiones se genera un plan de entrenamiento personalizado para el usuario que debe ser, como comentabamos más arriba, aceptable y sostenible. \n\n
+	Una vez hecha la prueba inicial, se propone una serie de 5 repeticiones por cada ejercicio (flexiones, abdominales, etc), que incluye la posibilidad de cambiar el tiempo de recuperación entre repeticiones y el número de repeticiones a incrementar/decrementar al final de la serie. \n\n
+    En caso de no desear hacer la prueba inicial, esta App propone empezar con 5 series de 5 flexiones, 10 abdominales,  5 fondos, 10 sentadillas, 1 dominada y 10 gemelos.\n\n
+    Recordemos que mejorar es posible con un poco de constancia por nuestra parte. \n\n
+	Por último, tened presente que es importante que consultemos con nuestro médico cualquier circunstancia que se produzca durante los entrenamientos que suponga dolor o incomodidad. Una revisión médica antes de empezar es más que recomendable, sobre todo si hace tiempo que no hacemos ejecicio.\n\n
     </string>
+
+    <string name="repetition_prompt">Rep</string>
+    <string-array name="repetition_numbers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+    </string-array>
 
 
     <plurals name="repeticion">

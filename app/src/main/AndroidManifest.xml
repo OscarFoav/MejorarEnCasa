@@ -24,37 +24,61 @@
             android:label="@string/title_activity_flexiones"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Abdominales"
             android:label="@string/title_activity_abdominales"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Fondos"
             android:label="@string/title_activity_fondos"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Sentadillas"
             android:label="@string/title_activity_sentadillas"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Dominadas"
             android:label="@string/title_activity_dominadas"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.Gemelos"
             android:label="@string/title_activity_gemelos"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
         <activity
             android:name=".Activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -65,7 +89,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.AcercaDeActivity"></activity>
+        <activity android:name=".Activities.AcercaDeActivity" />
+        <activity android:name=".Activities.TestResistencia"></activity>
     </application>
 
 </manifest>

@@ -22,13 +22,12 @@ public class Users extends RealmObject {
     int user_weight;
     @Required
     String series_name;
-    int seconds_leas;
+    int seconds_leaps;
     int repetition_series_one;
     int repetition_series_two;
     int repetition_series_three;
     int repetition_series_four;
     int repetition_series_five;
-    @Required
     Date createAt;
 
     public Users() {
@@ -38,22 +37,25 @@ public class Users extends RealmObject {
             , int user_age
             , int user_weight
             , String series_name
+            , int seconds_leaps
             , int repetition_series_one
             , int repetition_series_two
             , int repetition_series_three
             , int repetition_series_four
-            , int repetition_series_five) {
+            , int repetition_series_five
+            , Date createAt) {
         this.id = MyApplication.DefaultValuesID.incrementAndGet();   // conseguir new ID
         this.user_serie = user_serie;
         this.user_age = user_age;
         this.user_weight = user_weight;
         this.series_name = series_name;
+        this.seconds_leaps = seconds_leaps;
         this.repetition_series_one = repetition_series_one;
         this.repetition_series_two = repetition_series_two;
         this.repetition_series_three = repetition_series_three;
         this.repetition_series_four = repetition_series_four;
         this.repetition_series_five = repetition_series_five;
-        this.createAt = new Date();
+        this.createAt = createAt;
     }
 
     public int getId() {
@@ -92,12 +94,12 @@ public class Users extends RealmObject {
         this.series_name = series_name;
     }
 
-    public int getSeconds_leas() {
-        return seconds_leas;
+    public int getSeconds_leaps() {
+        return seconds_leaps;
     }
 
-    public void setSeconds_leas(int seconds_leas) {
-        this.seconds_leas = seconds_leas;
+    public void setSeconds_leaps(int seconds_leaps) {
+        this.seconds_leaps = seconds_leaps;
     }
 
     public int getRepetition_series_one() {
@@ -143,4 +145,11 @@ public class Users extends RealmObject {
     public Date getCreateAt() {
         return createAt;
     }
+
+    public void setCreateAt(Date date) {
+        this.createAt = date;
+    }
+
+    ;
+
 }

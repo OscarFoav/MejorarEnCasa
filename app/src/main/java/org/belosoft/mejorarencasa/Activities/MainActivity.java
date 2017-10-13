@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
             this.finish();
             return;
         } else {
-            toastMEC(getResources().getString(R.string.salir));
+            toastMECCorto(getResources().getString(R.string.salir));
         }
         tiempoPrimerClick = System.currentTimeMillis();
     }
@@ -122,14 +122,14 @@ public class MainActivity extends AppCompatActivity
                         realm.commitTransaction();
                         realm.close();
                         changeUserProfile();
-                        toastMEC(user + " " + getResources().getString(R.string.alert_dialog_borrado));
+                        toastMECCorto(user + " " + getResources().getString(R.string.alert_dialog_borrado));
                         //Toast.makeText(MainActivity.this, user + " " + getResources().getString(R.string.alert_dialog_borrado) , Toast.LENGTH_LONG ).show();
                     }
                 })
                         .setNegativeButton(getResources().getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                toastMEC(getResources().getString(R.string.alert_dialog_cancelado));
+                                toastMECCorto(getResources().getString(R.string.alert_dialog_cancelado));
                                 //Toast.makeText(MainActivity.this, getResources().getString(R.string.alert_dialog_cancelado), Toast.LENGTH_LONG ).show();
                             }
                         }) ;
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public String toastMEC(String texto) {
+    public String toastMECCorto(String texto) {
         // presentacion de Toast personalizado para la app
         Toast toastInterno = new Toast(getApplicationContext());
         LayoutInflater inflater = getLayoutInflater();

@@ -29,6 +29,7 @@ import org.belosoft.mejorarencasa.Utils.Util;
 
 import java.util.ArrayList;
 
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import io.realm.Realm;
@@ -36,12 +37,13 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 
-
-
 public class Sentadillas extends AppCompatActivity {
 
     // Serie
-    private static final String SERIE_TYPE = "Sentadillas";
+    private static final String SERIE_TYPE =Util.STRING_SENTADILLAS;
+    private static final int SERIE_REPETITIONS = 5;
+    private static final int SERIE_ICON = R.drawable.sentadillas;
+    private static final  int SERIE_BACKGROUND = android.R.color.holo_red_light;
 
     // Realm
     private Realm realm;
@@ -91,8 +93,8 @@ public class Sentadillas extends AppCompatActivity {
     private int flgBotonOnSerie4 = 0;
     private int flgBotonOnSerie5 = 0;
 
-    // calorias por kilo y repetición
-    public double caloriasKiloRepeticion = 0.081;
+    // calorias por  repetición
+    public float caloriasRepeticion;
 
     // aviso acustico
     ToneGenerator toneG;
@@ -105,7 +107,6 @@ public class Sentadillas extends AppCompatActivity {
     public int repSerie5 = 0;
     public int numeroCuentaAtras = 60;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_flexiones);
@@ -116,11 +117,10 @@ public class Sentadillas extends AppCompatActivity {
         // color de fondo
         View viewChangeBackground = findViewById(R.id.activityMainChangeBackground);
         // asignar el color
-        viewChangeBackground.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
-
+        viewChangeBackground.setBackgroundColor(getResources().getColor(SERIE_BACKGROUND));
         // imagen asociada
         ImageView imageView = (ImageView) findViewById(R.id.imageViewSerie);
-        imageView.setImageResource(R.drawable.sentadillas);
+        imageView.setImageResource(SERIE_ICON);
 
         // carga inicial
         inicializacion();
@@ -210,6 +210,11 @@ public class Sentadillas extends AppCompatActivity {
         } else {
             // lectura Users
             readUser();
+            txvSerieTiempoReposo = (TextView) findViewById(R.id.textViewSerieTiempoReposo);
+            txvSerieTiempoReposo.setText(getResources().getString(R.string.tiempo_de_descanso) +
+                    ": " + numeroCuentaAtras +
+                    " " + getResources().getString(R.string.tiempo_de_descanso_despues));
+            txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
             textView1.setText(getResources().getText(R.string.primera_serie) + ": " + repSerie1 + " " + plurales(repSerie1));
             textView2.setText(getResources().getText(R.string.segunda_serie) + ": " + repSerie2 + " " + plurales(repSerie2));
             textView3.setText(getResources().getText(R.string.tercera_serie) + ": " + repSerie3 + " " + plurales(repSerie3));
@@ -317,7 +322,7 @@ public class Sentadillas extends AppCompatActivity {
                         numeroCuentaAtras = numeroCuentaAtras - restar;
                     actualizarTimer(-restar);
                 } else {
-                    if (numeroCuentaAtras > TIEMPO_MINIMO)
+                    if ((numeroCuentaAtras - tiempoRestante) > TIEMPO_MINIMO)
                         numeroCuentaAtras = numeroCuentaAtras - restar;
                     reiniciarTimer(numeroCuentaAtras, tiempoRestante - restar);
                 }
@@ -357,12 +362,14 @@ public class Sentadillas extends AppCompatActivity {
         if (useres.size() != 0) {
             // empezar upgrade
             realm.beginTransaction();
-            useres.get(0).getId();
-            useres.get(0).setRepetition_series_one(cantidad + repSerie1);
-            useres.get(0).setRepetition_series_two(cantidad + repSerie2);
-            useres.get(0).setRepetition_series_three(cantidad + repSerie3);
-            useres.get(0).setRepetition_series_four(cantidad + repSerie4);
-            useres.get(0).setRepetition_series_five(cantidad + repSerie5);
+            //useres.get(0).getId();
+            useres.get(0).setRepetition_series_one(repSerie1 + cantidad);
+            useres.get(0).setRepetition_series_two(repSerie2 + cantidad);
+            useres.get(0).setRepetition_series_three(repSerie3 + cantidad);
+            useres.get(0).setRepetition_series_four(repSerie4 + cantidad);
+            useres.get(0).setRepetition_series_five(repSerie5 + cantidad);
+            useres.get(0).setSeconds_leaps(numeroCuentaAtras);
+            useres.get(0).setCreateAt(new Date());
             // grabar al final
             realm.commitTransaction();
         } else {
@@ -373,11 +380,36 @@ public class Sentadillas extends AppCompatActivity {
     // lectura User / Serie
     private void readUser() {
         // textView1.setText(useres.get(0).getSeries_name().toString());
+        numeroCuentaAtras = useres.get(0).getSeconds_leaps();
         repSerie1 = useres.get(0).getRepetition_series_one();
         repSerie2 = useres.get(0).getRepetition_series_two();
         repSerie3 = useres.get(0).getRepetition_series_three();
         repSerie4 = useres.get(0).getRepetition_series_four();
         repSerie5 = useres.get(0).getRepetition_series_five();
+    }
+
+    // grabacion Historical
+    private void saveHistorical(int cantidadLocal) {
+        //setUpRealmConfig();
+        realm = Realm.getDefaultInstance();
+        HistoricalID = getIdByTable(realm, Historical.class);
+        // grabacion del registro
+        realm.beginTransaction();
+        int nuevoRegistro = HistoricalID.getAndIncrement() + 1;
+        Historical historical = realm.createObject(Historical.class, nuevoRegistro);
+        historical.sethistorical_user(user);
+        historical.sethistorical_type_series(SERIE_TYPE);
+        historical.sethistorical_calories(caloriasRepeticion);
+        historical.sethistorical_series_number(SERIE_REPETITIONS);
+        historical.setSeconds_leaps(numeroCuentaAtras);
+        historical.sethistorical_repetition_series_one(cantidadLocal);
+        historical.sethistorical_repetition_series_two(cantidadLocal);
+        historical.sethistorical_repetition_series_three(cantidadLocal );
+        historical.sethistorical_repetition_series_four(cantidadLocal );
+        historical.sethistorical_repetition_series_five(cantidadLocal );
+        historical.setCreateAt(new Date());
+        realm.copyToRealm(historical);
+        realm.commitTransaction();
     }
 
     private <T extends RealmObject> AtomicInteger getIdByTable(Realm realm, Class<T> anyClass) {
@@ -394,6 +426,7 @@ public class Sentadillas extends AppCompatActivity {
         prbCuentaAtras.setProgress(segundos);
         txvCuentaAtras.setText(String.valueOf(segundos));
 
+        toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
         // empezamos la cuenta atras
         countDownTimer = new CountDownTimer(segundos * 1000, 500) {
             // 500 means, onTick function will be called at every 500 milliseconds
@@ -409,10 +442,11 @@ public class Sentadillas extends AppCompatActivity {
             @Override
             public void onFinish() {
                 if (txvCuentaAtras.getText().equals(numeroCuentaAtras + "")) {
-                    cancelarTimer();
+                    terminarTimer();
                 } else {
                     txvCuentaAtras.setText(String.valueOf(contador));
                     prbCuentaAtras.setProgress(contador);
+                    terminarTimer();
                 }
             }
         }.start();
@@ -438,13 +472,14 @@ public class Sentadillas extends AppCompatActivity {
 
     public void cancelTimer() {
         if (countDownTimer != null) countDownTimer.cancel();
-        cancelarTimer();
+        terminarTimer();
     }
 
-    public void cancelarTimer() {
-        txvCuentaAtras.setText("OK");
+    public void terminarTimer() {
+        txvCuentaAtras.setText(String.valueOf(numeroCuentaAtras));
         toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 400);
         prbCuentaAtras.setProgress(numeroCuentaAtras);
+        asignarTiempoRestanteIgualQueNumeroCuentaAtras();
         // activamos button en secuencia
         switch (boton) {
             case 1:
@@ -480,7 +515,7 @@ public class Sentadillas extends AppCompatActivity {
     public void showFinalSerie() {
 
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        final SeekBar seekBarNumberOfRepetitions ;             // numero de repeticiones en el dialogbox final de serie
+        final SeekBar seekBarNumberOfRepetitions;             // numero de repeticiones en el dialogbox final de serie
         final TextView textViewSeekProgressValue;
 
         LayoutInflater inflater = this.getLayoutInflater();
@@ -491,19 +526,21 @@ public class Sentadillas extends AppCompatActivity {
         textViewSeekProgressValue = (TextView) dialogView.findViewById(R.id.textViewSeekProgressValue);
 
 
-
         dialogBuilder.setTitle(getResources().getString(R.string.dialog_box_titulo_final_serie));
         dialogBuilder.setMessage("( " + getResources().getString(R.string.calorias_consumidas_aproximadas) +
-                String.format(": %.1f", caloriasKiloRepeticion * totalRepeticiones) +
+                String.format(": %.1f", caloriasRepeticion * totalRepeticiones) +
                 ")\n" + getResources().getString(R.string.dialog_box_mensaje_final_serie));
         dialogBuilder.setView(dialogView);
 
         dialogBuilder.setPositiveButton(getResources().getString(R.string.aceptar)
                 , new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        //si
-                        String converter = textViewSeekProgressValue.getText().toString();
-                        increaseRepetitionsNumber(Integer.parseInt(converter));
+                        //si , se incrementa el numero de repeticiones en Users e Historical
+                        String increaseQuantity = textViewSeekProgressValue.getText().toString();
+                        int repNumber = Integer.parseInt(increaseQuantity);
+                        increaseRepetitionsNumber(repNumber);
+                        caloriasRepeticion = Util.calcCalories(SERIE_TYPE, repSerie1 + repNumber);
+                        saveHistorical(repSerie1 + repNumber);
                         onBackPressed();
                     }
                 });
@@ -523,9 +560,11 @@ public class Sentadillas extends AppCompatActivity {
                 progress = progress - 5;
                 textViewSeekProgressValue.setText(String.valueOf(progress));
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }

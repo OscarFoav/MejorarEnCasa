@@ -169,424 +169,260 @@ public class LoginActivity extends AppCompatActivity {
         if (useres.size() == 0) createUsers(userLocal, ageLocal, weightLocal);
         // lectura/creacion de Historical
         historicals = realm.where(Historical.class).findAll();
-        if (historicals.size() == 0) createHistorical(userLocal, "");
+        if (historicals.size() == 0) createHistorical(userLocal);
         realm.close();
     }
 
     private void createNewDefaultValues() {
-        String push_ups;
-        String repetition_number_push_ups;
-        String level_first_push_ups;
-        String level_second_push_ups;
-        String abs;
-        String repetition_number_abs;
-        String level_first_abs;
-        String level_second_abs;
-        String dips;
-        String repetition_number_dips;
-        String level_first_dips;
-        String level_second_dips;
-        String squats;
-        String repetition_number_squats;
-        String level_first_squats;
-        String level_second_squats;
-        String pull_ups;
-        String repetition_number_pull_ups;
-        String level_first_pull_ups;
-        String level_second_pull_ups;
-        String calves;
-        String repetition_number_calves;
-        String level_first_calves;
-        String level_second_calves;
-        // asignando valores
-        push_ups = "Push-Ups";
-        repetition_number_push_ups = "5";
-        level_first_push_ups = "100";
-        level_second_push_ups = "150";
-        abs = "Abs";
-        repetition_number_abs = "5";
-        level_first_abs = "200";
-        level_second_abs = "300";
-        dips = "Dips";
-        repetition_number_dips = "5";
-        level_first_dips = "150";
-        level_second_dips = "200";
-        squats = "Squats";
-        repetition_number_squats = "5";
-        level_first_squats = "200";
-        level_second_squats = "300";
-        pull_ups = "Pull-Ups";
-        repetition_number_pull_ups = "5";
-        level_first_pull_ups = "20";
-        level_second_pull_ups = "30";
-        calves = "Calves";
-        repetition_number_calves = "5";
-        level_first_calves = "200";
-        level_second_calves = "300";
         // grabacion del registro
         realm.beginTransaction();
         DefaultValues defaultValues = new DefaultValues(
-                push_ups
-                , repetition_number_push_ups
-                , level_first_push_ups
-                , level_second_push_ups
-                , abs
-                , repetition_number_abs
-                , level_first_abs
-                , level_second_abs
-                , dips
-                , repetition_number_dips
-                , level_first_dips
-                , level_second_dips
-                , squats
-                , repetition_number_squats
-                , level_first_squats
-                , level_second_squats
-                , pull_ups
-                , repetition_number_pull_ups
-                , level_first_pull_ups
-                , level_second_pull_ups
-                , calves
-                , repetition_number_calves
-                , level_first_calves
-                , level_second_calves);
+                "Flexiones"
+                , 5
+                , 100
+                , 200
+                , "Abdominales"
+                , 5
+                , 200
+                , 300
+                , "Fondos"
+                , 5
+                , 150
+                , 200
+                , "Sentadillas"
+                , 5
+                , 200
+                , 300
+                , "Dominadas"
+                , 5
+                , 20
+                , 30
+                , "Gemelos"
+                , 5
+                , 200
+                , 300);
         realm.copyToRealm(defaultValues);
         realm.commitTransaction();
     }
 
     private void createUsers(String userLocal, int ageLocal, int weightLocal) {
-        String user_serie;
-        int user_age;
-        int user_weight;
-        String series_name;
-        int repetition_series_one;
-        int repetition_series_two;
-        int repetition_series_three;
-        int repetition_series_four;
-        int repetition_series_five;
-        // asignando valores
-        user_serie = userLocal;
-        user_age = ageLocal;
-        user_weight = weightLocal;
-        series_name = "Flexiones";
-        repetition_series_one = 10;
-        repetition_series_two = 10;
-        repetition_series_three = 10;
-        repetition_series_four = 10;
-        repetition_series_five = 10;
         // grabacion del registro
         realm.beginTransaction();
         Users useres = new Users(
-                user_serie,
-                user_age,
-                user_weight,
-                series_name,
-                repetition_series_one,
-                repetition_series_two,
-                repetition_series_three,
-                repetition_series_four,
-                repetition_series_five);
+                userLocal,
+                ageLocal,
+                weightLocal,
+                "Flexiones",
+                60,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                new Date());
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
-        // asignando valores
-        user_serie = userLocal;
-        user_age = ageLocal;
-        user_weight = weightLocal;
-        series_name = "Abdominales";
-        repetition_series_one = 20;
-        repetition_series_two = 20;
-        repetition_series_three = 20;
-        repetition_series_four = 20;
-        repetition_series_five = 20;
         // grabacion del registro
         realm.beginTransaction();
         useres = new Users(
-                user_serie,
-                user_age,
-                user_weight,
-                series_name,
-                repetition_series_one,
-                repetition_series_two,
-                repetition_series_three,
-                repetition_series_four,
-                repetition_series_five);
+                userLocal,
+                ageLocal,
+                weightLocal,
+                "Abdominales",
+                60,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                new Date());
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
-        // asignando valores
-        user_serie = userLocal;
-        user_age = ageLocal;
-        user_weight = weightLocal;
-        series_name = "Fondos";
-        repetition_series_one = 15;
-        repetition_series_two = 15;
-        repetition_series_three = 15;
-        repetition_series_four = 15;
-        repetition_series_five = 15;
         // grabacion del registro
         realm.beginTransaction();
         useres = new Users(
-                user_serie,
-                user_age,
-                user_weight,
-                series_name,
-                repetition_series_one,
-                repetition_series_two,
-                repetition_series_three,
-                repetition_series_four,
-                repetition_series_five);
+                userLocal,
+                ageLocal,
+                weightLocal,
+                "Fondos",
+                60,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                new Date());
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
-        // asignando valores
-        user_serie = userLocal;
-        user_age = ageLocal;
-        user_weight = weightLocal;
-        series_name = "Sentadillas";
-        repetition_series_one = 20;
-        repetition_series_two = 20;
-        repetition_series_three = 20;
-        repetition_series_four = 20;
-        repetition_series_five = 20;
         // grabacion del registro
         realm.beginTransaction();
         useres = new Users(
-                user_serie,
-                user_age,
-                user_weight,
-                series_name,
-                repetition_series_one,
-                repetition_series_two,
-                repetition_series_three,
-                repetition_series_four,
-                repetition_series_five);
+                userLocal,
+                ageLocal,
+                weightLocal,
+                "Sentadillas",
+                60,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                new Date());
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
-        // asignando valores
-        user_serie = userLocal;
-        user_age = ageLocal;
-        user_weight = weightLocal;
-        series_name = "Dominadas";
-        repetition_series_one = 2;
-        repetition_series_two = 2;
-        repetition_series_three = 2;
-        repetition_series_four = 2;
-        repetition_series_five = 2;
         // grabacion del registro
         realm.beginTransaction();
         useres = new Users(
-                user_serie,
-                user_age,
-                user_weight,
-                series_name,
-                repetition_series_one,
-                repetition_series_two,
-                repetition_series_three,
-                repetition_series_four,
-                repetition_series_five);
+                userLocal,
+                ageLocal,
+                weightLocal,
+                "Dominadas",
+                60,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                new Date());
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
-        // asignando valores
-        user_serie = userLocal;
-        user_age = ageLocal;
-        user_weight = weightLocal;
-        series_name = "Gemelos";
-        repetition_series_one = 20;
-        repetition_series_two = 20;
-        repetition_series_three = 20;
-        repetition_series_four = 20;
-        repetition_series_five = 20;
         // grabacion del registro
         realm.beginTransaction();
         useres = new Users(
-                user_serie,
-                user_age,
-                user_weight,
-                series_name,
-                repetition_series_one,
-                repetition_series_two,
-                repetition_series_three,
-                repetition_series_four,
-                repetition_series_five);
+                userLocal,
+                ageLocal,
+                weightLocal,
+                "Gemelos",
+                60,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                new Date());
         realm.copyToRealm(useres);
         realm.commitTransaction();
 
     }
 
-    private void createHistorical(String userLocal, String serieLocal) {
-        String historical_column_user;
-        String historical_column_type_series;
-        float historical_column_calories;
-        String historical_column_series_number;
-        String historical_column_repetition_series_one;
-        String historical_column_repetition_series_two;
-        String historical_column_repetition_series_three;
-        String historical_column_repetition_series_four;
-        String historical_column_repetition_series_five;
-        Date createAt;
+    private void createHistorical(String userLocal) {
         // asignando valores Flexiones
-        historical_column_user = userLocal;
-        historical_column_type_series = "Flexiones";
-        historical_column_calories = 0.081f;
-        historical_column_series_number = "5";
-        historical_column_repetition_series_one = "10";
-        historical_column_repetition_series_two = "10";
-        historical_column_repetition_series_three = "10";
-        historical_column_repetition_series_four = "10";
-        historical_column_repetition_series_five = "10";
-        // grabacion del registro
         realm.beginTransaction();
         Historical historical = new Historical(
-                historical_column_user,
-                historical_column_type_series,
-                historical_column_calories,
-                historical_column_series_number,
-                historical_column_repetition_series_one,
-                historical_column_repetition_series_two,
-                historical_column_repetition_series_three,
-                historical_column_repetition_series_four,
-                historical_column_repetition_series_five
+                userLocal,
+                "Flexiones",
+                Util.FLEXIONES,
+                60,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                Util.REPETICIONES_FLEXIONES_INIT,
+                new Date()
         );
         realm.copyToRealm(historical);
         realm.commitTransaction();
 
-        // asignando valores Flexiones
-        historical_column_user = userLocal;
-        historical_column_type_series = "Abdominales";
-        historical_column_calories = 1f;
-        historical_column_series_number = "5";
-        historical_column_repetition_series_one = "10";
-        historical_column_repetition_series_two = "10";
-        historical_column_repetition_series_three = "10";
-        historical_column_repetition_series_four = "10";
-        historical_column_repetition_series_five = "10";
-        // grabacion del registro
+        // asignando valores Abdominales
         realm.beginTransaction();
         historical = new Historical(
-                historical_column_user,
-                historical_column_type_series,
-                historical_column_calories,
-                historical_column_series_number,
-                historical_column_repetition_series_one,
-                historical_column_repetition_series_two,
-                historical_column_repetition_series_three,
-                historical_column_repetition_series_four,
-                historical_column_repetition_series_five
+                userLocal,
+                "Abdominales",
+                Util.ABDOMINALES,
+                60,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                Util.REPETICIONES_ABDOMINALES_INIT,
+                new Date()
         );
         realm.copyToRealm(historical);
         realm.commitTransaction();
 
-        // asignando valores Flexiones
-        historical_column_user = userLocal;
-        historical_column_type_series = "Fondos";
-        historical_column_calories = 1f;
-        historical_column_series_number = "5";
-        historical_column_repetition_series_one = "20";
-        historical_column_repetition_series_two = "20";
-        historical_column_repetition_series_three = "20";
-        historical_column_repetition_series_four = "20";
-        historical_column_repetition_series_five = "20";
-        // grabacion del registro
+        // asignando valores Fondos
         realm.beginTransaction();
         historical = new Historical(
-                historical_column_user,
-                historical_column_type_series,
-                historical_column_calories,
-                historical_column_series_number,
-                historical_column_repetition_series_one,
-                historical_column_repetition_series_two,
-                historical_column_repetition_series_three,
-                historical_column_repetition_series_four,
-                historical_column_repetition_series_five
+                userLocal,
+                "Fondos",
+                Util.FONDOS,
+                60,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                Util.REPETICIONES_FONDOS_INIT,
+                new Date()
         );
         realm.copyToRealm(historical);
         realm.commitTransaction();
 
-        // asignando valores Flexiones
-        historical_column_user = userLocal;
-        historical_column_type_series = "Sentadillas";
-        historical_column_calories = 1f;
-        historical_column_series_number = "5";
-        historical_column_repetition_series_one = "15";
-        historical_column_repetition_series_two = "15";
-        historical_column_repetition_series_three = "15";
-        historical_column_repetition_series_four = "15";
-        historical_column_repetition_series_five = "15";
-        // grabacion del registro
+        // asignando valores Sentadillas
         realm.beginTransaction();
         historical = new Historical(
-                historical_column_user,
-                historical_column_type_series,
-                historical_column_calories,
-                historical_column_series_number,
-                historical_column_repetition_series_one,
-                historical_column_repetition_series_two,
-                historical_column_repetition_series_three,
-                historical_column_repetition_series_four,
-                historical_column_repetition_series_five
+                userLocal,
+                "Sentadillas",
+                Util.SENTADILLAS,
+                60,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                Util.REPETICIONES_SENTADILLAS_INIT,
+                new Date()
         );
         realm.copyToRealm(historical);
         realm.commitTransaction();
 
-        // asignando valores Flexiones
-        historical_column_user = userLocal;
-        historical_column_type_series = "Dominadas";
-        historical_column_calories = 1f;
-        historical_column_series_number = "5";
-        historical_column_repetition_series_one = "2";
-        historical_column_repetition_series_two = "2";
-        historical_column_repetition_series_three = "2";
-        historical_column_repetition_series_four = "2";
-        historical_column_repetition_series_five = "2";
-        // grabacion del registro
+        // asignando valores Dominadas
         realm.beginTransaction();
         historical = new Historical(
-                historical_column_user,
-                historical_column_type_series,
-                historical_column_calories,
-                historical_column_series_number,
-                historical_column_repetition_series_one,
-                historical_column_repetition_series_two,
-                historical_column_repetition_series_three,
-                historical_column_repetition_series_four,
-                historical_column_repetition_series_five
+                userLocal,
+                "Dominadas",
+                Util.DOMINADAS,
+                60,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                Util.REPETICIONES_DOMINADAS_INIT,
+                new Date()
         );
         realm.copyToRealm(historical);
         realm.commitTransaction();
 
-        // asignando valores Flexiones
-        historical_column_user = userLocal;
-        historical_column_type_series = "Gemelos";
-        historical_column_calories = 1f;
-        historical_column_series_number = "5";
-        historical_column_repetition_series_one = "25";
-        historical_column_repetition_series_two = "25";
-        historical_column_repetition_series_three = "25";
-        historical_column_repetition_series_four = "25";
-        historical_column_repetition_series_five = "25";
-        // grabacion del registro
+        // asignando valores Gemelos
         realm.beginTransaction();
         historical = new Historical(
-                historical_column_user,
-                historical_column_type_series,
-                historical_column_calories,
-                historical_column_series_number,
-                historical_column_repetition_series_one,
-                historical_column_repetition_series_two,
-                historical_column_repetition_series_three,
-                historical_column_repetition_series_four,
-                historical_column_repetition_series_five
+                userLocal,
+                "Gemelos",
+                Util.GEMELOS,
+                60,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                Util.REPETICIONES_GEMELOS_INIT,
+                new Date()
         );
         realm.copyToRealm(historical);
         realm.commitTransaction();
 
     }
 
-    // configurar Realm config
     private void setUpRealmConfig() {
+        // configurar Realm config
         RealmConfiguration config = new RealmConfiguration
                 .Builder()
                 .deleteRealmIfMigrationNeeded()
