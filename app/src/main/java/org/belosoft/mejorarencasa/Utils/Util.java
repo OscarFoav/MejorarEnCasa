@@ -2,14 +2,7 @@ package org.belosoft.mejorarencasa.Utils;
 
 import android.content.SharedPreferences;
 
-import org.belosoft.mejorarencasa.Models.DefaultValues;
-import org.belosoft.mejorarencasa.Models.Historical;
-import org.belosoft.mejorarencasa.Models.Users;
-
-import java.util.Date;
-
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
+import org.belosoft.mejorarencasa.R;
 
 /**
  * Created by OscarPC on 05/10/2017.
@@ -24,12 +17,12 @@ public class Util {
     public static String STRING_DOMINADAS = "Dominadas";
     public static String STRING_GEMELOS = "Gemelos";
 
-    public static float FLEXIONES = 0.12f;
-    public static float ABDOMINALES = 0.12f;
-    public static float FONDOS = 0.12f;
-    public static float SENTADILLAS = 0.12f;
-    public static float DOMINADAS = 0.12f;
-    public static float GEMELOS = 0.12f;
+    public static float CALORIES_FLEXIONES = 0.12f;
+    public static float CALORIES_ABDOMINALES = 0.12f;
+    public static float CALORIES_FONDOS = 0.12f;
+    public static float CALORIES_SENTADILLAS = 0.12f;
+    public static float CALORIES_DOMINADAS = 0.12f;
+    public static float CALORIES_GEMELOS = 0.12f;
 
     public static int REPETICIONES_FLEXIONES_INIT = 5;
     public static int REPETICIONES_ABDOMINALES_INIT = 10;
@@ -39,7 +32,7 @@ public class Util {
     public static int REPETICIONES_GEMELOS_INIT = 10;
 
     public static int SECONDS_LEAPS = 60;
-
+    public static int serie_repetitions = 5;
 
     public static String getUserPreferences(SharedPreferences preferences) {
         return preferences.getString("user", "");
@@ -77,27 +70,27 @@ public class Util {
         float totalCalories = 0.0f;
         switch (tipoSerie) {
             case "Flexiones":
-                unitCalories = FLEXIONES;
+                unitCalories = CALORIES_FLEXIONES;
                 totalCalories = unitCalories * numeroRepeticiones;
                 break;
             case "Abdominales":
-                unitCalories = ABDOMINALES;
+                unitCalories = CALORIES_ABDOMINALES;
                 totalCalories = unitCalories * numeroRepeticiones;
                 break;
             case "Fondos":
-                unitCalories = FONDOS;
+                unitCalories = CALORIES_FONDOS;
                 totalCalories = unitCalories * numeroRepeticiones;
                 break;
             case "Sentadillas":
-                unitCalories = SENTADILLAS;
+                unitCalories = CALORIES_SENTADILLAS;
                 totalCalories = unitCalories * numeroRepeticiones;
                 break;
             case "Dominadas":
-                unitCalories = DOMINADAS;
+                unitCalories = CALORIES_DOMINADAS;
                 totalCalories = unitCalories * numeroRepeticiones;
                 break;
             case "Gemelos":
-                unitCalories = GEMELOS;
+                unitCalories = CALORIES_GEMELOS;
                 totalCalories = unitCalories * numeroRepeticiones;
                 break;
             default:

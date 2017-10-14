@@ -163,32 +163,38 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_flexiones) {
             // Handle the flexiones action
             tituloOpcionAbierta = getResources().getString(R.string.action_flexiones);
-            Intent i = new Intent(this, Flexiones.class);
+            Intent i = new Intent(this, PlantillaSeries.class);
+            i.putExtra("serieType", Util.STRING_FLEXIONES);
             startActivity(i);
         } else if (id == R.id.nav_abdominales) {
             // Handle the abdominales action
             tituloOpcionAbierta = getResources().getString(R.string.action_abdominales);
-            Intent i = new Intent(this, Abdominales.class);
+            Intent i = new Intent(this, PlantillaSeries.class);
+            i.putExtra("serieType", Util.STRING_ABDOMINALES);
             startActivity(i);
         } else if (id == R.id.nav_fondos) {
             // Handle the fondos action
             tituloOpcionAbierta = getResources().getString(R.string.action_fondos);
-            Intent i = new Intent(this, Fondos.class);
+            Intent i = new Intent(this, PlantillaSeries.class);
+            i.putExtra("serieType", Util.STRING_FONDOS);
             startActivity(i);
         } else if (id == R.id.nav_sentadillas) {
             // Handle the sentadillas action
             tituloOpcionAbierta = getResources().getString(R.string.action_sentadillas);
-            Intent i = new Intent(this, Sentadillas.class);
+            Intent i = new Intent(this, PlantillaSeries.class);
+            i.putExtra("serieType", Util.STRING_SENTADILLAS);
             startActivity(i);
         } else if (id == R.id.nav_dominadas) {
             // Handle the dominadas action
             tituloOpcionAbierta = getResources().getString(R.string.action_dominadas);
-            Intent i = new Intent(this, Dominadas.class);
+            Intent i = new Intent(this, PlantillaSeries.class);
+            i.putExtra("serieType", Util.STRING_DOMINADAS);
             startActivity(i);
         } else if (id == R.id.nav_gemelos) {
             // Handle the gemelos action
             tituloOpcionAbierta = getResources().getString(R.string.action_gemelos);
-            Intent i = new Intent(this, Gemelos.class);
+            Intent i = new Intent(this, PlantillaSeries.class);
+            i.putExtra("serieType", Util.STRING_GEMELOS);
             startActivity(i);
         } else if (id == R.id.nav_test_resistencia) {
             // Handle the gemelos action

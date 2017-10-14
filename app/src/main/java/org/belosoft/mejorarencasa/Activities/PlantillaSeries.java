@@ -29,7 +29,6 @@ import org.belosoft.mejorarencasa.R;
 import org.belosoft.mejorarencasa.Utils.Util;
 
 import java.util.ArrayList;
-
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -38,16 +37,17 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 
-public class Flexiones extends AppCompatActivity {
+public class PlantillaSeries extends AppCompatActivity {
 
     // Serie
     private static final int SERIE_REPETITIONS = Util.serie_repetitions;
     //private static final String SERIE_TYPE = Util.STRING_FLEXIONES;
-    private String serie_type;
+    private String serieType;
     //private static final int SERIE_ICON = R.drawable.flexiones2;
-    private int serie_icon;
+    private int serieIcon;
     //private static final  int SERIE_BACKGROUND = android.R.color.holo_red_dark;
-    private int serie_background;
+    private int serieBackground;
+    private int serieSubtitle;
 
     // Realm
     private Realm realm;
@@ -119,29 +119,29 @@ public class Flexiones extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.get("serie_type") != null){
-            serie_type = bundle.getString("serie_type");
+        if (bundle != null && bundle.get("serieType") != null){
+            serieType = bundle.getString("serieType");
         } else {
             // error
         }
         // carga inicial
         inicializacion();
 
+        toolbar.setSubtitle(serieSubtitle);
+
         // color de fondo
         View viewChangeBackground = findViewById(R.id.activityMainChangeBackground);
         // asignar el color
-        //viewChangeBackground.setBackgroundColor(getResources().getColor(SERIE_BACKGROUND));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            viewChangeBackground.setBackgroundColor(getResources().getColor(serie_background, getTheme()));
+            viewChangeBackground.setBackgroundColor(getResources().getColor(serieBackground, getTheme()));
         } else {
-            viewChangeBackground.setBackgroundColor(getResources().getColor(serie_background));
+            viewChangeBackground.setBackgroundColor(getResources().getColor(serieBackground));
         }
 
 
         // imagen asociada
         ImageView imageView = (ImageView) findViewById(R.id.imageViewSerie);
-        //imageView.setImageResource(SERIE_ICON);
-        imageView.setImageResource(serie_icon);
+        imageView.setImageResource(serieIcon);
 
         // activar la fecha ir atrás
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -221,7 +221,7 @@ public class Flexiones extends AppCompatActivity {
         // lectura de Users
         useres = realm.where(Users.class)
                 .equalTo("user_serie", user)
-                .equalTo("series_name", serie_type)
+                .equalTo("series_name", serieType)
                 .findAll();
         if (useres.size() == 0) {
             // si no existe, mensaje de error
@@ -376,7 +376,7 @@ public class Flexiones extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         useres = realm.where(Users.class)
                 .equalTo("user_serie", user)
-                .equalTo("series_name", serie_type)
+                .equalTo("series_name", serieType)
                 .findAll();
         if (useres.size() != 0) {
             // empezar upgrade
@@ -416,7 +416,7 @@ public class Flexiones extends AppCompatActivity {
         int nuevoRegistro = HistoricalID.getAndIncrement() + 1;
         Historical historical = realm.createObject(Historical.class, nuevoRegistro);
         historical.sethistorical_user(user);
-        historical.sethistorical_type_series(serie_type);
+        historical.sethistorical_type_series(serieType);
         historical.sethistorical_calories(caloriasRepeticion);
         historical.sethistorical_series_number(SERIE_REPETITIONS);
         historical.setSeconds_leaps(numeroCuentaAtras);
@@ -557,7 +557,7 @@ public class Flexiones extends AppCompatActivity {
                         String increaseQuantity = textViewSeekProgressValue.getText().toString();
                         int repNumber = Integer.parseInt(increaseQuantity);
                         increaseRepetitionsNumber(repNumber);
-                        caloriasRepeticion = Util.calcCalories(serie_type, repSerie1 + repNumber);
+                        caloriasRepeticion = Util.calcCalories(serieType, repSerie1 + repNumber);
                         saveHistorical(repSerie1 + repNumber);
                         onBackPressed();
                     }
@@ -600,36 +600,42 @@ public class Flexiones extends AppCompatActivity {
     }
 
     public void initValuesActivities() {
-        switch (serie_type) {
+        switch (serieType) {
             case "Flexiones":
-                serie_type = Util.STRING_FLEXIONES;
-                serie_icon = R.drawable.flexiones2;
-                serie_background = android.R.color.holo_red_dark;
+                serieSubtitle = R.string.action_flexiones;
+                serieType = Util.STRING_FLEXIONES;
+                serieIcon = R.drawable.flexiones2;
+                serieBackground = android.R.color.holo_red_dark;
                 break;
             case "Abdominales":
-                serie_type = Util.STRING_ABDOMINALES;
-                serie_icon = R.drawable.abdominales2;
-                serie_background = android.R.color.holo_blue_dark;
+                serieSubtitle = R.string.action_abdominales;
+                serieType = Util.STRING_ABDOMINALES;
+                serieIcon = R.drawable.abdominales2;
+                serieBackground = android.R.color.holo_blue_dark;
                 break;
             case "Fondos":
-                serie_type = Util.STRING_FONDOS;
-                serie_icon = R.drawable.fondos2;
-                serie_background = android.R.color.holo_orange_light;
+                serieSubtitle = R.string.action_fondos;
+                serieType = Util.STRING_FONDOS;
+                serieIcon = R.drawable.fondos2;
+                serieBackground = android.R.color.holo_orange_light;
                 break;
             case "Sentadillas":
-                serie_type = Util.STRING_SENTADILLAS;
-                serie_icon = R.drawable.sentadillas;
-                serie_background = android.R.color.holo_red_light;
+                serieSubtitle = R.string.action_sentadillas;
+                serieType = Util.STRING_SENTADILLAS;
+                serieIcon = R.drawable.sentadillas;
+                serieBackground = android.R.color.holo_red_light;
                 break;
             case "Dominadas":
-                serie_type = Util.STRING_DOMINADAS;
-                serie_icon = R.drawable.dominadas;
-                serie_background = android.R.color.holo_green_dark;
+                serieSubtitle = R.string.action_dominadas;
+                serieType = Util.STRING_DOMINADAS;
+                serieIcon = R.drawable.dominadas;
+                serieBackground = android.R.color.holo_green_dark;
                 break;
             case "Gemelos":
-                serie_type = Util.STRING_GEMELOS;
-                serie_icon = R.drawable.gemelos2;
-                serie_background = android.R.color.holo_purple;
+                serieSubtitle = R.string.action_gemelos;
+                serieType = Util.STRING_GEMELOS;
+                serieIcon = R.drawable.gemelos2;
+                serieBackground = android.R.color.holo_purple;
                 break;
             default:
                 break;

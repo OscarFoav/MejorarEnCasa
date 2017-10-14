@@ -302,6 +302,7 @@ public class TestResistencia extends AppCompatActivity {
                 // cuarto boton
                 if (flgBotonOnSerie6 == 0) {
                     flgBotonOnSerie6 = 1;
+                    showFinalSerie();
                     tiempoRestante = numeroCuentaAtras;
                 }
             }

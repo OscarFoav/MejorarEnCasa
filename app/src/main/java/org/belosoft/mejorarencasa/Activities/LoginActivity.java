@@ -1,22 +1,16 @@
 package org.belosoft.mejorarencasa.Activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.belosoft.mejorarencasa.Models.DefaultValues;
@@ -316,7 +310,7 @@ public class LoginActivity extends AppCompatActivity {
         Historical historical = new Historical(
                 userLocal,
                 "Flexiones",
-                Util.FLEXIONES,
+                Util.CALORIES_FLEXIONES,
                 60,
                 Util.REPETICIONES_FLEXIONES_INIT,
                 Util.REPETICIONES_FLEXIONES_INIT,
@@ -334,7 +328,7 @@ public class LoginActivity extends AppCompatActivity {
         historical = new Historical(
                 userLocal,
                 "Abdominales",
-                Util.ABDOMINALES,
+                Util.CALORIES_ABDOMINALES,
                 60,
                 Util.REPETICIONES_ABDOMINALES_INIT,
                 Util.REPETICIONES_ABDOMINALES_INIT,
@@ -352,7 +346,7 @@ public class LoginActivity extends AppCompatActivity {
         historical = new Historical(
                 userLocal,
                 "Fondos",
-                Util.FONDOS,
+                Util.CALORIES_FONDOS,
                 60,
                 Util.REPETICIONES_FONDOS_INIT,
                 Util.REPETICIONES_FONDOS_INIT,
@@ -370,7 +364,7 @@ public class LoginActivity extends AppCompatActivity {
         historical = new Historical(
                 userLocal,
                 "Sentadillas",
-                Util.SENTADILLAS,
+                Util.CALORIES_SENTADILLAS,
                 60,
                 Util.REPETICIONES_SENTADILLAS_INIT,
                 Util.REPETICIONES_SENTADILLAS_INIT,
@@ -388,7 +382,7 @@ public class LoginActivity extends AppCompatActivity {
         historical = new Historical(
                 userLocal,
                 "Dominadas",
-                Util.DOMINADAS,
+                Util.CALORIES_DOMINADAS,
                 60,
                 Util.REPETICIONES_DOMINADAS_INIT,
                 Util.REPETICIONES_DOMINADAS_INIT,
@@ -406,7 +400,7 @@ public class LoginActivity extends AppCompatActivity {
         historical = new Historical(
                 userLocal,
                 "Gemelos",
-                Util.GEMELOS,
+                Util.CALORIES_GEMELOS,
                 60,
                 Util.REPETICIONES_GEMELOS_INIT,
                 Util.REPETICIONES_GEMELOS_INIT,
