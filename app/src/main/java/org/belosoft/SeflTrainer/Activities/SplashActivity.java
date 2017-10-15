@@ -15,18 +15,8 @@ import org.belosoft.SeflTrainer.Utils.Util;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class SplashActivity extends AppCompatActivity {
-
-    // Realm
-    private Realm realm;
-    private static AtomicInteger DefaultValuesID = new AtomicInteger();
-    private static AtomicInteger HistoricalID = new AtomicInteger();
-    private static AtomicInteger UserID = new AtomicInteger();
-    private RealmResults<DefaultValues> defaultValues;
-    private RealmResults<Users> useres;
-    private RealmResults<Historical> historicals;
 
     // Preferences y variables temporales
     private SharedPreferences prefs;

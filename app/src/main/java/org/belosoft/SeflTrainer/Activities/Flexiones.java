@@ -613,7 +613,7 @@ public class Flexiones extends AppCompatActivity {
                 break;
             case "Fondos":
                 serie_type = Util.STRING_FONDOS;
-                serie_icon = R.drawable.fondos2;
+                serie_icon = R.drawable.fondos3;
                 serie_background = android.R.color.holo_orange_light;
                 break;
             case "Sentadillas":

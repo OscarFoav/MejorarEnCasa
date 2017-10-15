@@ -685,7 +685,7 @@ public class PlantillaSeries extends AppCompatActivity {
             case "Fondos":
                 serieSubtitle = R.string.action_fondos;
                 serieType = Util.STRING_FONDOS;
-                serieIcon = R.drawable.fondos2;
+                serieIcon = R.drawable.fondos3;
                 serieBackground = android.R.color.holo_orange_light;
                 break;
             case "Sentadillas":
