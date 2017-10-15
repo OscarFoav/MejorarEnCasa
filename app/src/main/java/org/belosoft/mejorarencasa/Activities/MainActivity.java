@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +46,15 @@ public class MainActivity extends AppCompatActivity
     // para salir de la app pulsando 2 veces retroceso
     private static final int INTERVALO = 2000; // 2 segundos de plazo
     private long tiempoPrimerClick;
+
+    // imageViews fondo menu
+    private ImageView imageViewFlexiones;
+    private ImageView imageViewAbdominales;
+    private ImageView imageViewFondos;
+    private ImageView imageViewSentadillas;
+    private ImageView imageViewDominadas;
+    private ImageView imageViewGemelos;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +88,66 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // mostrar navegados al abrir/volver de activity
+        // drawer.openDrawer(Gravity.START);
+
+        // inicializar
+        init();
+    }
+
+    private void init() {
+
+        imageViewFlexiones = (ImageView) findViewById(R.id.imageButtonFlexiones);
+        imageViewAbdominales = (ImageView) findViewById(R.id.imageButtonAbdominales);
+        imageViewFondos = (ImageView) findViewById(R.id.imageButtonFondos);
+        imageViewSentadillas = (ImageView) findViewById(R.id.imageButtonSentadillas);
+        imageViewDominadas = (ImageView) findViewById(R.id.imageButtonDominadas);
+        imageViewGemelos = (ImageView) findViewById(R.id.imageButtonGemelos);
+
+        imageViewFlexiones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFlexiones();
+            }
+        });
+
+        imageViewAbdominales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAbdominales();
+            }
+        });
+
+        imageViewFondos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFondos();
+            }
+        });
+
+        imageViewSentadillas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSentadillas();
+            }
+        });
+
+        imageViewDominadas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDominadas();
+            }
+        });
+
+        imageViewGemelos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGemelos();
+            }
+        });
+
+
     }
 
     @Override
@@ -132,13 +203,22 @@ public class MainActivity extends AppCompatActivity
                                 toastMECCorto(getResources().getString(R.string.alert_dialog_cancelado));
                                 //Toast.makeText(MainActivity.this, getResources().getString(R.string.alert_dialog_cancelado), Toast.LENGTH_LONG ).show();
                             }
-                        }) ;
+                        });
                 builder.create();
                 builder.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void setUpRealmConfig() {
+        // configurar Realm config
+        RealmConfiguration config = new RealmConfiguration
+                .Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(config);
     }
 
     private void changeUserProfile() {
@@ -159,58 +239,78 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_flexiones) {
             // Handle the flexiones action
-            tituloOpcionAbierta = getResources().getString(R.string.action_flexiones);
-            Intent i = new Intent(this, PlantillaSeries.class);
-            i.putExtra("serieType", Util.STRING_FLEXIONES);
-            startActivity(i);
+            openFlexiones();
         } else if (id == R.id.nav_abdominales) {
             // Handle the abdominales action
-            tituloOpcionAbierta = getResources().getString(R.string.action_abdominales);
-            Intent i = new Intent(this, PlantillaSeries.class);
-            i.putExtra("serieType", Util.STRING_ABDOMINALES);
-            startActivity(i);
+            openAbdominales();
         } else if (id == R.id.nav_fondos) {
             // Handle the fondos action
-            tituloOpcionAbierta = getResources().getString(R.string.action_fondos);
-            Intent i = new Intent(this, PlantillaSeries.class);
-            i.putExtra("serieType", Util.STRING_FONDOS);
-            startActivity(i);
+            openFondos();
         } else if (id == R.id.nav_sentadillas) {
             // Handle the sentadillas action
-            tituloOpcionAbierta = getResources().getString(R.string.action_sentadillas);
-            Intent i = new Intent(this, PlantillaSeries.class);
-            i.putExtra("serieType", Util.STRING_SENTADILLAS);
-            startActivity(i);
+            openSentadillas();
         } else if (id == R.id.nav_dominadas) {
             // Handle the dominadas action
-            tituloOpcionAbierta = getResources().getString(R.string.action_dominadas);
-            Intent i = new Intent(this, PlantillaSeries.class);
-            i.putExtra("serieType", Util.STRING_DOMINADAS);
-            startActivity(i);
+            openFondos();
         } else if (id == R.id.nav_gemelos) {
             // Handle the gemelos action
-            tituloOpcionAbierta = getResources().getString(R.string.action_gemelos);
-            Intent i = new Intent(this, PlantillaSeries.class);
-            i.putExtra("serieType", Util.STRING_GEMELOS);
-            startActivity(i);
+            openGemelos();
         } else if (id == R.id.nav_test_resistencia) {
             // Handle the gemelos action
-            tituloOpcionAbierta = getResources().getString(R.string.action_test_resistencia);
-            Intent i = new Intent(this, TestResistencia.class);
-            startActivity(i);
+            openStressTest();
         } else if (id == R.id.nav_about) {
             // Handle the gemelos action
             tituloOpcionAbierta = getResources().getString(R.string.action_acerca_de);
             Intent i = new Intent(this, AcercaDeActivity.class);
             startActivity(i);
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void openFlexiones() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_flexiones);
+        Intent i = new Intent(this, PlantillaSeries.class);
+        i.putExtra("serieType", Util.STRING_FLEXIONES);
+        startActivity(i);
+    }
+
+    public void openAbdominales() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_abdominales);
+        Intent i = new Intent(this, PlantillaSeries.class);
+        i.putExtra("serieType", Util.STRING_ABDOMINALES);
+        startActivity(i);
+    }
+
+    public void openFondos() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_fondos);
+        Intent i = new Intent(this, PlantillaSeries.class);
+        i.putExtra("serieType", Util.STRING_FONDOS);
+        startActivity(i);
+    }
+
+    public void openSentadillas() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_sentadillas);
+        Intent i = new Intent(this, PlantillaSeries.class);
+        i.putExtra("serieType", Util.STRING_SENTADILLAS);
+        startActivity(i);
+    }
+
+    public void openDominadas() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_dominadas);
+        Intent i = new Intent(this, PlantillaSeries.class);
+        i.putExtra("serieType", Util.STRING_DOMINADAS);
+        startActivity(i);
+    }
+
+    public void openGemelos() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_gemelos);
+        Intent i = new Intent(this, PlantillaSeries.class);
+        i.putExtra("serieType", Util.STRING_GEMELOS);
+        startActivity(i);
     }
 
     public String toastMECCorto(String texto) {
@@ -240,12 +340,11 @@ public class MainActivity extends AppCompatActivity
         return null;
     }
 
-    // configurar Realm config
-    private void setUpRealmConfig() {
-        RealmConfiguration config = new RealmConfiguration
-                .Builder()
-                .deleteRealmIfMigrationNeeded()
-                .build();
-        Realm.setDefaultConfiguration(config);
+    private void openStressTest() {
+        tituloOpcionAbierta = getResources().getString(R.string.action_test_resistencia);
+        Intent i = new Intent(this, TestResistencia.class);
+        startActivity(i);
     }
+
+
 }
