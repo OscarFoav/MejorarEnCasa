@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Entrenar En Casa</string>
+    <string name="app_name">Self Trainer</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -22,7 +22,7 @@
 
     <!-- menu Context -->
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
-    <string name="menu_borrar_datos_usuario">Borrar datos del usuario (irreversible)</string>
+    <string name="menu_borrar_datos_usuario">Inicializar datos</string>
     <!-- alertdialog acetar/cancelar borrar datos -->
     <string name="alert_dialog_aceptar_title">Eliminar entrenamiento de</string>
     <string name="alert_dialog_aceptar_message">Esta opción no tiene vuelta atrás.</string>
@@ -46,11 +46,15 @@
     <!-- plantilla series dialogbox final serie -->
     <string name="dialog_box_">Tap again to exit app.</string>
     <string name="dialog_box_titulo_final_serie">¡Serie terminada!</string>
-    <string name="dialog_box_mensaje_final_serie">¿Quieres cambiar el número de repeticiones?</string>
+    <string name="dialog_box_mensaje_final_serie">Puedes cambiar el número de repeticiones o la fecha.</string>
     <string name="calorias_consumidas_aproximadas">Calorias consumidas aproximadas</string>
 
     <!-- salir de la app -->
     <string name="salir">Pulsa otra vez para salir.</string>
+
+    <!-- goLoginActivity -->
+    <string name="go_login_activity_title">Configuración de Datos</string>
+    <string name="go_login_activity_message">No hay datos o quieres borrarlos. \nEsta operación no tiene vuelta atrás. \n¿Quieres crearl ahora?</string>
 
     <!-- series -->
     <string name="primera_serie">1ª serie</string>

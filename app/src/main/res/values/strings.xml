@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Breaking Up At Home</string>
+    <string name="app_name">Self Trainer</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -24,7 +24,7 @@
 
     <!-- menu Context -->
     <string name="menu_cerrar_sesion">Logout</string>
-    <string name="menu_borrar_datos_usuario">Delete user (no recover)</string>
+    <string name="menu_borrar_datos_usuario">Setup data</string>
     <!-- alertdialog acetar/cancelar borrar datos -->
     <string name="alert_dialog_aceptar_title">Drop training from </string>
     <string name="alert_dialog_aceptar_message">This option cannot be undo.</string>
@@ -47,11 +47,15 @@
     <!-- plantilla series dialogbox final serie -->
     <string name="dialog_box_">Tap again to exit app.</string>
     <string name="dialog_box_titulo_final_serie">Serie is finished!</string>
-    <string name="dialog_box_mensaje_final_serie">Do you want to change the number of repetitions?</string>
+    <string name="dialog_box_mensaje_final_serie">You can change repetitions number or date.</string>
     <string name="calorias_consumidas_aproximadas">Calories consumed aproximately</string>
 
     <!-- salir de la app -->
     <string name="salir">Tap again to exit app.</string>
+
+    <!-- goLoginActivity -->
+    <string name="go_login_activity_title">Setup Data.</string>
+    <string name="go_login_activity_message">There is no data or you want to re-create them. \nYou cannot undo this job. \nDo you want to create/delete data?</string>
 
 
     <!-- series -->

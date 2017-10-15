@@ -51,4 +51,14 @@
         android:text="5"
         tools:textStyle="bold" />
 
+    <DatePicker
+        android:id="@+id/datePickerChangeDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        android:layout_below="@+id/seekBarRepetitionsNumber"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>

@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.belosoft.mejorarencasa">
+    package="org.belosoft.SeflTrainer">
 
     <application
-        android:name=".App.MyApplication"
+        android:name="org.belosoft.SeflTrainer.App.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="org.belosoft.SeflTrainer.Activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name="org.belosoft.SeflTrainer.Activities.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Activities.PlantillaSeries"
+            android:name="org.belosoft.SeflTrainer.Activities.PlantillaSeries"
             android:label="@string/app_name"
-            android:parentActivityName=".Activities.MainActivity"
+            android:parentActivityName="org.belosoft.SeflTrainer.Activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
-        </activity>
-
-        <activity
-            android:name=".Activities.Flexiones"
-            android:label="@string/title_activity_flexiones"
-            android:parentActivityName=".Activities.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
+                android:value="org.belosoft.SeflTrainer.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name="org.belosoft.SeflTrainer.Activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
             <intent-filter>
@@ -52,15 +41,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.AcercaDeActivity" />
+        <activity
+            android:name="org.belosoft.SeflTrainer.Activities.AcercaDeActivity"
+            android:label="@string/action_acerca_de"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
-        <activity android:name=".Activities.TestResistencia"
+        <activity
+            android:name="org.belosoft.SeflTrainer.Activities.TestResistencia"
             android:label="@string/action_test_resistencia"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
+                android:value="org.belosoft.SeflTrainer.Activities.MainActivity" />
         </activity>
     </application>
 
