@@ -23,11 +23,11 @@ public class Util {
     public static float CALORIES_GEMELOS = 0.12f;
 
     public static int REPETICIONES_FLEXIONES_INIT = 5;
-    public static int REPETICIONES_ABDOMINALES_INIT = 10;
-    public static int REPETICIONES_FONDOS_INIT = 5;
-    public static int REPETICIONES_SENTADILLAS_INIT = 10;
+    public static int REPETICIONES_ABDOMINALES_INIT = 15;
+    public static int REPETICIONES_FONDOS_INIT = 12;
+    public static int REPETICIONES_SENTADILLAS_INIT = 15;
     public static int REPETICIONES_DOMINADAS_INIT = 1;
-    public static int REPETICIONES_GEMELOS_INIT = 10;
+    public static int REPETICIONES_GEMELOS_INIT = 15;
 
     public static int SECONDS_LEAPS = 60;
     public static int serie_repetitions = 5;

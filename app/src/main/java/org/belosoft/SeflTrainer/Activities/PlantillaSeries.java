@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.ToneGenerator;
 import android.os.Build;
 import android.os.Bundle;
@@ -105,6 +106,8 @@ public class PlantillaSeries extends AppCompatActivity {
     public float caloriasRepeticion;
 
     // aviso acustico
+    MediaPlayer mpClicBoton;
+    MediaPlayer mpBeepFinalCuentaAtras;
     ToneGenerator toneG;
 
     // estas de debajo seran sustituidas por los valores de la BD
@@ -168,6 +171,8 @@ public class PlantillaSeries extends AppCompatActivity {
         weight = Util.getWeightPreferences(prefs);
 
         // sonido-beep
+        mpClicBoton = MediaPlayer.create(this, R.raw.clic_boton);
+        mpBeepFinalCuentaAtras = MediaPlayer.create(this, R.raw.beep_final_cuenta_atras);
         toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
 
         // se asigna el mismo valor a tiempoRestante que el que tiene numeroCuentaAtras
@@ -270,6 +275,7 @@ public class PlantillaSeries extends AppCompatActivity {
             public void onClick(View v) {
                 // primer boton
                 boton = 1;
+                mpClicBoton.start();
                 if (flgBotonOnSerie1 == 0) {
                     CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
                     flgBotonOnSerie1 = 1;
@@ -281,6 +287,7 @@ public class PlantillaSeries extends AppCompatActivity {
         btnSerie2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // segundo boton
+                mpClicBoton.start();
                 if (flgBotonOnSerie2 == 0) {
                     CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
                     flgBotonOnSerie2 = 1;
@@ -291,6 +298,7 @@ public class PlantillaSeries extends AppCompatActivity {
 
         btnSerie3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                mpClicBoton.start();
                 if (flgBotonOnSerie3 == 0) {
                     CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
                     flgBotonOnSerie3 = 1;
@@ -301,6 +309,7 @@ public class PlantillaSeries extends AppCompatActivity {
 
         btnSerie4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                mpClicBoton.start();
                 // tercer boton
                 if (flgBotonOnSerie4 == 0) {
                     CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
@@ -312,6 +321,7 @@ public class PlantillaSeries extends AppCompatActivity {
 
         btnSerie5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                mpClicBoton.start();
                 if (flgBotonOnSerie5 == 0) {
                     CuentaAtras(numeroCuentaAtras, numeroCuentaAtras);
                     flgBotonOnSerie5 = 1;
@@ -323,6 +333,7 @@ public class PlantillaSeries extends AppCompatActivity {
 
         btn10SegundosMas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                mpClicBoton.start();
                 int sumar = 10;
                 // quinto boton
                 if (numeroCuentaAtras == tiempoRestante) {
@@ -339,6 +350,7 @@ public class PlantillaSeries extends AppCompatActivity {
 
         btn10SegundosMenos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                mpClicBoton.start();
                 int restar = 10;
                 // si los valores son iguales no se actualiza el timer
                 if (numeroCuentaAtras == tiempoRestante) {
@@ -356,6 +368,7 @@ public class PlantillaSeries extends AppCompatActivity {
 
         btnTerminarCuentaAtras.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // mpClicBoton.start();
                 // your handler code here
                 cancelTimer();
                 txvCuentaAtras.setText(numeroCuentaAtras + "");
@@ -423,7 +436,6 @@ public class PlantillaSeries extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
-
 
     //** CRUD actions **//
     private void increaseRepetitionsNumber(int cantidad, Date date) {
@@ -500,7 +512,8 @@ public class PlantillaSeries extends AppCompatActivity {
         prbCuentaAtras.setProgress(segundos);
         txvCuentaAtras.setText(String.valueOf(segundos));
 
-        toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
+        // toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
+
         // empezamos la cuenta atras
         countDownTimer = new CountDownTimer(segundos * 1000, 500) {
             // 500 means, onTick function will be called at every 500 milliseconds
@@ -554,6 +567,9 @@ public class PlantillaSeries extends AppCompatActivity {
         toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 30);
         prbCuentaAtras.setProgress(numeroCuentaAtras);
         asignarTiempoRestanteIgualQueNumeroCuentaAtras();
+        mpBeepFinalCuentaAtras.start();
+        mpBeepFinalCuentaAtras.start();
+        mpBeepFinalCuentaAtras.start();
         // activamos button en secuencia
         switch (boton) {
             case 1:
