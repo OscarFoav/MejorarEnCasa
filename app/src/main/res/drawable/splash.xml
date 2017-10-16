@@ -6,6 +6,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/st5"/>
+            android:src="@drawable/stverde"/>
     </item>
 </layer-list>

@@ -51,7 +51,7 @@
                         android:clickable="true"
                         android:elevation="15dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/flexiones" />
+                        app:srcCompat="@drawable/flexiones2" />
 
                     <ImageButton
                         android:id="@+id/imageButtonAbdominales"

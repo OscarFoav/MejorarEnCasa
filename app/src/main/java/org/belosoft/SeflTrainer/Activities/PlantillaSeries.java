@@ -131,6 +131,7 @@ public class PlantillaSeries extends AppCompatActivity {
         // carga inicial
         inicializacion();
 
+        // asignar subtitulo al toolbar con la serie
         toolbar.setSubtitle(serieSubtitle);
 
         // color de fondo

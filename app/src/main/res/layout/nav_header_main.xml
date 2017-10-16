@@ -18,7 +18,7 @@
         android:layout_width="100dp"
         android:layout_height="74dp"
         android:layout_weight="0.49"
-        app:srcCompat="@drawable/st5" />
+        app:srcCompat="@drawable/stnaranja" />
 
     <TextView
         android:layout_width="match_parent"
