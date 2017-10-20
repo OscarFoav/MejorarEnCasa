@@ -13,52 +13,56 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/seekBarRepetitionsNumber"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin_8"
         android:gravity="center"
         android:text="-5"
         tools:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewSeekProgressValue"
-        android:layout_width="20dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="0"
-        tools:textStyle="bold" />
+        tools:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/textViewSeekProgressValueMaximum"
+        android:layout_marginRight="111dp"
+        android:layout_marginEnd="111dp" />
 
     <SeekBar
         android:id="@+id/seekBarRepetitionsNumber"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_below="@+id/textViewSeekProgressValue"
-        android:layout_toEndOf="@+id/textViewSeekProgressValueMinimum"
-        android:layout_toRightOf="@+id/textViewSeekProgressValueMinimum"
         android:max="10"
         android:progress="5"
         android:progressDrawable="@drawable/progress_drawable"
         android:thumb="@drawable/thumb_drawable"
-        android:thumbOffset="10dp" />
+        android:thumbOffset="10dp"
+        android:layout_below="@+id/textViewSeekProgressValue"
+        android:layout_alignRight="@+id/datePickerChangeDate"
+        android:layout_alignEnd="@+id/datePickerChangeDate" />
 
     <TextView
         android:id="@+id/textViewSeekProgressValueMaximum"
         android:layout_width="20dp"
         android:layout_height="30dp"
+        android:gravity="center"
+        android:text="+5"
+        tools:textStyle="bold"
         android:layout_alignTop="@+id/seekBarRepetitionsNumber"
         android:layout_toEndOf="@+id/seekBarRepetitionsNumber"
-        android:layout_toRightOf="@+id/seekBarRepetitionsNumber"
-        android:gravity="center"
-        android:text="5"
-        tools:textStyle="bold" />
+        android:layout_toRightOf="@+id/seekBarRepetitionsNumber" />
 
     <DatePicker
         android:id="@+id/datePickerChangeDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
         android:calendarViewShown="false"
+        android:datePickerMode="spinner"
         android:layout_below="@+id/seekBarRepetitionsNumber"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/textViewSeekProgressValueMinimum"
+        android:layout_toEndOf="@+id/textViewSeekProgressValueMinimum" />
 
 
 </RelativeLayout>
