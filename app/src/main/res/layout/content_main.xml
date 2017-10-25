@@ -51,7 +51,7 @@
                         android:clickable="true"
                         android:elevation="15dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/flexiones2" />
+                        app:srcCompat="@drawable/flexiones_peque" />
 
                     <ImageButton
                         android:id="@+id/imageButtonAbdominales"
@@ -63,7 +63,7 @@
                         android:clickable="true"
                         android:elevation="15dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/abdominales2" />
+                        app:srcCompat="@drawable/abdominales_peque" />
 
                 </LinearLayout>
 
@@ -93,7 +93,7 @@
                         android:clickable="true"
                         android:elevation="5dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/fondos3" />
+                        app:srcCompat="@drawable/fondos_peque" />
 
                     <ImageButton
                         android:id="@+id/imageButtonSentadillas"
@@ -105,7 +105,7 @@
                         android:clickable="true"
                         android:elevation="5dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/sentadillas" />
+                        app:srcCompat="@drawable/sentadillas_peque" />
 
                 </LinearLayout>
 
@@ -135,7 +135,7 @@
                         android:clickable="true"
                         android:elevation="5dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/dominadas" />
+                        app:srcCompat="@drawable/dominadas_peque" />
 
                     <ImageButton
                         android:id="@+id/imageButtonGemelos"
@@ -147,7 +147,7 @@
                         android:clickable="true"
                         android:elevation="5dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/gemelos2" />
+                        app:srcCompat="@drawable/gemelos_peque" />
 
                 </LinearLayout>
 

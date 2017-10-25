@@ -11,9 +11,9 @@
     <string name="action_flexiones">Push-Ups</string>
     <string name="action_abdominales">Abs</string>
     <string name="action_fondos">Dips</string>
-    <string name="action_sentadillas">Sentadillas</string>
+    <string name="action_sentadillas">xxxxxxxxx</string>
     <string name="action_dominadas">Pull-ups</string>
-    <string name="action_gemelos">Gemelos</string>
+    <string name="action_gemelos">xxxxxxxxxxx</string>
     <string name="action_ajustes">Configuration</string>
     <string name="action_configuracion">Configuration</string>
     <string name="action_test_resistencia">Stress test</string>
@@ -68,7 +68,7 @@
     <string name="title_activity_fondos">Fondos</string>
     <string name="title_activity_sentadillas">Sentadillas</string>
     <string name="title_activity_dominadas">Dominadas</string>
-    <string name="title_activity_gemelos">Gemelos</string>
+    <string name="title_activity_gemelos">xxxxxxx</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_test_resistencia">Stress test</string>
 

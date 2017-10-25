@@ -603,32 +603,32 @@ public class Flexiones extends AppCompatActivity {
         switch (serie_type) {
             case "Flexiones":
                 serie_type = Util.STRING_FLEXIONES;
-                serie_icon = R.drawable.flexiones2;
+                serie_icon = R.drawable.flexiones_peque;
                 serie_background = android.R.color.holo_red_dark;
                 break;
             case "Abdominales":
                 serie_type = Util.STRING_ABDOMINALES;
-                serie_icon = R.drawable.abdominales2;
+                serie_icon = R.drawable.abdominales_peque;
                 serie_background = android.R.color.holo_blue_dark;
                 break;
             case "Fondos":
                 serie_type = Util.STRING_FONDOS;
-                serie_icon = R.drawable.fondos3;
+                serie_icon = R.drawable.fondos_peque;
                 serie_background = android.R.color.holo_orange_light;
                 break;
             case "Sentadillas":
                 serie_type = Util.STRING_SENTADILLAS;
-                serie_icon = R.drawable.sentadillas;
+                serie_icon = R.drawable.sentadillas_peque;
                 serie_background = android.R.color.holo_red_light;
                 break;
             case "Dominadas":
                 serie_type = Util.STRING_DOMINADAS;
-                serie_icon = R.drawable.dominadas;
+                serie_icon = R.drawable.dominadas_peque;
                 serie_background = android.R.color.holo_green_dark;
                 break;
             case "Gemelos":
                 serie_type = Util.STRING_GEMELOS;
-                serie_icon = R.drawable.gemelos2;
+                serie_icon = R.drawable.gemelos_peque;
                 serie_background = android.R.color.holo_purple;
                 break;
             default:

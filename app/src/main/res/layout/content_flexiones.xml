@@ -78,7 +78,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/flexiones2" />
+            app:srcCompat="@drawable/flexiones_peque" />
 
         <TableLayout
             android:id="@+id/tableLayout"

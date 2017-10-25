@@ -79,7 +79,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginTop="6dp"
         android:layout_marginRight="15dp"
-        app:srcCompat="@drawable/flexiones2" />
+        app:srcCompat="@drawable/flexiones_peque" />
 
     <View
         android:id="@+id/separadorCuerpo"

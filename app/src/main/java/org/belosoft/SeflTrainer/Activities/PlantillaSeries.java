@@ -619,8 +619,9 @@ public class PlantillaSeries extends AppCompatActivity {
 
 
         dialogBuilder.setTitle(getResources().getString(R.string.dialog_box_titulo_final_serie));
+        caloriasRepeticion = Util.calcCalories(serieType, totalRepeticiones);
         dialogBuilder.setMessage("( " + getResources().getString(R.string.calorias_consumidas_aproximadas) +
-                String.format(": %.1f", caloriasRepeticion * totalRepeticiones) +
+                String.format(": %.1f", caloriasRepeticion) +
                 ")\n" + getResources().getString(R.string.dialog_box_mensaje_final_serie));
         dialogBuilder.setView(dialogView);
 
@@ -643,7 +644,6 @@ public class PlantillaSeries extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         increaseRepetitionsNumber(repNumber, date);
-                        caloriasRepeticion = Util.calcCalories(serieType, repSerie1 + repNumber);
                         saveHistorical(repSerie1 + repNumber, date);
                         onBackPressed();
                     }
@@ -690,37 +690,37 @@ public class PlantillaSeries extends AppCompatActivity {
             case "Flexiones":
                 serieSubtitle = R.string.action_flexiones;
                 serieType = Util.STRING_FLEXIONES;
-                serieIcon = R.drawable.flexiones2;
+                serieIcon = R.drawable.flexiones_peque;
                 serieBackground = android.R.color.holo_red_dark;
                 break;
             case "Abdominales":
                 serieSubtitle = R.string.action_abdominales;
                 serieType = Util.STRING_ABDOMINALES;
-                serieIcon = R.drawable.abdominales2;
+                serieIcon = R.drawable.abdominales_peque;
                 serieBackground = android.R.color.holo_blue_dark;
                 break;
             case "Fondos":
                 serieSubtitle = R.string.action_fondos;
                 serieType = Util.STRING_FONDOS;
-                serieIcon = R.drawable.fondos3;
+                serieIcon = R.drawable.fondos_peque;
                 serieBackground = android.R.color.holo_orange_light;
                 break;
             case "Sentadillas":
                 serieSubtitle = R.string.action_sentadillas;
                 serieType = Util.STRING_SENTADILLAS;
-                serieIcon = R.drawable.sentadillas;
+                serieIcon = R.drawable.sentadillas_peque;
                 serieBackground = android.R.color.holo_red_light;
                 break;
             case "Dominadas":
                 serieSubtitle = R.string.action_dominadas;
                 serieType = Util.STRING_DOMINADAS;
-                serieIcon = R.drawable.dominadas;
+                serieIcon = R.drawable.dominadas_peque;
                 serieBackground = android.R.color.holo_green_dark;
                 break;
             case "Gemelos":
                 serieSubtitle = R.string.action_gemelos;
                 serieType = Util.STRING_GEMELOS;
-                serieIcon = R.drawable.gemelos2;
+                serieIcon = R.drawable.gemelos_peque;
                 serieBackground = android.R.color.holo_purple;
                 break;
             default:
