@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -86,6 +87,8 @@ public class TestResistencia extends AppCompatActivity {
     public ProgressBar prbCuentaAtras;
     public TextView txvCuentaAtras;
 
+    private ImageView imageViewSerie;
+
     // control de la cuenta atras
     public CountDownTimer countDownTimer;
     public int tiempoRestante = 0;              // para cambiar la cuenta atrás sobre la marcha
@@ -102,7 +105,7 @@ public class TestResistencia extends AppCompatActivity {
     private int flgBotonOnSerie5 = 0;
     private int flgBotonOnSerie6 = 0;
 
-     public int numeroCuentaAtras = 3;
+     public int numeroCuentaAtras = 60;
     //public int numeroCuentaAtras = Util.SECONDS_LEAPS;
 
     ToneGenerator toneG;
@@ -229,6 +232,10 @@ public class TestResistencia extends AppCompatActivity {
         spinner4.setEnabled(false);
         spinner5.setEnabled(false);
         spinner6.setEnabled(false);
+
+        // asignar icono 0 - flexiones
+        imageViewSerie = (ImageView) findViewById(R.id.imageViewSerie);
+        imageViewSerie.setImageResource(Util.ICON_FLEXIONES);
 
         // progressbar y texto
         prbCuentaAtras = (ProgressBar) findViewById(R.id.prbCuantaAtras);
@@ -442,6 +449,7 @@ public class TestResistencia extends AppCompatActivity {
                 btnSerie2.setEnabled(true);
                 spinner1.setEnabled(false);
                 spinner2.setEnabled(true);
+                imageViewSerie.setImageResource(Util.ICON_ABDOMINALES);
                 boton = 2;
                 break;
             case 2:
@@ -449,6 +457,7 @@ public class TestResistencia extends AppCompatActivity {
                 btnSerie3.setEnabled(true);
                 spinner2.setEnabled(false);
                 spinner3.setEnabled(true);
+                imageViewSerie.setImageResource(Util.ICON_FONDOS);
                 boton = 3;
                 break;
             case 3:
@@ -456,6 +465,7 @@ public class TestResistencia extends AppCompatActivity {
                 btnSerie4.setEnabled(true);
                 spinner3.setEnabled(false);
                 spinner4.setEnabled(true);
+                imageViewSerie.setImageResource(Util.ICON_SENTADILLAS);
                 boton = 4;
                 break;
             case 4:
@@ -463,6 +473,7 @@ public class TestResistencia extends AppCompatActivity {
                 btnSerie5.setEnabled(true);
                 spinner4.setEnabled(false);
                 spinner5.setEnabled(true);
+                imageViewSerie.setImageResource(Util.ICON_DOMINADAS);
                 boton = 5;
                 break;
             case 5:
@@ -470,6 +481,7 @@ public class TestResistencia extends AppCompatActivity {
                 btnSerie6.setEnabled(true);
                 spinner5.setEnabled(false);
                 spinner6.setEnabled(true);
+                imageViewSerie.setImageResource(Util.ICON_GEMELOS);
                 boton = 6;
                 break;
             case 6:

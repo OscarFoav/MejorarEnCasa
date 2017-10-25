@@ -2,6 +2,8 @@ package org.belosoft.SeflTrainer.Utils;
 
 import android.content.SharedPreferences;
 
+import org.belosoft.SeflTrainer.R;
+
 /**
  * Created by OscarPC on 05/10/2017.
  */
@@ -28,6 +30,13 @@ public class Util {
     public static int REPETICIONES_SENTADILLAS_INIT = 15;
     public static int REPETICIONES_DOMINADAS_INIT = 1;
     public static int REPETICIONES_GEMELOS_INIT = 15;
+
+    public static int ICON_FLEXIONES = R.drawable.flexiones_peque;
+    public static int ICON_ABDOMINALES = R.drawable.abdominales_peque;
+    public static int ICON_FONDOS = R.drawable.fondos_peque;
+    public static int ICON_SENTADILLAS = R.drawable.sentadillas_peque;
+    public static int ICON_DOMINADAS = R.drawable.dominadas_peque;
+    public static int ICON_GEMELOS = R.drawable.gemelos_peque;
 
     public static int SECONDS_LEAPS = 60;
     public static int serie_repetitions = 5;
