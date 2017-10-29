@@ -248,8 +248,18 @@
         android:layout_width="match_parent"
         android:layout_height="2dip"
         android:layout_alignTop="@+id/prbCuantaAtras"
-        android:layout_marginTop="-10dp"
+        android:layout_marginTop="-3dp"
         android:background="#6496af" />
+
+       <Button
+        android:id="@+id/btn10SegundosMas"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@+id/prbCuantaAtras"
+        android:layout_alignLeft="@+id/btn10SegundosMenos"
+        android:layout_alignStart="@+id/btn10SegundosMenos"
+        android:text="@string/diez_segundos_mas"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn10SegundosMenos"
@@ -257,18 +267,8 @@
         android:layout_height="45dp"
         android:layout_alignLeft="@+id/textViewCabeceraSerie"
         android:layout_alignStart="@+id/textViewCabeceraSerie"
-        android:layout_alignTop="@+id/prbCuantaAtras"
-        android:text="@string/diez_segundos_menos"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn10SegundosMas"
-        android:layout_width="90dp"
-        android:layout_height="45dp"
         android:layout_alignBottom="@+id/prbCuantaAtras"
-        android:layout_alignLeft="@+id/btn10SegundosMenos"
-        android:layout_alignStart="@+id/btn10SegundosMenos"
-        android:text="@string/diez_segundos_mas"
+        android:text="@string/diez_segundos_menos"
         android:textAllCaps="false" />
 
     <TextView

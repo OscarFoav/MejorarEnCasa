@@ -25,11 +25,11 @@ public class Util {
     public static float CALORIES_GEMELOS = 0.12f;
 
     public static int REPETICIONES_FLEXIONES_INIT = 5;
-    public static int REPETICIONES_ABDOMINALES_INIT = 15;
-    public static int REPETICIONES_FONDOS_INIT = 12;
-    public static int REPETICIONES_SENTADILLAS_INIT = 15;
+    public static int REPETICIONES_ABDOMINALES_INIT = 10;
+    public static int REPETICIONES_FONDOS_INIT = 5;
+    public static int REPETICIONES_SENTADILLAS_INIT = 10;
     public static int REPETICIONES_DOMINADAS_INIT = 1;
-    public static int REPETICIONES_GEMELOS_INIT = 15;
+    public static int REPETICIONES_GEMELOS_INIT = 10;
 
     public static int ICON_FLEXIONES = R.drawable.flexiones_peque;
     public static int ICON_ABDOMINALES = R.drawable.abdominales_peque;
@@ -40,6 +40,9 @@ public class Util {
 
     public static int SECONDS_LEAPS = 60;
     public static int serie_repetitions = 5;
+
+    public static float INCREMENTO_SERIES = 2.0f;
+    public static float DIVISION_SERIES = 5.0f;
 
     public static String getUserPreferences(SharedPreferences preferences) {
         return preferences.getString("user", "");
@@ -106,4 +109,16 @@ public class Util {
         return totalCalories;
     }
 
+    public static int calcRepetitions (int numeroRepeticiones) {
+        // calculo de numero de repeticiones por serie segun el test de resistencia
+        float numeroRetecionesSerie;
+        int returnNumber;
+        numeroRetecionesSerie = (numeroRepeticiones * INCREMENTO_SERIES) / DIVISION_SERIES;
+        if (numeroRetecionesSerie < 1) {
+            returnNumber = 1;
+        } else {
+            returnNumber = (int) numeroRetecionesSerie;
+        }
+        return returnNumber;
+    }
 }

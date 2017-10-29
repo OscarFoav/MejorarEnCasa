@@ -10,10 +10,19 @@
     android:weightSum="1">
 
     <ImageView
+        android:id="@+id/imageViewNueva"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/nueva_portada2_256"
+        android:paddingTop="@dimen/activity_horizontal_margin_8" />
+
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/viernes_1"
         android:paddingTop="@dimen/activity_horizontal_margin_8" />
+
 
 </LinearLayout>

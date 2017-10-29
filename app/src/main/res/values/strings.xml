@@ -85,14 +85,24 @@
     <string name="cancelar">Cancel</string>
 
     <!-- acerca de -->
-    <string name="texto_presentacion">Bienvenido a la App de Breaking Up At Home (En Forma En Casa). \n\n
-	Esta App ha sido desarrollada como punto de partida para mejorar nuestra forma física sin salir de casa, dando la opción de controlar nuestro progreso de manera que sea sencillo, y dando tanto tiempo como necesitemos para que la mejora sea real y permanente. \n\n
-	Como punto de partida se solicitan datos del usuario: nombre, estatura y peso, así como la opción de dejar la sesión abierta para posteriores conexiones. También proponemos una prueba de resistencia que nos permita empezar a trabajar desde una perspectiva sólida. Esto es, definir un comienzo que nos prepare para un esfuerzo aceptable y sostenible. Queremos que la progresión sea un camino que veamos como algo realizable, no que sea un esfuerzo tal que haga que cada sesión sea insoportable a nivel físico y/o psicológico, y que nos haga desistir a medio o largo plazo. Si, como desarrolladores de la App, conseguimos este objetivo, estaremos alcanzando la meta que pretendíamos al desarrollarla. \n\n
-	La prueba de resistencia consiste en hacer una sóla repeticion de cada uno de los ejercicios propuestos en la App, a saber, una sessión para las flexiones, otra para los abdominales, otra para  los fondos, y así hasta los gemelos, guardando el número de repeticiones conseguidas. Debemos llegar a un punto en el que notemos que el ejercicio nos ha puesto cerca de nuestro límite sin alcanzarlo nunca. En base a ese número de repeticiones se genera un plan de entrenamiento personalizado para el usuario que debe ser, como comentabamos más arriba, aceptable y sostenible. \n\n
-	Una vez hecha la prueba inicial, se propone una serie de 5 repeticiones por cada ejercicio (flexiones, abdominales, etc), que incluye la posibilidad de cambiar el tiempo de recuperación entre repeticiones y el número de repeticiones a incrementar/decrementar al final de la serie. \n\n
-    En caso de no desear hacer la prueba inicial, esta App propone empezar con 5 series de 5 flexiones, 10 abdominales,  5 fondos, 10 sentadillas, 1 dominada y 10 gemelos.\n\n
-    Recordemos que mejorar es posible con un poco de constancia por nuestra parte. \n\n
-	Por último, tened presente que es importante que consultemos con nuestro médico cualquier circunstancia que se produzca durante los entrenamientos que suponga dolor o incomodidad. Una revisión médica antes de empezar es más que recomendable, sobre todo si hace tiempo que no hacemos ejecicio.\n\n
+    <string name="texto_presentacion">Welcome to SelfTraining App. \n\n
+This App has been developed as a kick off to improve our body without getting out home, giving the chance to control our progress in a simple way and giving us as much as time we need to achieve a real and a permantent improve. \n\n
+As a start, it asks for user information such as name, heigh, weight, and the option to leave the session open for future connections. Although we suggest you a stress test to allow you to begin to work from a solid perspective. Thus, defining a beggining in order to prepare us for an acceptable and sustainable effort. We want the improvement to be a path we see something doable, not an effort that makes every session unbearable in a physics and/or psychologic level, so push us to abandon it. \n\n
+As Apps\'s developers, if we achieve this target we will reach what we want to. \n\n
+The resistance test will be done by doing only one serie of the proposal excercises, namely: push-ups, abds, dips, squats, pull-ups and calves. The App will keep the repetitions previously done. \n\n
+We must get to a point close to our limit without reaching it. This number of repetitions will be use as a base for our trainning plan. \n\n
+Once finished the initial test, SelfTraining App proposes a 5 repetitions serie for each excercise (push-ups, abds,ect) which includes the possibility of changing the time out and the number of repetitions at the end. \n\n
+If you don't want to do the initial test, SelfTraining App recommends to start with 5 series of: \n\n
+    - 5 push-ups \n\n
+    - 10 abds \n\n
+    - 5 dips \n\n
+    - 10 squats \n\n
+    - 1 pull-up \n\n
+    - 10 calves \n\n
+With little constancy we can keep fit. \n\n
+If you suffer any pain or distress related to these trainnings, please do not hesitate to visit your doctor. \n\n
+SelfTraining App recommends a medical check up before using our program, specially if it has been a while since your last time practising excercise. \n\n
+Kind regards and thank you for your confidence. \n\n
     </string>
 
     <string name="repetition_prompt">Rep</string>

@@ -440,6 +440,43 @@ public class PlantillaSeries extends AppCompatActivity {
     //** CRUD actions **//
     private void increaseRepetitionsNumber(int cantidad, Date date) {
         // se incremente cada repeticion el numero de veces indicado en cantidad
+        // si el numero es menor de 1 se asigna 1 si no, la suma de ambas
+        int totalIncrementoSerie1 = 0;
+        int totalIncrementoSerie2 = 0;
+        int totalIncrementoSerie3 = 0;
+        int totalIncrementoSerie4 = 0;
+        int totalIncrementoSerie5 = 0;
+
+        if (repSerie1 + cantidad <1){
+            totalIncrementoSerie1 = 1;
+        } else {
+            totalIncrementoSerie1 = repSerie1 + cantidad;
+        }
+
+        if (repSerie2 + cantidad <1){
+            totalIncrementoSerie2 = 1;
+        } else {
+            totalIncrementoSerie2 = repSerie1 + cantidad;
+        }
+
+        if (repSerie3 + cantidad <1){
+            totalIncrementoSerie3 = 1;
+        } else {
+            totalIncrementoSerie3 = repSerie1 + cantidad;
+        }
+
+        if (repSerie1 + cantidad <1){
+            totalIncrementoSerie4 = 1;
+        } else {
+            totalIncrementoSerie4 = repSerie1 + cantidad;
+        }
+
+        if (repSerie1 + cantidad <1){
+            totalIncrementoSerie5 = 1;
+        } else {
+            totalIncrementoSerie5 = repSerie1 + cantidad;
+        }
+
         //setUpRealmConfig();
         realm = Realm.getDefaultInstance();
         useres = realm.where(Users.class)
@@ -449,11 +486,11 @@ public class PlantillaSeries extends AppCompatActivity {
         if (useres.size() != 0) {
             // empezar upgrade
             realm.beginTransaction();
-            useres.get(0).setRepetition_series_one(repSerie1 + cantidad);
-            useres.get(0).setRepetition_series_two(repSerie2 + cantidad);
-            useres.get(0).setRepetition_series_three(repSerie3 + cantidad);
-            useres.get(0).setRepetition_series_four(repSerie4 + cantidad);
-            useres.get(0).setRepetition_series_five(repSerie5 + cantidad);
+            useres.get(0).setRepetition_series_one(totalIncrementoSerie1);
+            useres.get(0).setRepetition_series_two(totalIncrementoSerie2);
+            useres.get(0).setRepetition_series_three(totalIncrementoSerie3);
+            useres.get(0).setRepetition_series_four(totalIncrementoSerie4);
+            useres.get(0).setRepetition_series_five(totalIncrementoSerie5);
             useres.get(0).setSeconds_leaps(numeroCuentaAtras);
             useres.get(0).setCreateAt(date);
             // grabar al final
@@ -476,6 +513,9 @@ public class PlantillaSeries extends AppCompatActivity {
 
     // grabacion Historical
     private void saveHistorical(int cantidadLocal, Date date) {
+        // si cantidadLocal es menor que 1, se asigna 1
+        if (cantidadLocal < 1) cantidadLocal = 1;
+
         //setUpRealmConfig();
         realm = Realm.getDefaultInstance();
         HistoricalID = getIdByTable(realm, Historical.class);
@@ -567,8 +607,6 @@ public class PlantillaSeries extends AppCompatActivity {
         toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 30);
         prbCuentaAtras.setProgress(numeroCuentaAtras);
         asignarTiempoRestanteIgualQueNumeroCuentaAtras();
-        mpBeepFinalCuentaAtras.start();
-        mpBeepFinalCuentaAtras.start();
         mpBeepFinalCuentaAtras.start();
         // activamos button en secuencia
         switch (boton) {

@@ -105,7 +105,7 @@ public class TestResistencia extends AppCompatActivity {
     private int flgBotonOnSerie5 = 0;
     private int flgBotonOnSerie6 = 0;
 
-     public int numeroCuentaAtras = 60;
+     public int numeroCuentaAtras = 2;
     //public int numeroCuentaAtras = Util.SECONDS_LEAPS;
 
     ToneGenerator toneG;
@@ -519,13 +519,29 @@ public class TestResistencia extends AppCompatActivity {
 
     private void saveUsers() {
         //setUpRealmConfig();
+
+        // se calcula el numero de repeticiones por serie en funcion del valueSpinner
+        int repetitionsSerieFlexiones;
+        int repetitionsSerieAbdominales;
+        int repetitionsSerieFondos;
+        int repetitionsSerieSentadillas;
+        int repetitionsSerieDominadas;
+        int repetitionsSerieGemelos;
+
+        repetitionsSerieFlexiones = Util.calcRepetitions( valueSpinner1);
+        repetitionsSerieAbdominales = Util.calcRepetitions( valueSpinner2);
+        repetitionsSerieFondos = Util.calcRepetitions( valueSpinner3);
+        repetitionsSerieSentadillas = Util.calcRepetitions( valueSpinner4);
+        repetitionsSerieDominadas = Util.calcRepetitions( valueSpinner5);
+        repetitionsSerieGemelos = Util.calcRepetitions( valueSpinner6);
+
         realm = Realm.getDefaultInstance();
-        modifyUsers(Util.STRING_FLEXIONES, valueSpinner1);
-        modifyUsers(Util.STRING_ABDOMINALES, valueSpinner2);
-        modifyUsers(Util.STRING_FONDOS, valueSpinner3);
-        modifyUsers(Util.STRING_SENTADILLAS, valueSpinner4);
-        modifyUsers(Util.STRING_DOMINADAS, valueSpinner5);
-        modifyUsers(Util.STRING_GEMELOS, valueSpinner6);
+        modifyUsers(Util.STRING_FLEXIONES, repetitionsSerieFlexiones);
+        modifyUsers(Util.STRING_ABDOMINALES, repetitionsSerieAbdominales);
+        modifyUsers(Util.STRING_FONDOS, repetitionsSerieFondos);
+        modifyUsers(Util.STRING_SENTADILLAS, repetitionsSerieSentadillas);
+        modifyUsers(Util.STRING_DOMINADAS, repetitionsSerieDominadas);
+        modifyUsers(Util.STRING_GEMELOS, repetitionsSerieGemelos);
     }
 
     private void modifyUsers(String serieType, int valueSpinnerLocal) {
